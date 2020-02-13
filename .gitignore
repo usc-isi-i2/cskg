@@ -1,3 +1,4 @@
+*.png
 .ipynb_checkpoints/
 mowgli-in-the-jungle/
 input/

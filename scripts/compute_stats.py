@@ -45,7 +45,7 @@ for name in ['conceptnet', 'visualgenome', 'wikidata', 'wordnet', 'cskg']:
         degree_data=gtanalysis.compute_node_degree_hist(g, direction)
         degrees[direction]=list(degree_data[0])
 
-    print('max degree', len(degrees['total']-1))
+    print('max degree', len(degrees['total'])-1)
 
     len_degrees=len(degrees['total'])
     for d in directions:
@@ -75,7 +75,7 @@ for name in ['conceptnet', 'visualgenome', 'wikidata', 'wordnet', 'cskg']:
     print('MAX PR', max_pr_vertex, max_pr)
 
     print('Max pageranks')
-    print(gtanalysis.get_topn_indices(g, 'vertex_pagerank', 5))
+    print(gtanalysis.get_topn_indices_node(g, 'vertex_pagerank', 5))
 
     prs=g.vp['vertex_pagerank'].a
     print(np.max(prs))
