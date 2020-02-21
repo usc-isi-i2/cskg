@@ -1,14 +1,12 @@
 import sys
-sys.path.append('../mowgli-in-the-jungle')
+sys.path.append('../kgtk')
 import importlib
 import pandas as pd
 import numpy as np
 import graph_tool.all as gt
 
-import utils.gt.io_utils as gtio
-import utils.gt.analysis_utils as gtanalysis
-import utils.general as utils
-
+import gt.io_utils as gtio
+import gt.analysis_utils as gtanalysis
 
 name='wordnet'
 datadir='/Users/filipilievski/mcs/cskg/output_v003/%s' % name

@@ -1,14 +1,13 @@
 import sys
-sys.path.append('../mowgli-in-the-jungle')
+sys.path.append('../kgtk')
 
 import seaborn as sns; sns.set()
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-import utils.gt.analysis_utils as gtanalysis   
+import gt.analysis_utils as gtanalysis   
 
-import utils.gt.io_utils as gtio
-import utils.general as utils
+import gt.io_utils as gtio
 
 for name in ['conceptnet', 'visualgenome', 'wikidata', 'wordnet', 'cskg']:
 
