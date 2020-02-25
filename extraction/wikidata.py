@@ -1,9 +1,12 @@
+import sys
+sys.path.append('../')
 import json
 import pandas as pd
 from collections import defaultdict
 import os
 from nltk.corpus import wordnet as wn
 from copy import copy
+from kgtk.utils.cskg_utils import append_df_with_missing_nodes
 
 import config
 
@@ -26,46 +29,26 @@ edges_file='%s/edges_v%s.csv' % (output_dir, VERSION)
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
     
-tmp_edges_df=pd.read_csv(subclass_file, sep='\t', header=0, converters={5: eval})
+edges_df=pd.read_csv(subclass_file, sep='\t', header=0, converters={5: eval})
 
-print(len(tmp_edges_df))
+print(len(edges_df))
 
 nodes=set()
-for i, row in tmp_edges_df.iterrows():
+for i, row in edges_df.iterrows():
     nodes.add(row['subject'])
     nodes.add(row['object'])
     
 print(len(nodes), 'nodes in edges.csv')
 
-# rows=[]
-# for n in nodes:
-#     a_row=[n, "", "", "", datasource, {}]
-#     rows.append(a_row)
-
-tmp_nodes_df=pd.read_csv(input_nodes_file, sep='\t', header=0)#, converters={5: eval})
+tmp_nodes_df=pd.read_csv(input_nodes_file, sep='\t', header=0, converters={5: eval})
 
 nodes_df=tmp_nodes_df[tmp_nodes_df['id'].isin(nodes)]
 print(len(nodes_df), 'nodes')
   
 existing_nodes=set(nodes_df.id.unique())
-
 missing_nodes=set(nodes-existing_nodes)
 
-print(missing_nodes)
-exit(1)
-
-rows=[]
-for n in missing_nodes:
-    a_row=[n, "", "", "", datasource, {}]
-    rows.append(a_row)
-
-new_df=pd.DataFrame(rows, columns=NODE_COLS)
-    
-combined_nodes = pd.concat([nodes_df, new_df])
-
-print(len(combined_nodes), 'nodes')
-
+combined_nodes = append_df_with_missing_nodes(nodes_df, missing_nodes, datasource, NODE_COLS)
 combined_nodes.sort_values('id').to_csv(nodes_file, index=False, sep='\t')
 
-edges_df=tmp_edges_df
 edges_df.sort_values(by=['subject', 'predicate','object']).to_csv(edges_file, index=False, sep='\t')
