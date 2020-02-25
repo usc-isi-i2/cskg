@@ -5,9 +5,9 @@ import json
 import pandas as pd
 from collections import defaultdict
 import os
-from nltk.corpus import wordnet as wn
 
 import config
+import utils
 from kgtk.utils.cskg_utils import flatten_multiple_values, extract_label_aliases
 
 VERSION=config.VERSION
@@ -27,13 +27,6 @@ edges_file='%s/edges_v%s.csv' % (output_dir, VERSION)
 
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
-
-def obtain_wordnet_lemmas(n):
-    lemmas=[]
-    syn=wn.synset(n)
-    for lemma in syn.lemmas():
-        lemmas.append(str(lemma.name()))
-    return lemmas
 
 ### Store subclass edges ###
 
@@ -55,23 +48,5 @@ for i, row in edges_df.iterrows():
     nodes.add(row['object'])
 print(len(nodes), 'nodes in the edges file')
 
-node_data=[]
-for a_node in nodes:
-    n=a_node.split(':')[1]
-    lemmas=obtain_wordnet_lemmas(n)
-
-    label, aliases=extract_label_aliases(lemmas)
-    
-    if len(n.split('.'))>=3:
-        pos=n.split('.')[-2]
-    else:
-        print('Warning: Too little values in a synset:', n)
-
-    other={}
-    a_row=[a_node, label, aliases, pos, datasource, other]
-    node_data.append(a_row)
-
-print(len(node_data), 'nodes stored')
-
-nodes_df=pd.DataFrame(node_data, columns = NODE_COLS)
+nodes_df=utils.create_df_with_wordnet_nodes(nodes, datasource, NODE_COLS)
 nodes_df.sort_values('id').to_csv(nodes_file, index=False, sep='\t')
