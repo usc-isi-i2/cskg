@@ -51,6 +51,9 @@ existing_nodes=set(nodes_df.id.unique())
 
 missing_nodes=set(nodes-existing_nodes)
 
+print(missing_nodes)
+exit(1)
+
 rows=[]
 for n in missing_nodes:
     a_row=[n, "", "", "", datasource, {}]
