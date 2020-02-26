@@ -1,10 +1,20 @@
 import pandas as pd
 from nltk.corpus import wordnet as wn
+import conceptnet_uri as cn
 
 from kgtk.utils.cskg_utils import extract_label_aliases
 
 def create_uri(ns, rel):
     return '%s:%s' % (ns, rel)
+
+def get_cn_pos_tag(uri, MOWGLI_NS, POS_MAPPING):
+    components=cn.split_uri(uri)
+    if len(components)<4:
+        return '', ''
+    else:
+        raw_pos=components[3]
+        mapped_pos=create_uri(MOWGLI_NS, POS_MAPPING[raw_pos])
+        return mapped_pos, raw_pos
 
 def obtain_wordnet_lemmas(n):
     lemmas=[]
