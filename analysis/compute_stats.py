@@ -6,8 +6,8 @@ import numpy as np
 import kgtk.gt.analysis_utils as gtanalysis   
 import kgtk.gt.io_utils as gtio
 
-#for name in ['conceptnet', 'visualgenome', 'wikidata', 'wordnet', 'cskg']:
-for name in ['wordnet']:
+for name in ['conceptnet', 'visualgenome', 'wikidata', 'wordnet', 'framenet', 'cskg']:
+#for name in ['wordnet']:
 
     print(name)
     

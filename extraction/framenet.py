@@ -6,7 +6,7 @@ from collections import defaultdict
 import os
 from nltk.corpus import wordnet as wn
 from copy import copy
-from kgtk.utils.cskg_utils import append_df_with_missing_nodes
+from kgtk.cskg_utils import append_df_with_missing_nodes
 
 import config
 
@@ -49,6 +49,8 @@ print(len(nodes_df), 'nodes')
 #missing_nodes=set(nodes-existing_nodes)
 
 #combined_nodes = append_df_with_missing_nodes(nodes_df, missing_nodes, datasource, NODE_COLS)
+
+nodes_df['label']=nodes_df['label'].apply(lambda x: (x.split(':')[-1]).replace('_', ' '))
 
 nodes_df.sort_values('id').to_csv(nodes_file, index=False, sep='\t')
 
