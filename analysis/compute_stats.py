@@ -1,15 +1,13 @@
-import sys
-sys.path.append('../kgtk')
-
 import seaborn as sns; sns.set()
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-import gt.analysis_utils as gtanalysis   
 
-import gt.io_utils as gtio
+import kgtk.gt.analysis_utils as gtanalysis   
+import kgtk.gt.io_utils as gtio
 
-for name in ['conceptnet', 'visualgenome', 'wikidata', 'wordnet', 'cskg']:
+#for name in ['conceptnet', 'visualgenome', 'wikidata', 'wordnet', 'cskg']:
+for name in ['wordnet']:
 
     print(name)
     
@@ -74,11 +72,11 @@ for name in ['conceptnet', 'visualgenome', 'wikidata', 'wordnet', 'cskg']:
     print('MAX PR', max_pr_vertex, max_pr)
 
     print('Max pageranks')
-    print(gtanalysis.get_topn_indices_node(g, 'vertex_pagerank', 5))
+    gtanalysis.get_topn_indices(g, 'vertex_pagerank', 5)
 
     prs=g.vp['vertex_pagerank'].a
-    print(np.max(prs))
-    print(np.min(prs))
+    print('pagerank max', np.max(prs))
+    print('pagerank min', np.min(prs))
 
     pr_data={}
     pr_data['PageRank']=list(np.sort(prs))
