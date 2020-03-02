@@ -10,7 +10,7 @@ Scripts to create the commonsense knowledge graph: CSKG
 
 ### Setup
 * `pip install git+git://github.com/usc-isi-i2/kgtk`
-
+* `conda install -c conda-forge graph-tool`
 * `pip install -r requirements.txt`
 
 * Install Anaconda
