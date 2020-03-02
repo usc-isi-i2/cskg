@@ -11,10 +11,11 @@ cn_nodes_file='%s/conceptnet/nodes_v%s.csv' % (data_dir, VERSION)
 vg_nodes_file='%s/visualgenome/nodes_v%s.csv' % (data_dir, VERSION)
 wn_nodes_file='%s/wordnet/nodes_v%s.csv' % (data_dir, VERSION)
 wd_nodes_file='%s/wikidata/nodes_v%s.csv' % (data_dir, VERSION)
+fn_nodes_file='%s/framenet/nodes_v%s.csv' % (data_dir, VERSION)
 
 combined_nodes_file='%s/nodes_v%s.csv' % (output_dir, VERSION)
 
-nodes_inputs=[cn_nodes_file,vg_nodes_file,wn_nodes_file,wd_nodes_file]
+nodes_inputs=[cn_nodes_file,vg_nodes_file,wn_nodes_file,wd_nodes_file, fn_nodes_file]
 
 cn_edges_file='%s/conceptnet/edges_v%s.csv' % (data_dir, VERSION)
 vg_edges_file='%s/visualgenome/edges_v%s.csv' % (data_dir, VERSION)
@@ -24,11 +25,13 @@ wd_edges_file='%s/wikidata/edges_v%s.csv' % (data_dir, VERSION)
 wn2wn_edges_file='%s/mappings/edges_v%s.csv' % (data_dir, VERSION)
 wn2wd_edges_file='%s/mappings/edges_wn2wdt_v%s.csv' % (data_dir, VERSION)
 
+fn_edges_file='%s/framenet/edges_v%s.csv' %  (data_dir, VERSION)
+
 combined_edges_file='%s/edges_v%s.csv' % (output_dir, VERSION)
 
 edges_inputs=[cn_edges_file,
               vg_edges_file,
-              wn_edges_file,wd_edges_file,wn2wn_edges_file,wn2wd_edges_file]
+              wn_edges_file,wd_edges_file,wn2wn_edges_file,wn2wd_edges_file,fn_edges_file]
 
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)

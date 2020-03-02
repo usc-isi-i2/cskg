@@ -116,7 +116,6 @@ VG_NS=config.visualgenome_ns
 WORDNET_SENSE_REL=create_uri(VG_NS, config.pwordnet_sense)
 SUBJECT_REL=create_uri(VG_NS, config.subject)
 OBJECT_REL=create_uri(VG_NS, config.objct)
-INBB_REL=create_uri(VG_NS, config.in_bb)
 INIMAGE_REL=create_uri(VG_NS, config.in_image)
 
 HAS_PROPERTY_REL=config.has_prop
@@ -209,23 +208,23 @@ with open(vg_regions_path, 'r') as f:
 for image_data in regions_data:
     for region in image_data['regions']:
         image_id=create_uri(VG_NS, 'I' + str(region['image_id']))
-        bb_id=create_uri(VG_NS, 'B' + str(region['region_id']))
+        #bb_id=create_uri(VG_NS, 'B' + str(region['region_id']))
         
-        bb_image_edge=[bb_id, INIMAGE_REL, image_id, data_source, weight, {'image_id': region['image_id']}]
-        all_edges.append(bb_image_edge)
+        #bb_image_edge=[bb_id, INIMAGE_REL, image_id, data_source, weight, {'image_id': region['image_id']}]
+        #all_edges.append(bb_image_edge)
         
         for rel in region['relationships']:
             rel_id=create_uri(VG_NS, 'R' + str(rel['relationship_id']))
-            rel_bb_edge=[rel_id, INBB_REL, bb_id, data_source, weight, {'image_id': region['image_id']}]
-            all_edges.append(rel_bb_edge)
+            rel_img_edge=[rel_id, INIMAGE_REL, image_id, data_source, weight, {}]
+            all_edges.append(rel_img_edge)
             
         for obj in region['objects']:
             obj_id=create_uri(VG_NS, 'O' + str(obj['object_id']))
-            obj_bb_edge=[obj_id, INBB_REL, bb_id, data_source, weight, {'image_id': region['image_id']}]
-            all_edges.append(obj_bb_edge)
+            obj_img_edge=[obj_id, INIMAGE_REL, image_id, data_source, weight, {}]
+            all_edges.append(obj_img_edge)
             
-        bb_node=[bb_id, '', '', '', data_source, {'image_id': region['image_id'], 'sentence': region['phrase']}]
-        all_nodes.append(bb_node)
+        #bb_node=[bb_id, '', '', '', data_source, {'image_id': region['image_id'], 'sentence': region['phrase']}]
+        #all_nodes.append(bb_node)
     image_node=[image_id, '', '', '', data_source, {}]
     all_nodes.append(image_node)
 
@@ -233,7 +232,19 @@ print('num nodes after adding geo data', len(all_nodes))
 print('num edges after adding geo data', len(all_edges))
 
 nodes_df=pd.DataFrame(all_nodes, columns = NODE_COLS)
+
+# Drop duplicates
+nodes_df.drop_duplicates(subset ="id",
+                        keep = 'first', inplace = True)
+
+print('combined nodes after deduplication:', len(nodes_df))
+
 nodes_df.sort_values('id').to_csv(nodes_file, index=False, sep='\t')
 
 edges_df = pd.DataFrame(all_edges, columns = EDGE_COLS)
+# Drop duplicates
+edges_df.drop_duplicates(subset =["subject", "predicate", "object"],
+                             keep = 'first', inplace = True)
+
+print('combined edges after deduplication:', len(edges_df))
 edges_df.sort_values(by=['subject', 'predicate','object']).to_csv(edges_file, index=False, sep='\t')
