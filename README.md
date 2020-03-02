@@ -7,7 +7,6 @@ Scripts to create the commonsense knowledge graph: CSKG
 * `extraction/` - scripts to extract and combine the individual sources. The bash script `run_all.sh` executes all scripts in a sequence.
 * `input/` - individual data sources, not provided in the repo
 * `output_v0xx` -> output folder, created by the extraction scripts
-* `kgtk/` - graph tools, cloned from an external repository (see below)
 
 ### Setup
 * `pip install git+git://github.com/usc-isi-i2/kgtk`
