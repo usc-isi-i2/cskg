@@ -10,7 +10,7 @@ Scripts to create the commonsense knowledge graph: CSKG
 * `kgtk/` - graph tools, cloned from an external repository (see below)
 
 ### Setup
-* `git clone https://github.com/usc-isi-i2/kgtk`
+* `pip install git+git://github.com/usc-isi-i2/kgtk`
 
 * `pip install -r requirements.txt`
 
