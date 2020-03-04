@@ -6,9 +6,8 @@ import numpy as np
 import kgtk.gt.analysis_utils as gtanalysis   
 import kgtk.gt.io_utils as gtio
 
-for name in ['conceptnet', 'visualgenome', 'wikidata', 'wordnet', 'framenet', 'cskg']:
-#for name in ['wordnet']:
-
+#for name in ['conceptnet', 'visualgenome', 'wikidata', 'wordnet', 'framenet', 'cskg', 'cskg_merged']:
+for name in ['cskg_merged']:
     print(name)
     
     datadir='/Users/filipilievski/mcs/cskg/output_v003/%s' % name
@@ -62,7 +61,7 @@ for name in ['conceptnet', 'visualgenome', 'wikidata', 'wordnet', 'framenet', 'c
         p=sns.lineplot(data=df, x='x', y=d, ax=axes[i])
         p.set(xscale="log", yscale="log", title=d + ' degree', xlabel='degree', ylabel='frequency')
 
-    f.savefig(f'degrees_{name}.png')
+    f.savefig(f'../img/degrees_{name}.png')
 
 
     g.vp['vertex_pagerank'] = gtanalysis.compute_pagerank(g)
@@ -90,4 +89,4 @@ for name in ['conceptnet', 'visualgenome', 'wikidata', 'wordnet', 'framenet', 'c
     plt.xlabel('nodes')
     plt.title('PageRank value distribution')
 
-    fig.savefig(f'pagerank_{name}.png')
+    fig.savefig(f'../img/pagerank_{name}.png')

@@ -1,16 +1,25 @@
-import kgtk.gt.io_utils as gtio
-import kgtk.gt.topology_utils as gtt
+import config
+import json
+import pandas as pd
+import os
+from kgtk.cskg_utils import collapse_identical_nodes 
 
-name='cskg'
-datadir='/Users/filipilievski/mcs/cskg/output_v003/%s' % name
-mowgli_nodes=f'{datadir}/nodes_v003.csv'
-mowgli_edges=f'{datadir}/edges_v003.csv'
-output_gml=f'{datadir}/graph.graphml'
+VERSION=config.VERSION
+cskg_dir='../output_v%s/cskg' % VERSION
+output_merged_dir='%s_merged' % cskg_dir
 
-gtio.transform_to_graphtool_format(mowgli_nodes, mowgli_edges, output_gml, True)
-g=gtio.load_gt_graph(output_gml.replace(".graphml", '.gt'))
+cskg_nodes_file='%s/nodes_v%s.csv' % (cskg_dir, VERSION)
+merged_nodes_file='%s/nodes_v%s.csv' % (output_merged_dir, VERSION)
 
-g_well_connected=gtt.get_nodes_with_degree(g, 2, 1000000)
+cskg_edges_file='%s/edges_v%s.csv' % (cskg_dir, VERSION)
+merged_edges_file='%s/edges_v%s.csv' % (output_merged_dir, VERSION)
 
-print(g.num_vertices(), g.num_edges())
-print(g_well_connected.num_vertices(), g_well_connected.num_edges())
+if not os.path.exists(output_merged_dir):
+    os.makedirs(output_merged_dir)
+
+### Collapse same-as relations/nodes ###
+
+collapsed_edges, collapsed_nodes = collapse_identical_nodes(cskg_edges_file, cskg_nodes_file)
+collapsed_nodes.sort_values('id').to_csv(merged_nodes_file, index=False, sep='\t')
+collapsed_edges.sort_values(by=['subject', 'predicate','object']).to_csv(merged_edges_file, index=False, sep='\t')
+

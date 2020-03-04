@@ -34,8 +34,6 @@ cn_path='../input/conceptnet/conceptnet-en.csv'
 # OUTPUT FILES
 output_dir='../output_v%s/conceptnet' % VERSION
 nodes_file='%s/nodes_v%s.csv' % (output_dir, VERSION)
-edges_file='%s/edges_raw_v%s.csv' % (output_dir, VERSION)
-edges_enriched_file='%s/edges_enriched_v%s.csv' % (output_dir, VERSION)
 edges_full_file='%s/edges_v%s.csv' % (output_dir, VERSION)
 
 if not os.path.exists(output_dir):
@@ -93,9 +91,6 @@ print(len(nodes_df), 'nodes')
 
 #### b. Enrich and store edges ####
 
-edges_df = pd.DataFrame(all_edges, columns = EDGE_COLS)
-edges_df.sort_values(by=['subject', 'predicate','object']).to_csv(edges_file, index=False, sep='\t')
-
 all_edges_enriched=copy.deepcopy(all_edges)
 other={'dataset': CUSTOM_DATASET}
 for i, row in nodes_df.iterrows():
@@ -126,9 +121,6 @@ for i, row in nodes_df.iterrows():
             all_edges_enriched.append(edge)
     
 edges_enriched_df = pd.DataFrame(all_edges_enriched, columns = EDGE_COLS)
-edges_enriched_df.sort_values(by=['subject', 'predicate','object']).to_csv(edges_enriched_file, 
-                                                                           index=False, 
-                                                                           sep='\t')
 
 #### c. Complement missing symmetric data ####
 all_difs=[edges_enriched_df]
