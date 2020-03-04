@@ -9,6 +9,8 @@ Scripts to create the commonsense knowledge graph: CSKG
 * `output_v0xx` -> output folder, created by the extraction scripts
 
 ### Setup
+(to reinstall, add `--upgrade --force-reinstall `)
+
 * `pip install git+git://github.com/usc-isi-i2/kgtk`
 * `conda install -c conda-forge graph-tool`
 * `pip install -r requirements.txt`
