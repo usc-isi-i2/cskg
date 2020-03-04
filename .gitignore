@@ -1,6 +1,8 @@
+.DS_Store
 kgtk/
 *.png
 .ipynb_checkpoints/
 mowgli-in-the-jungle/
 input/
 output_*
+__pycache__

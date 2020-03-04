@@ -22,7 +22,7 @@ vg_edges_file='%s/visualgenome/edges_v%s.csv' % (data_dir, VERSION)
 wn_edges_file='%s/wordnet/edges_v%s.csv' % (data_dir, VERSION)
 wd_edges_file='%s/wikidata/edges_v%s.csv' % (data_dir, VERSION)
 
-wn2wn_edges_file='%s/mappings/edges_v%s.csv' % (data_dir, VERSION)
+wn2wn_edges_file='%s/mappings/Edges_WordNet2Wikidata_New.csv' % data_dir
 wn2wd_edges_file='%s/mappings/edges_wn2wdt_v%s.csv' % (data_dir, VERSION)
 
 fn_edges_file='%s/framenet/edges_v%s.csv' %  (data_dir, VERSION)
@@ -68,11 +68,9 @@ for f in edges_inputs:
 
 combined_edges = pd.concat(all_dfs)
 
-print('number of edges before deduplication', len(combined_edges))
+combined_edges['predicate'].replace({"mw:sameAs": "mw:SameAs"}, inplace=True)
 
-#l=combined_edges[combined_edges.duplicated(['subject', 'predicate','object'], keep=False)]
-#print('num duplicates', len(l))
-#print('duplicates found for predicates', l['predicate'].unique())
+print('number of edges before deduplication', len(combined_edges))
 
 # Drop duplicates
 combined_edges.drop_duplicates(subset =['subject', 'predicate','object'], 

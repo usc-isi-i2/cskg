@@ -2,7 +2,7 @@ import pandas as pd
 from nltk.corpus import wordnet as wn
 import conceptnet_uri as cn
 
-from kgtk.utils.cskg_utils import extract_label_aliases
+from kgtk.cskg_utils import extract_label_aliases
 
 def create_uri(ns, rel):
     return '%s:%s' % (ns, rel)

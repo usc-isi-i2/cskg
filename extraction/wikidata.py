@@ -6,7 +6,7 @@ from collections import defaultdict
 import os
 from nltk.corpus import wordnet as wn
 from copy import copy
-from kgtk.utils.cskg_utils import append_df_with_missing_nodes
+from kgtk.cskg_utils import append_df_with_missing_nodes
 
 import config
 
@@ -19,7 +19,7 @@ datasource=config.wdt_ds
 # INPUT FILES
 input_dir='../input/wikidata'
 subclass_file='%s/edges_wikidata_subclasses.csv' % input_dir
-input_nodes_file='%s/nodes_n_al.csv' % input_dir
+input_nodes_file='%s/nodes-final-en-aliases.csv' % input_dir
 
 # OUTPUT FILES
 output_dir='../output_v%s/wikidata' % VERSION

@@ -1,6 +1,3 @@
-import sys
-sys.path.append('../')
-
 import json
 import pandas as pd
 from collections import defaultdict
@@ -8,7 +5,7 @@ import os
 
 import config
 import utils
-from kgtk.utils.cskg_utils import flatten_multiple_values, extract_label_aliases
+from kgtk.cskg_utils import flatten_multiple_values, extract_label_aliases
 
 VERSION=config.VERSION
 
@@ -18,7 +15,7 @@ datasource=config.wn_ds
 
 # INPUT FILES
 input_dir='../input/wordnet'
-subclass_file='%s/Edges_Synset_subClassOf.csv' % input_dir
+subclass_file='%s/output.csv' % input_dir
 
 # OUTPUT FILES
 output_dir='../output_v%s/wordnet' % VERSION
