@@ -53,7 +53,6 @@ for name in ['cskg_merged']:
 
     df = pd.DataFrame(degrees)
 
-    #sns.set_style("whitegrid")
     sns.set(rc={"font.size":20,"axes.titlesize":22,"axes.labelsize":15, 'xtick.labelsize': 15, 'ytick.labelsize': 15}, style="whitegrid")
 
     f, axes = plt.subplots(1,3, figsize=(24, 6), sharey=True)#, fontsize=20,fontweight='bold')
