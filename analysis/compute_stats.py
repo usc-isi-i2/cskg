@@ -6,8 +6,8 @@ import numpy as np
 import kgtk.gt.analysis_utils as gtanalysis   
 import kgtk.gt.io_utils as gtio
 
-#for name in ['conceptnet', 'visualgenome', 'wikidata', 'wordnet', 'framenet', 'cskg', 'cskg_merged']:
-for name in ['cskg_merged']:
+for name in ['conceptnet', 'visualgenome', 'wikidata', 'wordnet', 'framenet', 'cskg', 'cskg_merged']:
+#for name in ['cskg_merged']:
     print(name)
     
     datadir='/Users/filipilievski/mcs/cskg/output_v003/%s' % name

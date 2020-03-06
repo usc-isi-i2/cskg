@@ -28,14 +28,14 @@ with open(cskg_edges_file, 'r') as csvfile:
 random.shuffle(rows)  # randomly shuffles the ordering of filenames
 
 split_1 = int(0.8 * len(rows))
-split_2 = int(0.9 * len(rows))
+#split_2 = int(0.9 * len(rows))
 train_data = rows[:split_1]
-dev_data = rows[split_1:split_2]
-test_data = rows[split_2:]
+dev_data = rows[split_1:]
+#test_data = rows[split_2:]
 
 write_data(train_data, '%s/train.csv' % output_dir)
 write_data(dev_data, '%s/dev.csv' % output_dir)
-write_data(test_data, '%s/test.csv' % output_dir)
+#write_data(test_data, '%s/test.csv' % output_dir)
 
 
 
