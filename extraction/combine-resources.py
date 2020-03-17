@@ -49,7 +49,7 @@ combined_nodes = pd.concat(all_dfs)
 print('combined nodes - number before deduplication:', len(combined_nodes))
 
 # Drop duplicates
-combined_nodes.drop_duplicates(subset=['id', 'aliases'], keep = 'first', inplace = True)
+combined_nodes.drop_duplicates(subset=['id'], keep = 'first', inplace = True)
 
 #combined_nodes=combined_nodes.groupby(['id'], as_index=False).agg({'aliases': ','.join})
 

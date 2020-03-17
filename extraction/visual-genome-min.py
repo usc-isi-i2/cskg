@@ -19,9 +19,6 @@ def add_relationships_data(rels, obj2names, image_id, all_nodes, all_edges, wn2l
 
     image_node=create_uri(VG_NS, 'I' + image_id)
     for rel in rels:
-        #rel_id=create_uri(VG_NS, 'R' + str(rel['relationship_id']))
-        #sub_id=create_uri(VG_NS, 'O' + str(rel['subject_id']))
-        #obj_id=create_uri(VG_NS, 'O' + str(rel['object_id']))
         synsets=rel['synsets']
         pred=rel['predicate']
         pred_id=create_uri(VG_NS, pred.replace(' ', '_'))
@@ -219,9 +216,9 @@ print('num edges', len(all_edges))
 nodes_df=pd.DataFrame(all_nodes, columns = NODE_COLS)
 
 # Drop duplicates
-nodes_df.drop_duplicates(keep = 'first', inplace = True)
+nodes_df.drop_duplicates(subset='id', keep = 'first', inplace = True)
 
-nodes_df=nodes_df.groupby(['id'], as_index=False).agg({'aliases': ','.join})
+#nodes_df=nodes_df.groupby(['id'], as_index=False).agg({'aliases': ','.join})
 
 print('combined nodes after deduplication:', len(nodes_df))
 
