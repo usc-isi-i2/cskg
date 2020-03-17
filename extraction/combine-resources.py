@@ -2,15 +2,13 @@ import config
 import json
 import pandas as pd
 import os
-import kgtk
 
 VERSION=config.VERSION
 output_dir='../output_v%s/cskg' % VERSION
-output_merged_dir='%s_medged' % output_dir
 data_dir='../output_v%s' % VERSION
 
 cn_nodes_file='%s/conceptnet/nodes_v%s.csv' % (data_dir, VERSION)
-vg_nodes_file='%s/visualgenome/nodes_v%s.csv' % (data_dir, VERSION)
+vg_nodes_file='%s/visualgenome-lbl/nodes_v%s.csv' % (data_dir, VERSION)
 wn_nodes_file='%s/wordnet/nodes_v%s.csv' % (data_dir, VERSION)
 wd_nodes_file='%s/wikidata/nodes_v%s.csv' % (data_dir, VERSION)
 fn_nodes_file='%s/framenet/nodes_v%s.csv' % (data_dir, VERSION)
@@ -18,7 +16,7 @@ combined_nodes_file='%s/nodes_v%s.csv' % (output_dir, VERSION)
 nodes_inputs=[cn_nodes_file,vg_nodes_file,wn_nodes_file,wd_nodes_file, fn_nodes_file]
 
 cn_edges_file='%s/conceptnet/edges_v%s.csv' % (data_dir, VERSION)
-vg_edges_file='%s/visualgenome/edges_v%s.csv' % (data_dir, VERSION)
+vg_edges_file='%s/visualgenome-lbl/edges_v%s.csv' % (data_dir, VERSION)
 wn_edges_file='%s/wordnet/edges_v%s.csv' % (data_dir, VERSION)
 wd_edges_file='%s/wikidata/edges_v%s.csv' % (data_dir, VERSION)
 fn_edges_file='%s/framenet/edges_v%s.csv' %  (data_dir, VERSION)
@@ -51,8 +49,9 @@ combined_nodes = pd.concat(all_dfs)
 print('combined nodes - number before deduplication:', len(combined_nodes))
 
 # Drop duplicates
-combined_nodes.drop_duplicates(subset ="id",
-                             keep = 'first', inplace = True)
+combined_nodes.drop_duplicates(subset=['id', 'aliases'], keep = 'first', inplace = True)
+
+#combined_nodes=combined_nodes.groupby(['id'], as_index=False).agg({'aliases': ','.join})
 
 print('combined nodes after deduplication:', len(combined_nodes))
 nodes_in_nodes=set(combined_nodes.id.unique())
