@@ -8,7 +8,7 @@ output_dir='../output_v%s/cskg' % VERSION
 data_dir='../output_v%s' % VERSION
 
 cn_nodes_file='%s/conceptnet/nodes_v%s.csv' % (data_dir, VERSION)
-vg_nodes_file='%s/visualgenome-lbl/nodes_v%s.csv' % (data_dir, VERSION)
+vg_nodes_file='%s/visualgenome/nodes_v%s.csv' % (data_dir, VERSION)
 wn_nodes_file='%s/wordnet/nodes_v%s.csv' % (data_dir, VERSION)
 wd_nodes_file='%s/wikidata/nodes_v%s.csv' % (data_dir, VERSION)
 fn_nodes_file='%s/framenet/nodes_v%s.csv' % (data_dir, VERSION)
@@ -16,7 +16,7 @@ combined_nodes_file='%s/nodes_v%s.csv' % (output_dir, VERSION)
 nodes_inputs=[cn_nodes_file,vg_nodes_file,wn_nodes_file,wd_nodes_file, fn_nodes_file]
 
 cn_edges_file='%s/conceptnet/edges_v%s.csv' % (data_dir, VERSION)
-vg_edges_file='%s/visualgenome-lbl/edges_v%s.csv' % (data_dir, VERSION)
+vg_edges_file='%s/visualgenome/edges_v%s.csv' % (data_dir, VERSION)
 wn_edges_file='%s/wordnet/edges_v%s.csv' % (data_dir, VERSION)
 wd_edges_file='%s/wikidata/edges_v%s.csv' % (data_dir, VERSION)
 fn_edges_file='%s/framenet/edges_v%s.csv' %  (data_dir, VERSION)
@@ -36,7 +36,7 @@ if not os.path.exists(output_dir):
 
 all_dfs=[]
 for f in nodes_inputs:
-    tmp_df=pd.read_csv(f, sep='\t', converters={5: eval})
+    tmp_df=pd.read_csv(f, sep='\t', header=0, converters={5: eval})
     all_dfs.append(tmp_df)
 
 combined_nodes = pd.concat(all_dfs)
@@ -60,7 +60,7 @@ nodes_in_nodes=set(combined_nodes.id.unique())
 
 all_dfs=[]
 for f in edges_inputs:
-    tmp_df=pd.read_csv(f, sep='\t', converters={5: eval})
+    tmp_df=pd.read_csv(f, sep='\t', header=0, converters={5: eval})
     all_dfs.append(tmp_df)
 
 combined_edges = pd.concat(all_dfs)

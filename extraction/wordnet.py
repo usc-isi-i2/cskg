@@ -36,6 +36,7 @@ clean_edges=flatten_multiple_values(tmp_edges_df, 'object')
 print('Number of edges after flattening objects with multiple values:', len(clean_edges))
 
 edges_df=pd.DataFrame(clean_edges, columns=EDGE_COLS)
+edges_df['datasource']=datasource
 edges_df.sort_values(by=['subject', 'predicate','object']).to_csv(edges_file, index=False, sep='\t')
 
 ### Create nodes file and store it ###
@@ -46,4 +47,5 @@ for i, row in edges_df.iterrows():
 print(len(nodes), 'nodes in the edges file')
 
 nodes_df=utils.create_df_with_wordnet_nodes(nodes, datasource, NODE_COLS)
+nodes_df['datasource']=datasource
 nodes_df.sort_values('id').to_csv(nodes_file, index=False, sep='\t')

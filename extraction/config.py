@@ -1,5 +1,5 @@
 # Version
-VERSION="003"
+VERSION="004"
 
 # CSKG columns
 nodes_cols=['id', 'label', 'aliases', 'pos', 'datasource', 'other']
@@ -19,7 +19,8 @@ cn_ds='CN'
 vg_ds='VG'
 wn_ds='WN'
 wdt_ds='WDT'
-xl_ds='XLNET'
+fn_ds='FN'
+mw_ds='MOWGLI'
 
 # RELATIONS
 has_pos='PartOfSpeech'

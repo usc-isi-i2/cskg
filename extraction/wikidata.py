@@ -49,6 +49,8 @@ existing_nodes=set(nodes_df.id.unique())
 missing_nodes=set(nodes-existing_nodes)
 
 combined_nodes = append_df_with_missing_nodes(nodes_df, missing_nodes, datasource, NODE_COLS)
+combined_nodes['datasource']=datasource
 combined_nodes.sort_values('id').to_csv(nodes_file, index=False, sep='\t')
 
+edges_df['datasource']=datasource
 edges_df.sort_values(by=['subject', 'predicate','object']).to_csv(edges_file, index=False, sep='\t')

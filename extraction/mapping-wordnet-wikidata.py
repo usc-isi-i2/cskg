@@ -6,18 +6,18 @@ import os
 import config
 import utils
 
-data_source=config.xl_ds
-weight="1.0"
+data_source=config.mw_ds
+weight=1.0
 VERSION=config.VERSION
 
 EDGE_COLS=config.edges_cols
 
 # INPUT FILE
-mapping_file='../input/mappings/clean_wn2wdt.csv'
+mapping_file='../input/mappings/Edges_WordNet2Wikidata_New.csv'
 
 # OUTPUT FILE
 output_dir=f'../output_v{VERSION}/mappings'
-edges_file=f'{output_dir}/edges_wdt_wn_v{VERSION}.csv'
+edges_file=f'{output_dir}/wn_wdt_mappings.csv'
 
 MOWGLI_NS=config.mowgli_ns
 WORDNET_NS=config.wordnet_ns

@@ -26,7 +26,7 @@ wordnet31_ili_file='../input/mappings/ili-map-pwn31.tab'
 
 # OUTPUT FILE
 output_dir=f'../output_v{VERSION}/mappings'
-edges_file=f'{output_dir}/edges_v{VERSION}.csv'
+edges_file=f'{output_dir}/wn_wn_mappings.csv'
 
 MOWGLI_NS=config.mowgli_ns
 WORDNET_NS=config.wordnet_ns

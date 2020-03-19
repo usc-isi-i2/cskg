@@ -1,8 +1,33 @@
 import pandas as pd
 from nltk.corpus import wordnet as wn
 import conceptnet_uri as cn
+from collections import defaultdict
+import json
 
 from kgtk.cskg_utils import extract_label_aliases
+
+def combine_dicts(dicts):
+    new_dict=defaultdict(set)
+    for d in dicts:
+        for k in d.keys():
+            new_dict[k] = new_dict[k] | set(d[k])
+    for k, v in new_dict.items():
+        v=list(v)
+    return dict(new_dict)
+
+def merge_and_deduplicate(x):
+    return ','.join(list(set(x.split(','))))
+
+def deduplicate_with_transformations(df, join_columns, transformations={'label': ','.join, 'aliases': ','.join, 'pos': ','.join, 'datasource': ','.join, 'other': ','.join}):
+    grouped=df.groupby(join_columns, as_index=False).agg(transformations)
+    for col in transformations.keys():
+        if col not in ['other', 'weight']:
+            grouped[col] = grouped[col].apply(merge_and_deduplicate)
+        elif col=='other':
+            grouped[col] = grouped[col].apply(combine_dicts)
+
+    print(grouped)
+    return grouped
 
 def create_uri(ns, rel):
     return '%s:%s' % (ns, rel)

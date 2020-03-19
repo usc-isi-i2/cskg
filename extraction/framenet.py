@@ -6,6 +6,8 @@ from collections import defaultdict
 import os
 from nltk.corpus import wordnet as wn
 from copy import copy
+
+from ast import literal_eval
 from kgtk.cskg_utils import append_df_with_missing_nodes
 
 import config
@@ -14,7 +16,7 @@ VERSION=config.VERSION
 
 NODE_COLS=config.nodes_cols
 EDGE_COLS=config.edges_cols
-datasource=config.wdt_ds
+datasource=config.fn_ds
 
 # INPUT FILES
 input_dir='../input/framenet'
@@ -52,6 +54,9 @@ print(len(nodes_df), 'nodes')
 
 nodes_df['label']=nodes_df['label'].apply(lambda x: (x.split(':')[-1]).replace('_', ' '))
 
+nodes_df['datasource']=datasource
 nodes_df.sort_values('id').to_csv(nodes_file, index=False, sep='\t')
 
+edges_df['datasource']=datasource
+edges_df['weight']=edges_df['weight'].astype('float', copy=False)
 edges_df.sort_values(by=['subject', 'predicate','object']).to_csv(edges_file, index=False, sep='\t')

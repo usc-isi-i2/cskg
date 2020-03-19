@@ -39,6 +39,8 @@ edges_full_file='%s/edges_v%s.csv' % (output_dir, VERSION)
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
+custom_weight=1.0
+
 ### Load the data in pandas ###
 df=pd.read_csv(cn_path, sep='\t', header=None, converters={4: json.loads})
 df.columns=['assertion','rel','subj','obj','metadata']
@@ -101,23 +103,23 @@ for i, row in nodes_df.iterrows():
     if len(components)==4:
         # add POS relations
         mapped_pos, raw_pos = get_cn_pos_tag(node_id, MOWGLI_NS, POS_MAPPING)
-        edge=[node_id, create_uri(MOWGLI_NS, POS_REL), mapped_pos, data_source, "1.0", other]
+        edge=[node_id, create_uri(MOWGLI_NS, POS_REL), mapped_pos, data_source, custom_weight, other]
         all_edges_enriched.append(edge)
         
         le_node='/%s' % '/'.join(components[:3])
         if le_node in node_datasets.keys():
             # add pos-form relations (both-ways)
-            edge=[le_node, create_uri(MOWGLI_NS, POS_FORM_REL), node_id, data_source, "1.0", other]
+            edge=[le_node, create_uri(MOWGLI_NS, POS_FORM_REL), node_id, data_source, custom_weight, other]
             all_edges_enriched.append(edge)
 
-            edge=[node_id, create_uri(MOWGLI_NS, IS_POS_FORM_OF_REL), le_node, data_source, "1.0", other]
+            edge=[node_id, create_uri(MOWGLI_NS, IS_POS_FORM_OF_REL), le_node, data_source, custom_weight, other]
             all_edges_enriched.append(edge)
         
     elif len(components)>=5 and components[4]=='wn':
         # add OMW relations
         pos_node='/%s' % '/'.join(components[:4])
         if pos_node in node_datasets.keys():
-            edge=[pos_node, create_uri(MOWGLI_NS, WORDNET_SENSE_REL), node_id, data_source, "1.0", other]
+            edge=[pos_node, create_uri(MOWGLI_NS, WORDNET_SENSE_REL), node_id, data_source, custom_weight, other]
             all_edges_enriched.append(edge)
     
 edges_enriched_df = pd.DataFrame(all_edges_enriched, columns = EDGE_COLS)
