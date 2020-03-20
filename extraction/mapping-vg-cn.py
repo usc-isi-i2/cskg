@@ -15,7 +15,7 @@ cn_nodes_file='../output_v%s/conceptnet/nodes_v%s.csv' % (VERSION, VERSION)
 vg_nodes_file='../output_v%s/visualgenome/nodes_v%s.csv' % (VERSION, VERSION)
 
 # OUTPUT FILE
-edges_file='../output_v%s/mappings/wn_wdt_mappings.csv' % VERSION
+edges_file='../output_v%s/mappings/vg_cn_mappings.csv' % VERSION
 
 cn_nodes_df=pd.read_csv(cn_nodes_file, sep='\t', header=0)
 vg_nodes_df=pd.read_csv(vg_nodes_file, sep='\t', header=0)#, converters={5: json.loads})

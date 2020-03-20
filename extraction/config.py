@@ -5,6 +5,9 @@ VERSION="004"
 nodes_cols=['id', 'label', 'aliases', 'pos', 'datasource', 'other']
 edges_cols=['subject', 'predicate', 'object', 'datasource', 'weight', 'other']
 
+node_dtypes={'id': str, 'label': str, 'aliases': str, 'pos': str, 'datasource': str}
+edge_dtypes={'subject': str, 'predicate': str, 'object': str, 'datasource': str, 'weight': float}
+
 # CUSTOM DATA WE ADD
 custom_dataset='d/mowgli'
 

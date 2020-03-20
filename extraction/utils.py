@@ -23,8 +23,8 @@ def deduplicate_with_transformations(df, join_columns, transformations={'label':
     for col in transformations.keys():
         if col not in ['other', 'weight']:
             grouped[col] = grouped[col].apply(merge_and_deduplicate)
-        elif col=='other':
-            grouped[col] = grouped[col].apply(combine_dicts)
+#        elif col=='other':
+#            grouped[col] = grouped[col].apply(combine_dicts)
 
     print(grouped)
     return grouped

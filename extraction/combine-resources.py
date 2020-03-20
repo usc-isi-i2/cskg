@@ -3,7 +3,14 @@ import json
 import pandas as pd
 import os
 
+from utils import create_uri, deduplicate_with_transformations
+
 VERSION=config.VERSION
+NODE_COLS=config.nodes_cols
+EDGE_COLS=config.edges_cols
+NODE_DTYPES=config.node_dtypes
+EDGE_DTYPES=config.edge_dtypes
+
 output_dir='../output_v%s/cskg' % VERSION
 data_dir='../output_v%s' % VERSION
 
@@ -24,10 +31,12 @@ fn_edges_file='%s/framenet/edges_v%s.csv' %  (data_dir, VERSION)
 wn2wn_edges_file='%s/mappings/wn_wn_mappings.csv' % data_dir
 wn2wd_edges_file='%s/mappings/wn_wdt_mappings.csv' % data_dir
 fn2cn_edges_file='%s/mappings/fn_cn_mappings.csv' % data_dir
+vg2cn_edges_file='%s/mappings/vg_cn_mappings.csv' % data_dir
 combined_edges_file='%s/edges_v%s.csv' % (output_dir, VERSION)
 edges_inputs=[cn_edges_file,vg_edges_file,
               wn_edges_file,wd_edges_file,fn_edges_file,
-              wn2wn_edges_file,wn2wd_edges_file,fn2cn_edges_file]
+              wn2wn_edges_file,wn2wd_edges_file,
+              fn2cn_edges_file, vg2cn_edges_file]
 
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
@@ -36,22 +45,22 @@ if not os.path.exists(output_dir):
 
 all_dfs=[]
 for f in nodes_inputs:
-    tmp_df=pd.read_csv(f, sep='\t', header=0, converters={5: eval})
+    tmp_df=pd.read_csv(f, sep='\t', header=0, dtype=NODE_DTYPES, converters={5: eval})
     all_dfs.append(tmp_df)
 
 combined_nodes = pd.concat(all_dfs)
 
-#l=combined_nodes[combined_nodes.duplicated(['id'], keep=False)]['id']
-#for e in l:
-#    if not e.startswith('wn:'): 
-#        print(e)
+for c in NODE_COLS[:-1]:
+    combined_nodes[c]=combined_nodes[c].astype('str')
 
 print('combined nodes - number before deduplication:', len(combined_nodes))
 
 # Drop duplicates
-combined_nodes.drop_duplicates(subset=['id'], keep = 'first', inplace = True)
+#combined_nodes.drop_duplicates(subset=['id'], keep = 'first', inplace = True)
 
-#combined_nodes=combined_nodes.groupby(['id'], as_index=False).agg({'aliases': ','.join})
+node_transformations={'label': ','.join, 'aliases': ','.join, 'pos': ','.join, 'datasource': ','.join, 'other': list}
+combined_nodes=deduplicate_with_transformations(combined_nodes, 'id', node_transformations)
+
 
 print('combined nodes after deduplication:', len(combined_nodes))
 nodes_in_nodes=set(combined_nodes.id.unique())
@@ -70,8 +79,13 @@ combined_edges['predicate'].replace({"mw:sameAs": "mw:SameAs"}, inplace=True)
 print('number of edges before deduplication', len(combined_edges))
 
 # Drop duplicates
-combined_edges.drop_duplicates(subset =['subject', 'predicate','object'], 
-                                 keep = 'first', inplace = True)
+#combined_edges.drop_duplicates(subset =['subject', 'predicate','object'], 
+#keep = 'first', inplace = True)
+
+edge_transformations={'weight': max,  'datasource': ','.join,  'other': list}
+combined_edges=deduplicate_with_transformations(combined_edges, ["subject", "predicate", "object"], edge_transformations)
+
+print('number of edges after deduplication', len(combined_edges))
 
 ### Analysis and consistency ###
 
