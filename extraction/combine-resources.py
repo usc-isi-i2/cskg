@@ -3,7 +3,8 @@ import json
 import pandas as pd
 import os
 
-from utils import create_uri, deduplicate_with_transformations
+from utils import create_uri
+from kgtk.cskg_utils import deduplicate_with_transformations
 
 VERSION=config.VERSION
 NODE_COLS=config.nodes_cols

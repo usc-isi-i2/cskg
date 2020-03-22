@@ -11,9 +11,8 @@ from collections import defaultdict
 import os
 
 import config
-from utils import create_uri, deduplicate_with_transformations
-from kgtk.cskg_utils import add_lowercase_labels
-
+from utils import create_uri
+from kgtk.cskg_utils import add_lowercase_labels, deduplicate_with_transformations
 
 def add_relationships_data(rels, obj2names, image_id, all_nodes, all_edges, wn2label, wn2image):
 
