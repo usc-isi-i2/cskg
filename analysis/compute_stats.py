@@ -6,14 +6,18 @@ import numpy as np
 import kgtk.gt.analysis_utils as gtanalysis   
 import kgtk.gt.io_utils as gtio
 
-for name in ['conceptnet', 'visualgenome', 'wikidata', 'wordnet', 'framenet', 'cskg', 'cskg_merged']:
-#for name in ['cskg_merged']:
-    print(name)
-    
-    datadir='/Users/filipilievski/mcs/cskg/output_v003/%s' % name
+individual_ds=['conceptnet', 'visualgenome', 'wikidata', 'wordnet', 'framenet', 'roget']
+cskg_ds=['cskg', 'cskg_merged']
+datasets=individual_ds
 
-    mowgli_nodes=f'{datadir}/nodes_v003.csv'
-    mowgli_edges=f'{datadir}/edges_v003.csv'
+for name in datasets:
+    print(name)
+
+    VERSION='004'    
+    datadir='../output_v%s/%s' % (VERSION, name)
+
+    mowgli_nodes=f'{datadir}/nodes_v%s.csv' % VERSION
+    mowgli_edges=f'{datadir}/edges_v%s.csv' % VERSION
     output_gml=f'{datadir}/graph.graphml'
 
     plottype='loglog'
@@ -23,7 +27,6 @@ for name in ['conceptnet', 'visualgenome', 'wikidata', 'wordnet', 'framenet', 'c
     directions=['in', 'out', 'total']
 
     try:
-        #gtio.transform_to_graphtool_format(mowgli_nodes, mowgli_edges, output_gml, True)
         g=gtio.load_gt_graph(output_gml.replace(".graphml", '.gt'))
     except FileNotFoundError:
         gtio.transform_to_graphtool_format(mowgli_nodes, mowgli_edges, output_gml, True)

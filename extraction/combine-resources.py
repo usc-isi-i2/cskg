@@ -50,18 +50,16 @@ if not os.path.exists(output_dir):
 
 all_dfs=[]
 for f in nodes_inputs:
-    tmp_df=pd.read_csv(f, sep='\t', header=0, dtype=NODE_DTYPES, converters={5: eval})
+    tmp_df=pd.read_csv(f, sep='\t', header=0, converters={5: eval})
     all_dfs.append(tmp_df)
 
 combined_nodes = pd.concat(all_dfs)
 
 for c in NODE_COLS[:-1]:
     combined_nodes[c]=combined_nodes[c].astype('str')
+    combined_nodes[c]=combined_nodes[c].fillna('')
 
 print('combined nodes - number before deduplication:', len(combined_nodes))
-
-# Drop duplicates
-#combined_nodes.drop_duplicates(subset=['id'], keep = 'first', inplace = True)
 
 node_transformations={'label': ','.join, 'aliases': ','.join, 'pos': ','.join, 'datasource': ','.join, 'other': list}
 combined_nodes=deduplicate_with_transformations(combined_nodes, 'id', node_transformations)
