@@ -5,6 +5,7 @@ import os
 from kgtk.cskg_utils import collapse_identical_nodes 
 
 def normalize_labels(nodes):
+	new_rows=[]
 	for i, row in nodes.iterrows():
 		if ',' in row['label']:
 			main_label, *aliases=row['label'].split(',')
@@ -12,7 +13,8 @@ def normalize_labels(nodes):
 			prev_aliases=row['aliases'].split(',')
 			all_aliases=set(prev_aliases) | set(aliases)
 			row['aliases']=','.join(list(all_aliases))
-	return nodes
+		new_rows.append(row)
+	return pd.DataFrame(new_rows, columns=config.node_columns)
 
 VERSION=config.VERSION
 cskg_dir='../output_v%s/cskg' % VERSION

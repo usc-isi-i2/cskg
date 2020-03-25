@@ -50,14 +50,17 @@ if not os.path.exists(output_dir):
 
 all_dfs=[]
 for f in nodes_inputs:
-    tmp_df=pd.read_csv(f, sep='\t', header=0, converters={5: eval})
+    tmp_df=pd.read_csv(f, sep='\t', header=0, converters={5: eval}, dtype=NODE_DTYPES, na_filter= False)
     all_dfs.append(tmp_df)
 
 combined_nodes = pd.concat(all_dfs)
 
 for c in NODE_COLS[:-1]:
     combined_nodes[c]=combined_nodes[c].astype('str')
-    combined_nodes[c]=combined_nodes[c].fillna('')
+
+combined_nodes = combined_nodes.fillna('')
+
+print(combined_nodes.head())
 
 print('combined nodes - number before deduplication:', len(combined_nodes))
 
@@ -72,12 +75,14 @@ nodes_in_nodes=set(combined_nodes.id.unique())
 
 all_dfs=[]
 for f in edges_inputs:
-    tmp_df=pd.read_csv(f, sep='\t', header=0, converters={5: eval})
+    tmp_df=pd.read_csv(f, sep='\t', header=0, converters={5: eval}, na_filter= False)
     all_dfs.append(tmp_df)
 
 combined_edges = pd.concat(all_dfs)
 
 combined_edges['predicate'].replace({"mw:sameAs": "mw:SameAs"}, inplace=True)
+
+print(combined_edges.head())
 
 print('number of edges before deduplication', len(combined_edges))
 
@@ -110,6 +115,8 @@ for m in missing_nodes:
         datasource=config.wn_ds
     elif m.startswith('/c/en'):
         datasource=config.cn_ds
+    else:
+        print('missing node', m)
     a_row=[m, "", "", "", datasource, {}]
     rows.append(a_row)
 
