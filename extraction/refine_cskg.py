@@ -9,6 +9,8 @@ def normalize_labels(nodes):
 	for i, row in nodes.iterrows():
 		if ',' in row['label']:
 			main_label, *aliases=row['label'].split(',')
+			if main_label=='':
+				print(aliases)
 			row['label']=main_label
 			prev_aliases=row['aliases'].split(',')
 			all_aliases=set(prev_aliases) | set(aliases)

@@ -27,7 +27,7 @@ def sameas_to_conceptnet(other_nodes_file, cn_nodes_file, other_prefix, edges_fi
 
     mapping_rows=[]
     for common in common_nodes:
-        other_node='%s:%s' % (other_prefix, common)
+        other_node='%s%s' % (other_prefix, common)
         cn_node='/c/en/%s' % common
         a_row=[other_node, 'mw:SameAs', cn_node, mowgli_ds, weight, {}]
         mapping_rows.append(a_row)
