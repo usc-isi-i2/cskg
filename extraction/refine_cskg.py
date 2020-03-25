@@ -4,6 +4,16 @@ import pandas as pd
 import os
 from kgtk.cskg_utils import collapse_identical_nodes 
 
+def normalize_labels(nodes):
+	for i, row in nodes.iterrows():
+		if ',' in row['label']:
+			main_label, *aliases=row['label'].split(',')
+			row['label']=main_label
+			prev_aliases=row['aliases'].split(',')
+			all_aliases=set(prev_aliases) | set(aliases)
+			row['aliases']=','.join(list(all_aliases))
+	return nodes
+
 VERSION=config.VERSION
 cskg_dir='../output_v%s/cskg' % VERSION
 output_merged_dir='%s_merged' % cskg_dir
@@ -20,6 +30,8 @@ if not os.path.exists(output_merged_dir):
 ### Collapse same-as relations/nodes ###
 
 collapsed_edges, collapsed_nodes = collapse_identical_nodes(cskg_edges_file, cskg_nodes_file)
+
+collapsed_nodes=normalize_labels(collapsed_nodes)
 collapsed_nodes.sort_values('id').to_csv(merged_nodes_file, index=False, sep='\t')
 collapsed_edges.sort_values(by=['subject', 'predicate','object']).to_csv(merged_edges_file, index=False, sep='\t')
 

@@ -3,7 +3,39 @@ from nltk.corpus import wordnet as wn
 import conceptnet_uri as cn
 import json
 
+import config
 from kgtk.cskg_utils import extract_label_aliases
+
+weight=1.0
+mowgli_ds=config.mw_ds
+EDGE_COLS=config.edges_cols
+
+def sameas_to_conceptnet(other_nodes_file, cn_nodes_file, other_prefix, edges_file):
+    cn_nodes_df=pd.read_csv(cn_nodes_file, sep='\t', header=0)
+    other_nodes_df=pd.read_csv(other_nodes_file, sep='\t', header=0)#, converters={5: json.loads})
+
+
+    cn_nodes=set()
+    for i, n in cn_nodes_df.iterrows():
+        cn_nodes.add(n['id'].replace('/c/en/', ''))
+             
+    other_nodes=set()
+    for i, v in other_nodes_df.iterrows():
+        other_nodes.add(v['id'].replace(other_prefix, ''))
+
+    common_nodes=cn_nodes & other_nodes
+
+    mapping_rows=[]
+    for common in common_nodes:
+        other_node='%s:%s' % (other_prefix, common)
+        cn_node='/c/en/%s' % common
+        a_row=[other_node, 'mw:SameAs', cn_node, mowgli_ds, weight, {}]
+        mapping_rows.append(a_row)
+
+    print(len(mapping_rows))
+
+    edges_df=pd.DataFrame(mapping_rows, columns=EDGE_COLS)
+    edges_df.sort_values(by=['subject', 'predicate','object']).to_csv(edges_file, index=False, sep='\t')
 
 def create_uri(ns, rel):
     return '%s:%s' % (ns, rel)

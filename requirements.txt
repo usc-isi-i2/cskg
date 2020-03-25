@@ -1,10 +1,10 @@
+rltk
 matplotlib==3.1.1
 numpy==1.17.4
 tqdm==4.40.2
 pandas==0.25.1
 nltk==3.4.5
 seaborn==0.9.0
-graph_tool==2.11
 loguru==0.4.1
-rltk==2.0.0a14
 simplejson==3.17.0
+git+git://github.com/usc-isi-i2/kgtk@cli
