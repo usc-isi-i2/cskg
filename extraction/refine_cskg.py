@@ -2,21 +2,32 @@ import config
 import json
 import pandas as pd
 import os
-from kgtk.cskg_utils import collapse_identical_nodes 
+from kgtk.cskg_utils import collapse_identical_nodes, deduplicate_with_transformations 
 
-def normalize_labels(nodes):
+def normalize_dicts(d):
+	new_d={}
+	for a_dict in d:
+		if a_dict:
+			for k,v in a_dict.items():
+				new_d[k]=v
+	return new_d
+
+def normalize_rows(nodes):
 	new_rows=[]
 	for i, row in nodes.iterrows():
-		if ',' in row['label']:
-			main_label, *aliases=row['label'].split(',')
-			if main_label=='':
-				print(aliases)
+		all_labels=row['label'].split(',') + row['aliases'].split(',')
+		all_labels=list(set(all_labels))
+		filtered=[s for s in all_labels if s]
+		if len(filtered):
+			main_label, *aliases=filtered
 			row['label']=main_label
-			prev_aliases=row['aliases'].split(',')
-			all_aliases=set(prev_aliases) | set(aliases)
-			row['aliases']=','.join(list(all_aliases))
+			row['aliases']=','.join(aliases)
+		
+		row['other']=normalize_dicts(row['other'])
+
 		new_rows.append(row)
-	return pd.DataFrame(new_rows, columns=config.node_columns)
+		if i%100000==0: print('processed', i)
+	return pd.DataFrame(new_rows, columns=config.nodes_cols)
 
 VERSION=config.VERSION
 cskg_dir='../output_v%s/cskg' % VERSION
@@ -34,8 +45,10 @@ if not os.path.exists(output_merged_dir):
 ### Collapse same-as relations/nodes ###
 
 collapsed_edges, collapsed_nodes = collapse_identical_nodes(cskg_edges_file, cskg_nodes_file)
+edge_transformations={'weight': max,  'datasource': ','.join,  'other': list}
+collapsed_edges=deduplicate_with_transformations(collapsed_edges, ['subject', 'predicate', 'object'], edge_transformations)
 
-collapsed_nodes=normalize_labels(collapsed_nodes)
+collapsed_nodes=normalize_rows(collapsed_nodes)
 collapsed_nodes.sort_values('id').to_csv(merged_nodes_file, index=False, sep='\t')
 collapsed_edges.sort_values(by=['subject', 'predicate','object']).to_csv(merged_edges_file, index=False, sep='\t')
 

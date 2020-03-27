@@ -44,7 +44,7 @@ print(len(nodes), 'nodes in edges.csv')
 
 tmp_nodes_df=pd.read_csv(input_nodes_file, sep='\t', header=0, converters={5: eval})
 
-nodes_df=tmp_nodes_df[tmp_nodes_df['id'].isin(nodes)]
+nodes_df=tmp_nodes_df #[tmp_nodes_df['id'].isin(nodes)]
 print(len(nodes_df), 'nodes')
   
 #existing_nodes=set(nodes_df.id.unique())
@@ -54,9 +54,7 @@ print(len(nodes_df), 'nodes')
 
 nodes_df['label']=nodes_df['label'].apply(lambda x: (x.split(':')[-1]).replace('_', ' '))
 
-nodes_df['datasource']=datasource
 nodes_df.sort_values('id').to_csv(nodes_file, index=False, sep='\t')
 
-edges_df['datasource']=datasource
 edges_df['weight']=edges_df['weight'].astype('float', copy=False)
 edges_df.sort_values(by=['subject', 'predicate','object']).to_csv(edges_file, index=False, sep='\t')

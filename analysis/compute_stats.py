@@ -7,9 +7,9 @@ import kgtk.gt.analysis_utils as gtanalysis
 import kgtk.gt.io_utils as gtio
 
 individual_ds=['conceptnet', 'visualgenome', 'wikidata', 'wordnet', 'framenet', 'roget']
-cskg_ds=['cskg', 'cskg_merged']
+cskg_ds=['cskg_merged', 'cskg']
 datasets=individual_ds
-
+#datasets=cskg_ds
 for name in datasets:
     print(name)
 

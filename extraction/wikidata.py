@@ -53,5 +53,4 @@ combined_nodes['datasource']=datasource
 combined_nodes.sort_values('id').to_csv(nodes_file, index=False, sep='\t')
 
 edges_df['datasource']=datasource
-edges_df['predicate']=edges_df['predicate'].replace('rdfs:subClassOf', '/r/IsA')
 edges_df.sort_values(by=['subject', 'predicate','object']).to_csv(edges_file, index=False, sep='\t')

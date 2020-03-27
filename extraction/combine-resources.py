@@ -39,6 +39,7 @@ rg2cn_edges_file='%s/mappings/rg_cn_mappings.csv' % data_dir
 combined_edges_file='%s/edges_v%s.csv' % (output_dir, VERSION)
 edges_inputs=[cn_edges_file,vg_edges_file,
               wn_edges_file,wd_edges_file,fn_edges_file,
+              rg_edges_file,
               wn2wn_edges_file,wn2wd_edges_file,
               fn2cn_edges_file, vg2cn_edges_file,
 			  rg2cn_edges_file]
@@ -66,7 +67,6 @@ print('combined nodes - number before deduplication:', len(combined_nodes))
 
 node_transformations={'label': ','.join, 'aliases': ','.join, 'pos': ','.join, 'datasource': ','.join, 'other': list}
 combined_nodes=deduplicate_with_transformations(combined_nodes, 'id', node_transformations)
-
 
 print('combined nodes after deduplication:', len(combined_nodes))
 nodes_in_nodes=set(combined_nodes.id.unique())

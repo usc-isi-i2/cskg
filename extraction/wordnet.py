@@ -37,7 +37,6 @@ print('Number of edges after flattening objects with multiple values:', len(clea
 
 edges_df=pd.DataFrame(clean_edges, columns=EDGE_COLS)
 edges_df['datasource']=datasource
-edges_df['predicate']=edges_df['predicate'].replace('rdfs:subClassOf', '/r/IsA')
 edges_df.sort_values(by=['subject', 'predicate','object']).to_csv(edges_file, index=False, sep='\t')
 
 ### Create nodes file and store it ###
