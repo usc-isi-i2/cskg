@@ -6,7 +6,7 @@ from kgtk.cskg_utils import collapse_identical_nodes, deduplicate_with_transform
 
 def normalize_dicts(d):
 	new_d={}
-	for a_dict in d:
+	for a_dict in d:		
 		if a_dict:
 			for k,v in a_dict.items():
 				new_d[k]=v
@@ -48,7 +48,7 @@ collapsed_edges, collapsed_nodes = collapse_identical_nodes(cskg_edges_file, csk
 edge_transformations={'weight': max,  'datasource': ','.join,  'other': list}
 collapsed_edges=deduplicate_with_transformations(collapsed_edges, ['subject', 'predicate', 'object'], edge_transformations)
 
-collapsed_nodes=normalize_rows(collapsed_nodes)
+#collapsed_nodes=normalize_rows(collapsed_nodes)
 collapsed_nodes.sort_values('id').to_csv(merged_nodes_file, index=False, sep='\t')
 collapsed_edges.sort_values(by=['subject', 'predicate','object']).to_csv(merged_edges_file, index=False, sep='\t')
 
