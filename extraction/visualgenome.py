@@ -17,7 +17,6 @@ from kgtk.cskg_utils import add_lowercase_labels, deduplicate_with_transformatio
 def add_relationships_data(rels, obj2names, image_id, all_nodes, all_edges, wn2label, wn2image):
 
     image_node=create_uri(VG_NS, 'I' + image_id)
-#    image_metadata={'image_ids': [image_id]}
     image_metadata={}
     for rel in rels:
         synsets=rel['synsets']
@@ -35,6 +34,12 @@ def add_relationships_data(rels, obj2names, image_id, all_nodes, all_edges, wn2l
                 all_edges.append(rel_edge)
 
                 rel_edge=[pred_id, create_uri(VG_NS, 'object'), obj_id, data_source, weight, image_metadata]
+                all_edges.append(rel_edge)
+
+                rel_edge=[sub_id, RELATEDTO_REL, obj_id, data_source, weight, image_metadata]
+                all_edges.append(rel_edge)
+
+                rel_edge=[obj_id, RELATEDTO_REL, sub_id, data_source, weight, image_metadata]
                 all_edges.append(rel_edge)
 
         pos=''
@@ -70,7 +75,10 @@ def add_object_data(objects,
 #    image_metadata={'image_ids': [image_id]}
     image_metadata={}
     for o in objects:
+        names=[]
         for name in o['names']:
+            name=name.strip()
+            if not name: continue
             o_id=create_uri(VG_NS, name.replace(' ', '_'))
 
             o_pos=''
@@ -96,17 +104,18 @@ def add_object_data(objects,
                     all_nodes.append(attr_node)
 
                     # edge from object to an attribute
-                    obj_attr_edge=[o_id, HAS_PROPERTY_REL, a_id, data_source, weight, image_metadata]
+                    obj_attr_edge=[o_id, RELATEDTO_REL, a_id, data_source, weight, image_metadata]
                     all_edges.append(obj_attr_edge)
 
 
             obj_node=[o_id, name, '', o_pos, data_source, image_metadata] 
             all_nodes.append(obj_node)
+            names.append(name)
 
         obj_img_edge=[o_id, INIMAGE_REL, image_node, data_source, weight, image_metadata]
         all_edges.append(obj_img_edge)
 
-        obj2names[str(o['object_id'])]=o['names']
+        obj2names[str(o['object_id'])]=names
 
     return all_nodes, all_edges, wn2label, wn2image, obj2names
 
@@ -146,7 +155,7 @@ SUBJECT_REL=create_uri(VG_NS, config.subject)
 OBJECT_REL=create_uri(VG_NS, config.objct)
 INIMAGE_REL=create_uri(VG_NS, config.in_image)
 
-HAS_PROPERTY_REL=config.has_prop
+RELATEDTO_REL=config.related_to
 
 CUSTOM_DATASET=config.custom_dataset
 

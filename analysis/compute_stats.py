@@ -6,11 +6,11 @@ import numpy as np
 import kgtk.gt.analysis_utils as gtanalysis   
 import kgtk.gt.io_utils as gtio
 
-individual_ds=['conceptnet', 'visualgenome', 'wikidata', 'wordnet', 'framenet', 'roget']
-cskg_ds=['cskg_merged', 'cskg']
-cskg_ds=['cskg', 'cskg_ready']
-#datasets=individual_ds
-datasets=[cskg_ds[-1]]
+individual_ds=['atomic', 'conceptnet', 'visualgenome', 'wikidata', 'wordnet', 'framenet', 'roget']
+cskg_ds=['cskg', 'cskg-raw'] # 'cskg_ready']
+datasets=individual_ds
+datasets=cskg_ds
+#datasets=[cskg_ds[-1]]
 for name in datasets:
 	print(name)
 

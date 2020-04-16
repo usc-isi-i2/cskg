@@ -30,8 +30,8 @@ def normalize_rows(nodes):
 	return pd.DataFrame(new_rows, columns=config.nodes_cols)
 
 VERSION=config.VERSION
-cskg_dir='../output_v%s/cskg' % VERSION
-output_merged_dir='%s_merged' % cskg_dir
+cskg_dir='../output_v%s/cskg-raw' % VERSION
+output_merged_dir='../output_v%s/cskg' % VERSION
 
 cskg_nodes_file='%s/nodes_v%s.csv' % (cskg_dir, VERSION)
 merged_nodes_file='%s/nodes_v%s.csv' % (output_merged_dir, VERSION)
@@ -50,5 +50,5 @@ collapsed_edges=deduplicate_with_transformations(collapsed_edges, ['subject', 'p
 
 #collapsed_nodes=normalize_rows(collapsed_nodes)
 collapsed_nodes.sort_values('id').to_csv(merged_nodes_file, index=False, sep='\t')
-collapsed_edges.sort_values(by=['subject', 'predicate','object']).to_csv(merged_edges_file, index=False, sep='\t')
+collapsed_edges.sort_values(by=['subject', 'predicate','object']).to_csv(merged_edges_file, columns=config.edges_cols, index=False, sep='\t')
 

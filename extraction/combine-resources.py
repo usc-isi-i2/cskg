@@ -12,37 +12,20 @@ EDGE_COLS=config.edges_cols
 NODE_DTYPES=config.node_dtypes
 EDGE_DTYPES=config.edge_dtypes
 
-output_dir='../output_v%s/cskg' % VERSION
+output_dir='../output_v%s/cskg-raw' % VERSION
 data_dir='../output_v%s' % VERSION
 
-cn_nodes_file='%s/conceptnet/nodes_v%s.csv' % (data_dir, VERSION)
-vg_nodes_file='%s/visualgenome/nodes_v%s.csv' % (data_dir, VERSION)
-wn_nodes_file='%s/wordnet/nodes_v%s.csv' % (data_dir, VERSION)
-wd_nodes_file='%s/wikidata/nodes_v%s.csv' % (data_dir, VERSION)
-fn_nodes_file='%s/framenet/nodes_v%s.csv' % (data_dir, VERSION)
-rg_nodes_file='%s/roget/nodes_v%s.csv' % (data_dir, VERSION)
+sources=['conceptnet', 'atomic', 'visualgenome', 'wordnet', 'framenet', 'roget', 'wikidata']
+mappings=['wn_wn', 'wn_wdt', 'fn_cn', 'vg_cn', 'at_cn', 'rg_cn']
+
+nodes_inputs=['%s/%s/nodes_v%s.csv' % (data_dir, s, VERSION) for s in sources]
 combined_nodes_file='%s/nodes_v%s.csv' % (output_dir, VERSION)
-nodes_inputs=[cn_nodes_file,vg_nodes_file,wn_nodes_file,wd_nodes_file, fn_nodes_file, rg_nodes_file]
 
-cn_edges_file='%s/conceptnet/edges_v%s.csv' % (data_dir, VERSION)
-vg_edges_file='%s/visualgenome/edges_v%s.csv' % (data_dir, VERSION)
-wn_edges_file='%s/wordnet/edges_v%s.csv' % (data_dir, VERSION)
-wd_edges_file='%s/wikidata/edges_v%s.csv' % (data_dir, VERSION)
-fn_edges_file='%s/framenet/edges_v%s.csv' %  (data_dir, VERSION)
-rg_edges_file='%s/roget/edges_v%s.csv' %  (data_dir, VERSION)
-
-wn2wn_edges_file='%s/mappings/wn_wn_mappings.csv' % data_dir
-wn2wd_edges_file='%s/mappings/wn_wdt_mappings.csv' % data_dir
-fn2cn_edges_file='%s/mappings/fn_cn_mappings.csv' % data_dir
-vg2cn_edges_file='%s/mappings/vg_cn_mappings.csv' % data_dir
-rg2cn_edges_file='%s/mappings/rg_cn_mappings.csv' % data_dir
+edges_inputs=['%s/%s/edges_v%s.csv' % (data_dir, s, VERSION) for s in sources]
+edges_inputs+=['%s/mappings/%s_mappings.csv' % (data_dir, s) for s in mappings]
 combined_edges_file='%s/edges_v%s.csv' % (output_dir, VERSION)
-edges_inputs=[cn_edges_file,vg_edges_file,
-              wn_edges_file,wd_edges_file,fn_edges_file,
-              rg_edges_file,
-              wn2wn_edges_file,wn2wd_edges_file,
-              fn2cn_edges_file, vg2cn_edges_file,
-			  rg2cn_edges_file]
+
+print(nodes_inputs, edges_inputs)
 
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
@@ -126,7 +109,7 @@ combined_nodes_plus = pd.concat([combined_nodes, new_df])
 ### Store data ###
 
 combined_nodes_plus.sort_values('id').to_csv(combined_nodes_file, index=False, sep='\t')
-combined_edges.sort_values(by=['subject', 'predicate','object']).to_csv(combined_edges_file, index=False, sep='\t')
+combined_edges.sort_values(by=['subject', 'predicate','object']).to_csv(combined_edges_file, columns=EDGE_COLS, index=False, sep='\t')
 
 print('final number of nodes', len(combined_nodes_plus))
 print('final number of edges', len(combined_edges))

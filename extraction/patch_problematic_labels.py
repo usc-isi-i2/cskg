@@ -3,11 +3,11 @@ import json
 import pandas as pd
 
 VERSION=config.VERSION
-cskg_dir='../output_v%s/cskg_ready' % VERSION
-output_merged_dir='../output_v%s/cskg_ready' % VERSION
+cskg_dir='../output_v%s/cskg' % VERSION
+output_merged_dir='../output_v%s/cskg' % VERSION
 
 cskg_nodes_file='%s/nodes_v%s.csv' % (cskg_dir, VERSION)
-merged_nodes_file='%s/nodes2_v%s.csv' % (output_merged_dir, VERSION)
+merged_nodes_file='%s/nodes_v%s.csv' % (output_merged_dir, VERSION)
 
 
 prob_json='../input/problematic.json'
@@ -18,7 +18,10 @@ with open(prob_json, 'r') as f:
 print(len(problematic_nodes))
 
 from collections import defaultdict
+import sys
 import csv
+
+csv.field_size_limit(sys.maxsize)
 
 mapping={}
 startswith=defaultdict(int)

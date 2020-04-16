@@ -36,6 +36,7 @@ subject='Subject'
 objct='Object'
 in_image='InImage'
 has_prop='/r/HasProperty'
+related_to='/r/RelatedTo'
 sameas='SameAs'
 
 # ConceptNet rel-s

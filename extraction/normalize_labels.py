@@ -38,8 +38,8 @@ def normalize_rows(nodes):
 	return pd.DataFrame(new_rows, columns=config.nodes_cols)
 
 VERSION=config.VERSION
-cskg_dir='../output_v%s/cskg_merged' % VERSION
-output_merged_dir='../output_v%s/cskg_ready' % VERSION
+cskg_dir='../output_v%s/cskg' % VERSION
+output_merged_dir='../output_v%s/cskg' % VERSION
 
 cskg_nodes_file='%s/nodes_v%s.csv' % (cskg_dir, VERSION)
 merged_nodes_file='%s/nodes_v%s.csv' % (output_merged_dir, VERSION)

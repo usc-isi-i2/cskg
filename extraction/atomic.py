@@ -54,7 +54,8 @@ for event, row in df.iterrows():
 			v=v.strip()
 			n1=make_node(e)
 			n2=make_node(v)
-			my_rows.append([n1, make_node(c), n2, datasource, weight, other])
+			this_row=[n1, make_node(c), n2, datasource, weight, other]
+			my_rows.append(this_row)
 
 			if n1 not in all_nodes:
 				row1=[n1, e, '', '', datasource, other]
@@ -73,4 +74,5 @@ nodes_df=pd.DataFrame(node_rows, columns=nodes_cols)
 nodes_df.sort_values('id').to_csv(nodes_file, index=False, sep='\t')
 
 edges_df=pd.DataFrame(my_rows, columns=edges_cols)
+edges_df.drop_duplicates(subset=['subject', 'predicate','object'], inplace=True)
 edges_df.sort_values(by=['subject', 'predicate','object']).to_csv(edges_file, index=False, sep='\t')
