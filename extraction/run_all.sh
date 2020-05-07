@@ -13,8 +13,3 @@ python mapping-at-cn.py
 
 python combine-resources.py
 
-python refine_cskg.py
-python normalize_nodes.py
-python patch_problematic_labels.py
-
-prepare_cskg_for_embeddings.py

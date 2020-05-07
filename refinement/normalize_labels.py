@@ -1,8 +1,11 @@
-import config
+import sys
+sys.path.append('../')
+from extraction import config
 import json
 import pandas as pd
 import os
 from kgtk.cskg_utils import collapse_identical_nodes, deduplicate_with_transformations
+from shutil import copyfile
 
 def normalize_dicts(d):
 	new_d={}
@@ -20,6 +23,7 @@ def normalize_dicts(d):
 
 def normalize_rows(nodes):
 	new_rows=[]
+	err_num=0
 	for i, row in nodes.iterrows():
 		all_labels=row['label'].split(',') + row['aliases'].split(',')
 		all_labels=list(set(all_labels))
@@ -31,18 +35,27 @@ def normalize_rows(nodes):
 		try:
 			row['other']=normalize_dicts(row['other'])
 		except:
-			print('error with', row)
-			continue
+			row['other']={}
+			err_num+=1
 		new_rows.append(row)
 		if i%100000==0: print('processed', i)
+	print('Errors', err_num)
 	return pd.DataFrame(new_rows, columns=config.nodes_cols)
 
 VERSION=config.VERSION
-cskg_dir='../output_v%s/cskg' % VERSION
+cskg_dir='../output_v%s/cskg-refined' % VERSION
 output_merged_dir='../output_v%s/cskg' % VERSION
 
 cskg_nodes_file='%s/nodes_v%s.csv' % (cskg_dir, VERSION)
-merged_nodes_file='%s/nodes_v%s.csv' % (output_merged_dir, VERSION)
+merged_nodes_file='%s/nodes.tsv' % output_merged_dir
+
+cskg_edges_file='%s/edges_v%s.csv' % (cskg_dir, VERSION)
+merged_edges_file='%s/edges.tsv' % output_merged_dir
+
+
+copyfile(cskg_edges_file, merged_edges_file)
+
+exit(0)
 
 if not os.path.exists(output_merged_dir):
     os.makedirs(output_merged_dir)

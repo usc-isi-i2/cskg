@@ -11,43 +11,45 @@ def write_data(l, f):
         for line in l:
             spamwriter.writerow(line)
 
-def camel_case_split(str): 
-      
-    start_idx = [i for i, e in enumerate(str) 
-                 if e.isupper()] + [len(str)] 
+def camel_case_split(s): 
+    s=s.strip()
+    start_idx = [i for i, e in enumerate(s) 
+                 if e.isupper()] + [len(s)] 
   
     start_idx = [0] + start_idx 
-    return [str[x: y] for x, y in zip(start_idx, start_idx[1:])] 
+    return [s[x: y] for x, y in zip(start_idx, start_idx[1:])] 
 
-for dataset in ['cn-original']:
+dataset='cskg'
 
-    edges_file='../output_v%s/%s/edges.tsv' % (VERSION, dataset)
-    nodes_file=edges_file.replace('edges', 'nodes')
-    output_dir='../output_v%s/emb_data/%s' % (VERSION, dataset)
+edges_file='../output_v%s/%s/edges.tsv' % (VERSION, dataset)
+nodes_file=edges_file.replace('edges', 'nodes')
+output_dir='../output_v%s/emb_data/%s' % (VERSION, dataset)
 
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
+if not os.path.exists(output_dir):
+	os.makedirs(output_dir)
 
-    node2label, node2pos = extract_node_data(nodes_file)
-    rows=[]
-    with open(edges_file, 'r') as csvfile:
-        reader = csv.reader(csvfile, delimiter='\t')
-        cols=reader.__next__()
-        cols=cols[:3]
-        for row in reader:
-            my_row=row[:3]
-            my_row[2]=node2label[my_row[2]]
-            norm_rel=normalize_relation(my_row[1])
-            my_row[1]=' '.join(camel_case_split(norm_rel)).lower().strip()
-            rows.append(my_row)
+node2label, node2pos = extract_node_data(nodes_file)
+rows=[]
+with open(edges_file, 'r') as csvfile:
+	reader = csv.reader(csvfile, delimiter='\t')
+	cols=reader.__next__()
+	cols=cols[:3]
+	for row in reader:
+		my_row=row[:3]
+		if my_row[2] in node2label.keys():
+			my_row[2]=node2label[my_row[2]]
 
-    for n, l in node2label.items():
-        row=[n, 'has label', l]
-        rows.append(row)
+			norm_rel=normalize_relation(my_row[1])
+			my_row[1]=' '.join(camel_case_split(norm_rel)).lower().strip()
+			rows.append(my_row)
 
-    df=pd.DataFrame(rows, columns=cols)
+for n, l in node2label.items():
+	row=[n, 'has label', l]
+	rows.append(row)
 
-    df.sort_values(by=cols).to_csv( '%s/text_emb.tsv' % output_dir, index=False, sep='\t')
+df=pd.DataFrame(rows, columns=cols)
 
-    #write_data(rows, '%s/text_emb.tsv' % output_dir)
+df.sort_values(by=cols).to_csv( '%s/text_emb.tsv' % output_dir, index=False, sep='\t')
+
+#write_data(rows, '%s/text_emb.tsv' % output_dir)
 
