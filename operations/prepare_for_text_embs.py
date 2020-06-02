@@ -21,7 +21,7 @@ def camel_case_split(s):
     start_idx = [0] + start_idx 
     return [s[x: y] for x, y in zip(start_idx, start_idx[1:])] 
 
-dataset='cn-original'
+dataset='cskg'#cn-original'
 
 edges_file='../output_v%s/%s/edges.tsv' % (VERSION, dataset)
 nodes_file=edges_file.replace('edges', 'nodes')
@@ -45,7 +45,8 @@ with open(edges_file, 'r') as csvfile:
 			if norm_rel in COMMONSENSE_MAPPING.keys():
 				my_row[1]=COMMONSENSE_MAPPING[norm_rel]
 				#my_row[1]=' '.join(camel_case_split(norm_rel)).lower().strip()
-				rows.append(my_row)
+				if my_row and my_row[0].strip() and my_row[2].strip():
+					rows.append(my_row)
 
 for n, l in node2label.items():
 	row=[n, 'label', l]
