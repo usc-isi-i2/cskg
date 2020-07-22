@@ -1,8 +1,8 @@
 .DS_Store
-kgtk/
 *.png
 .ipynb_checkpoints/
-mowgli-in-the-jungle/
 input/
-output_*
+output/
+attic/output_v004/
+tmp/
 __pycache__
