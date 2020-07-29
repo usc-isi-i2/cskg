@@ -25,8 +25,7 @@ kgtk cat kgtk_atomic.tsv kgtk_conceptnet.tsv kgtk_roget_synonyms.tsv kgtk_roget_
 kgtk compact -i output/cskg_base.tsv -o output/cskg_compact.tsv --columns node1 relation node2 --presorted False --compact-id True --build-id --overwrite-id
 
 ## Concatenate CSKG with the mappings and deduplicate
-kgtk cat cskg_compact.tsv mapping1.tsv ... mapping6.tsv / merge --relation mw:sameAs / sort -c 'node1,relation,node2' > cskg.tsv
-
+kgtk connected_components --properties mw:SameAs      --input-file test.tsv      / lift --columns-to-lift node1 node2 --lift-suffix=      --input-file test.tsv      --label-file -      --label-select-value connected_component      / filter  --invert -p ';mw:SameAs;'      / compact --output-file output/cskg_connected.tsv
 # Working with CSKG
 
 ## Compute statistics
