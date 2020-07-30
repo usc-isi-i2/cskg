@@ -3,29 +3,34 @@
 ## Extract individual graphs
 
 ### ATOMIC
-kgtk import_atomic v4_atomic_all_agg.csv > kgtk_atomic.tsv 
+kgtk import_atomic v4_atomic_all_agg.csv > tmp/kgtk_atomic.tsv 
 
 ### ConceptNet
-kgtk import_conceptnet --english_only conceptnet-assertions.csv > kgtk_conceptnet.tsv
+kgtk import_conceptnet --english_only conceptnet-assertions.csv > tmp/kgtk_conceptnet.tsv
 
 ### ROGET
-kgtk import_concept_pairs -i antonyms.txt --source RG --relation /r/Antonym > kgtk_roget.tsv
-kgtk import_concept_pairs -i synonyms.txt --source RG --relation /r/Synonym >> kgtk_roget.tsv
+kgtk import_concept_pairs -i antonyms.txt --source RG --relation /r/Antonym > tmp/kgtk_roget_antonyms.tsv
+kgtk import_concept_pairs -i synonyms.txt --source RG --relation /r/Synonym > tmp/kgtk_roget_synonyms.tsv
 
 ### Visual Genome
-kgtk import-visualgenome -i scene_graphs.json --attr-synsets attribute_synsets.json > kgtk_visualgenome.tsv
+kgtk import-visualgenome -i input/visualgenome/scene_graphs.json --attr-synsets input/visualgenome/attribute_synsets.json > tmp/kgtk_visualgenome.tsv
 
 ### WordNet
-kgtk import_wordnet > kgtk_wordnet.tsv
+kgtk import_wordnet > tmp/kgtk_wordnet.tsv
 
 ## Combine sources and add IDs
-kgtk cat kgtk_atomic.tsv kgtk_conceptnet.tsv kgtk_roget_synonyms.tsv kgtk_roget_antonyms.tsv kgtk_wordnet.tsv kgtk_visualgenome.tsv / sort -c 'node1,relation,node2' / add_id --id-style node1-label-num / reorder_columns --columns id ... > cskg_base.tsv
+kgtk cat tmp/kgtk_atomic.tsv tmp/kgtk_conceptnet.tsv tmp/kgtk_roget_synonyms.tsv tmp/kgtk_roget_antonyms.tsv tmp/kgtk_wordnet.tsv tmp/kgtk_visualgenome.tsv / sort -c 'node1,relation,node2' / add_id --id-style node1-label-num / reorder_columns --columns id ... > output/cskg_base.tsv
 
 ## Compact the graph
 kgtk compact -i output/cskg_base.tsv -o output/cskg_compact.tsv --columns node1 relation node2 --presorted False --compact-id True --build-id --overwrite-id
 
+## Concatenate mappings
+kgtk cat output/cskg_compact.tsv tmp/mapping_wn_wn.tsv tmp/lexical_mappings.tsv > output/cskg_compact_with_mappings.tsv
+
 ## Concatenate CSKG with the mappings and deduplicate
-kgtk connected_components --properties mw:SameAs      --input-file test.tsv      / lift --columns-to-lift node1 node2 --lift-suffix=      --input-file test.tsv      --label-file -      --label-select-value connected_component      / filter  --invert -p ';mw:SameAs;'      / compact --output-file output/cskg_connected.tsv
+kgtk connected_components --properties mw:SameAs      --input-file output/cskg_compact_with_mappings.tsv      / lift --columns-to-lift node1 node2 --lift-suffix=      --input-file output/cskg_compact_with_mappings.tsv      --label-file -      --label-select-value connected_component      / filter  --invert -p ';mw:SameAs;'      / compact --output-file output/cskg_connected.tsv --columns node1 relation node2 --compact-id --overwrite-id True --build-id --overwrite-id
+
+
 # Working with CSKG
 
 ## Compute statistics
