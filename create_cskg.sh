@@ -3,14 +3,14 @@
 ## Extract individual graphs
 
 ### ATOMIC
-kgtk import_atomic v4_atomic_all_agg.csv > tmp/kgtk_atomic.tsv 
+kgtk import_atomic input/v4_atomic_all_agg.csv > tmp/kgtk_atomic.tsv 
 
 ### ConceptNet
-kgtk import_conceptnet --english_only conceptnet-assertions.csv > tmp/kgtk_conceptnet.tsv
+kgtk import_conceptnet --english_only input/conceptnet-assertions-5.7.0.csv > tmp/kgtk_conceptnet.tsv
 
 ### ROGET
-kgtk import_concept_pairs -i antonyms.txt --source RG --relation /r/Antonym > tmp/kgtk_roget_antonyms.tsv
-kgtk import_concept_pairs -i synonyms.txt --source RG --relation /r/Synonym > tmp/kgtk_roget_synonyms.tsv
+kgtk import_concept_pairs -i input/antonyms.txt --source RG --relation /r/Antonym > tmp/kgtk_roget_antonyms.tsv
+kgtk import_concept_pairs -i input/synonyms.txt --source RG --relation /r/Synonym > tmp/kgtk_roget_synonyms.tsv
 
 ### Visual Genome
 kgtk import-visualgenome -i input/visualgenome/scene_graphs.json --attr-synsets input/visualgenome/attribute_synsets.json > tmp/kgtk_visualgenome.tsv
@@ -19,7 +19,7 @@ kgtk import-visualgenome -i input/visualgenome/scene_graphs.json --attr-synsets 
 kgtk import_wordnet > tmp/kgtk_wordnet.tsv
 
 ## Combine sources and add IDs
-kgtk cat tmp/kgtk_atomic.tsv tmp/kgtk_conceptnet.tsv tmp/kgtk_roget_synonyms.tsv tmp/kgtk_roget_antonyms.tsv tmp/kgtk_wordnet.tsv tmp/kgtk_visualgenome.tsv / sort -c 'node1,relation,node2' / add_id --id-style node1-label-num / reorder_columns --columns id ... > output/cskg_base.tsv
+kgtk cat tmp/kgtk_atomic.tsv tmp/kgtk_conceptnet.tsv tmp/kgtk_roget_synonyms.tsv tmp/kgtk_roget_antonyms.tsv tmp/kgtk_wordnet.tsv tmp/kgtk_visualgenome.tsv / sort -c 'node1,relation,node2' / add_id --id-style node1-label-node2-num / reorder_columns --columns id ... > output/cskg_base.tsv
 
 ## Compact the graph
 kgtk compact -i output/cskg_base.tsv -o output/cskg_compact.tsv --columns node1 relation node2 --presorted False --compact-id True --build-id --overwrite-id

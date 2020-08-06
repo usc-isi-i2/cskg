@@ -26,7 +26,7 @@ with open(input_file, 'r') as f:
     header=next(f)
     for line in f:
         data=line.split('\t')
-        if check_source(data[9], sources):
+        if check_source(data[8], sources):
             node1=data[1]
             node2=data[3]
             if lexical_node(node1):
@@ -44,6 +44,6 @@ with open('tmp/lexical_mappings.tsv', 'w') as w:
 
         list_ids=list(ids)
         for i in range(len(list_ids)-1):
-            edge_id='%s-%s-%s' % (list_ids[i], identity_rel, list_ids[i+1])
-            row=[edge_id, list_ids[i], identity_rel, list_ids[i+1], '', '', '', '', '', '', '', '', '']
+            edge_id='%s-%s-%s-1' % (list_ids[i], identity_rel, list_ids[i+1])
+            row=[edge_id, list_ids[i], identity_rel, list_ids[i+1], '', '', '', '', 'LEX', '']
             w.write('\t'.join(row) + '\n')
