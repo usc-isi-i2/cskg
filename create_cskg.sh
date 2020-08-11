@@ -34,7 +34,7 @@ kgtk connected_components --properties mw:SameAs      --input-file output/cskg_c
 # Working with CSKG
 
 ## Compute statistics
-kgtk graph_statistics -i cskg.tsv --directed --degrees --hits --pagerank --statistics-only --log summary.txt
+kgtk graph_statistics -i output/cskg_connected.tsv --directed --degrees --hits --pagerank --statistics-only --log summary.txt > /dev/null
 
 ## Compute embeddings
 kgtk unlift node1;label node2;label -i cskg.tsv / \
