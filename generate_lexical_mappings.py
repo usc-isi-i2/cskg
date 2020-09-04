@@ -1,4 +1,5 @@
 from collections import defaultdict
+from kgtk.kgtkformat import KgtkFormat
 
 def check_source(s, sources):
     if '|' in s:
@@ -45,5 +46,5 @@ with open('tmp/lexical_mappings.tsv', 'w') as w:
         list_ids=list(ids)
         for i in range(len(list_ids)-1):
             edge_id='%s-%s-%s-1' % (list_ids[i], identity_rel, list_ids[i+1])
-            row=[edge_id, list_ids[i], identity_rel, list_ids[i+1], '', '', '', '', 'LEX', '']
+            row=[edge_id, list_ids[i], identity_rel, list_ids[i+1], '', '', '', '', KgtkFormat.stringify('LEX'), '']
             w.write('\t'.join(row) + '\n')
