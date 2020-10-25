@@ -20,9 +20,9 @@ os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 
 # CPU limitation:
 # method 1 sometimes doesn't work
-# torch.set_num_threads(2) # Sets the number of threads used for intraop parallelism on CPU.
+# torch.set_num_threads(1) # Sets the number of threads used for intraop parallelism on CPU.
 # method 2
-OMP_NUM_THREADS='2'
+OMP_NUM_THREADS='1'
 os.environ["OMP_NUM_THREADS"] = OMP_NUM_THREADS
 
 def tsv_process(tsv_file,output_file): 
