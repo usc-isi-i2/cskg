@@ -18,12 +18,12 @@ from torchbiggraph.converters.export_to_tsv import *
 os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 
 
-# CPU limitation:
+# CPU limitation: useless on linux server
 # method 1 sometimes doesn't work
 # torch.set_num_threads(1) # Sets the number of threads used for intraop parallelism on CPU.
 # method 2
-OMP_NUM_THREADS='1'
-os.environ["OMP_NUM_THREADS"] = OMP_NUM_THREADS
+# OMP_NUM_THREADS='1'
+# os.environ["OMP_NUM_THREADS"] = OMP_NUM_THREADS
 
 def tsv_process(tsv_file,output_file): 
     output = open(output_file,'w')
@@ -49,6 +49,9 @@ def tsv_process(tsv_file,output_file):
 	',default='dot',type=click.Choice(['dot','cos','l2','squared_l2']),metavar='')
 @click.option('-b','--bias',help='Whether use the bias choice [Default: False]',type=bool,default=False,metavar='')
 @click.option('-e','--num_epochs',help='Training epoch numbers[Default: 100]',type=int,default=100,metavar='')
+@click.option('-op','--operator',help='Operator types, it reflects which model that PBG uses. [Default:complex_diagonal] Choice: translation\
+|linear|diagonal|complex_diagonal TransE=>translation, RESCAL=>linear, DistMult=>diagonal,\
+ComplEx=>complex_diagonal',default='complex_diagonal',type=click.Choice(['translation','linear','diagonal','complex_diagonal']),metavar='')
 @click.option('-ge','--global_emb',help='Whether use global embedding [Default: False]',type=bool,default=False,metavar='')
 @click.option('-lf','--loss_fn',help='Type of loss function [Default: ranking] \
 	Choice: ranking|logistic|softmax ',default='ranking',type=click.Choice(['ranking','logistic','softmax']),metavar='')

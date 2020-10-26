@@ -16,7 +16,7 @@ def get_config(**args):
             "name": "all_edges",
             "lhs": "all",
             "rhs": "all",
-            "operator": "complex_diagonal",
+            "operator": args['operator'],
         }
         ],
         dynamic_relations=args['dynamic_relaitons'],
