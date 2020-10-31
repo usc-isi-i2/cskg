@@ -34,26 +34,36 @@ kgtk cat tmp/kgtk_compact_quoted.tsv --output-format tsv-unquoted / add_id --id-
 ## Concatenate CSKG with the mappings and deduplicate
 kgtk connected_components -i tmp/kgtk_compact_quoted.tsv --properties mw:SameAs --cluster-name-method lowest      / lift --columns-to-lift node1 node2 --lift-suffix=      --input-file tmp/kgtk_compact_quoted.tsv     --label-file -      --label-select-value connected_component      / filter  --invert -p ';mw:SameAs;'      / compact --columns node1 relation node2 --presorted False / cat --output-format tsv-unquoted / add_id --id-style node1-label-node2-num / reorder_columns --columns id ... > output/cskg_connected.tsv
 
+## Same, but keep the quotes
+kgtk connected_components -i tmp/kgtk_compact_quoted.tsv --properties mw:SameAs --cluster-name-method lowest      / lift --columns-to-lift node1 node2 --lift-suffix=      --input-file tmp/kgtk_compact_quoted.tsv     --label-file -      --label-select-value connected_component      / filter  --invert -p ';mw:SameAs;'      / compact --columns node1 relation node2 --presorted False / add_id --id-style node1-label-node2-num / reorder_columns --columns id ... > output/cskg_connected.kgtk
+
 # Working with CSKG
 
 ## Compute statistics
 kgtk graph_statistics -i output/cskg_connected.tsv --directed --degrees --hits --pagerank --statistics-only --log summary.txt > /dev/null
 
 ## Compute embeddings
-kgtk unlift node1;label node2;label -i cskg.tsv / \
-sort -c / text_embedding \
-            --debug --embedding-projector-metadata-path none \
-            --embedding-projector-metadata-path none \
-            --label-properties "label" \
-            --isa-properties "/r/IsA" \
-            --description-properties "/r/DefinedAs" \
-            --property-value "/r/Causes" "/r/UsedFor" \
-            --has-properties "" \
-            -f kgtk_format \
-            --output-format kgtk_format \
-            --use-cache \
-            --model bert-large-nli-cls-token \
-            > cskg_embedings.txt
+kgtk normalize -i output/cskg_connected.kgtk --columns "node1;label" "relation;label" "node2;label" / \
+sort -c 2,3,4 > tmp/sorted.tsv
+gzip -c tmp/sorted.tsv > output/cskg_connected_normalized.tsv.gz
+
+kgtk text_embedding \
+    --embedding-projector-metadata-path none \
+    --label-properties "label" \
+    --isa-properties "/r/IsA" \
+    --description-properties "/r/DefinedAs" \
+    --property-value "/r/Causes" "/r/UsedFor" "/r/PartOf" "/r/AtLocation" "/r/CapableOf" \
+    "/r/CausesDesire" "/r/SymbolOf" "/r/MadeOf" "/r/LocatedNear" "/r/Desires" "/r/HasProperty" "/r/HasFirstSubevent" \
+    "/r/HasLastSubevent" "at:xAttr" "at:xEffect" "at:xIntent" "at:xNeed" "at:xReact" "at:xWant" \
+    --has-properties "" \
+    -f kgtk_format \
+    --output-data-format kgtk_format \
+    --model bert-large-nli-cls-token \
+    --save-embedding-sentence \
+    -i output/cskg_connected_normalized.tsv.gz \
+    -p output/cskg_connected_normalized.tsv.gz \
+    > output/cskg_embedings.txt
+
 
 ## Compute paths
-kgtk paths --max_hops 2 --path_file path_nodes.tsv -i cskg.tsv --statistics_only --directed > paths.tsv
+kgtk paths --max_hops 2 --path_file path_nodes.tsv -i output/cskg_connected.kgtk --statistics_only --directed > paths.tsv

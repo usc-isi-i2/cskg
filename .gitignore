@@ -1,8 +1,11 @@
 .DS_Store
 *.png
+.cache
 .ipynb_checkpoints/
 input/
 output/
+stats/
+psl_files/
 attic/output_v004/
 tmp/
 __pycache__
