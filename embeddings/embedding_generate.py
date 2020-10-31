@@ -2,6 +2,7 @@ import h5py
 import numpy
 import click
 import json
+import gzip
 from torchbiggraph.config import parse_config
 from torchbiggraph.converters.export_to_tsv import *
 
@@ -30,6 +31,16 @@ def main(**args):
         relation_types_output, "xt"
     ) as relation_types_tf:
         make_tsv(config, entities_tf, relation_types_tf)
+
+
+    #  compress embeddings .tsv into .gz file 
+    print('Converting embedding tsv file into .gz file...')
+    f_in = open(entities_output,'rb')
+    f_out = gzip.open(f'{entities_output}.gz','wb')
+    f_out.write(f_in.read())
+    f_in.close()
+    f_out.close()
+    print('.gz file generated.')
 
 
 if __name__ == "__main__":
