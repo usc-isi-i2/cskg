@@ -1,0 +1,538 @@
+Sentence 1	Sentence 2	Combined
+A sign on the facade of the building	A tall brick building with many windows	A sign on the facade of the building with many windows
+A sign on the facade of the building	A building with a lot of glass windows. 	A sign on the facade of the building with a lot of glass windows.
+A tree trunk on the sidewalk	A brick sidewalk beside the street	A tree trunk on the sidewalk beside the street
+a parking meter is on the sidewalk	A brick sidewalk beside the street	a parking meter is on the sidewalk beside the street
+A bicycle parked on the sidewalk.	A brick sidewalk beside the street	A bicycle parked on the sidewalk beside the street
+A bicycle parked on the sidewalk.	A brick sidewalk beside the street	A bicycle parked on the sidewalk beside the street
+bicycles on the sidewalk	A brick sidewalk beside the street	bicycles on the sidewalk beside the street
+parking meter on the sidewalk	man is wearing sneakers	parking meter on the sidewalk and man is wearing sneakers
+parking meter on the sidewalk	A man in a red shirt	parking meter on the sidewalk and A man in a red shirt
+parking meter on the sidewalk	a man is wearing glasses	parking meter on the sidewalk and a man is wearing glasses
+parking meter on the sidewalk	a man wears grey shoes	parking meter on the sidewalk and a man wears grey shoes
+parking meter on the sidewalk	a man has brown shoes on 	parking meter on the sidewalk and a man has brown shoes on
+parking meter on the sidewalk	A man dressed in a red shirt and black pants. 	parking meter on the sidewalk and A man dressed in a red shirt and black pants.
+parking meter on the sidewalk	A man wearing a gray jacket and gray pants. 	parking meter on the sidewalk and A man wearing a gray jacket and gray pants.
+parking meter on the sidewalk	man is wearing red tshirt	parking meter on the sidewalk and man is wearing red tshirt
+parking meter on the sidewalk	man is holding his chin	parking meter on the sidewalk and man is holding his chin
+parking meter on the sidewalk	man is wearing brown shoes	parking meter on the sidewalk and man is wearing brown shoes
+parking meter on the sidewalk	man is wearing glasses	parking meter on the sidewalk and man is wearing glasses
+parking meter on the sidewalk	the man wears a red t shirt 	parking meter on the sidewalk and the man wears a red t shirt
+parking meter on the sidewalk	a man in glasses	parking meter on the sidewalk and a man in glasses
+parking meter on the sidewalk	A man in a gray hoodie	parking meter on the sidewalk and A man in a gray hoodie
+parking meter on the sidewalk	man wearing silver backpack	parking meter on the sidewalk and man wearing silver backpack
+parking meter on the sidewalk	man is about to cross the road	parking meter on the sidewalk and man is about to cross the road
+bikes have been parked near a tree	trees line up the street	bikes have been parked near a tree line up the street
+bikes have been parked near a tree	3 green trees line street	bikes have been parked near a tree line street
+bikes have been parked near a tree	trees are along the road	bikes have been parked near a tree are along the road
+bikes are packed near the trees	trees line up the street	bikes are packed near the trees and trees line up the street
+bikes are packed near the trees	3 green trees line street	bikes are packed near the trees and 3 green trees line street
+bikes are packed near the trees	trees are along the road	bikes are packed near the trees and trees are along the road
+man wearing a red shirt	man is wearing sneakers	man wearing a red shirt and man is wearing sneakers
+man wearing a red shirt	a man is wearing glasses	man wearing a red shirt and a man is wearing glasses
+man wearing a red shirt	a man wears grey shoes	man wearing a red shirt and a man wears grey shoes
+man wearing a red shirt	a man has brown shoes on 	man wearing a red shirt and a man has brown shoes on
+man wearing a red shirt	A man dressed in a red shirt and black pants. 	man wearing a red shirt and A man dressed in a red shirt and black pants.
+man wearing a red shirt	A man wearing a gray jacket and gray pants. 	man wearing a red shirt and A man wearing a gray jacket and gray pants.
+man wearing a red shirt	man is holding his chin	man wearing a red shirt and man is holding his chin
+man wearing a red shirt	man is wearing brown shoes	man wearing a red shirt and man is wearing brown shoes
+man wearing a red shirt	man is wearing glasses	man wearing a red shirt and man is wearing glasses
+man wearing a red shirt	a man in glasses	man wearing a red shirt and a man in glasses
+man wearing a red shirt	A man in a gray hoodie	man wearing a red shirt and A man in a gray hoodie
+man wearing a red shirt	man wearing silver backpack	man wearing a red shirt and man wearing silver backpack
+man wearing a red shirt	man is about to cross the road	man wearing a red shirt and man is about to cross the road
+bicycles are seen in the bckground	man is wearing sneakers	bicycles are seen in the bckground and man is wearing sneakers
+bicycles are seen in the bckground	A man in a red shirt	bicycles are seen in the bckground and A man in a red shirt
+bicycles are seen in the bckground	a man is wearing glasses	bicycles are seen in the bckground and a man is wearing glasses
+bicycles are seen in the bckground	a man wears grey shoes	bicycles are seen in the bckground and a man wears grey shoes
+bicycles are seen in the bckground	a man has brown shoes on 	bicycles are seen in the bckground and a man has brown shoes on
+bicycles are seen in the bckground	A man dressed in a red shirt and black pants. 	bicycles are seen in the bckground and A man dressed in a red shirt and black pants.
+bicycles are seen in the bckground	A man wearing a gray jacket and gray pants. 	bicycles are seen in the bckground and A man wearing a gray jacket and gray pants.
+bicycles are seen in the bckground	man is wearing red tshirt	bicycles are seen in the bckground and man is wearing red tshirt
+bicycles are seen in the bckground	man is holding his chin	bicycles are seen in the bckground and man is holding his chin
+bicycles are seen in the bckground	man is wearing brown shoes	bicycles are seen in the bckground and man is wearing brown shoes
+bicycles are seen in the bckground	man is wearing glasses	bicycles are seen in the bckground and man is wearing glasses
+bicycles are seen in the bckground	the man wears a red t shirt 	bicycles are seen in the bckground and the man wears a red t shirt
+bicycles are seen in the bckground	a man in glasses	bicycles are seen in the bckground and a man in glasses
+bicycles are seen in the bckground	A man in a gray hoodie	bicycles are seen in the bckground and A man in a gray hoodie
+bicycles are seen in the bckground	man wearing silver backpack	bicycles are seen in the bckground and man wearing silver backpack
+bicycles are seen in the bckground	man is about to cross the road	bicycles are seen in the bckground and man is about to cross the road
+trees line the sidewalk	A brick sidewalk beside the street	trees line the sidewalk beside the street
+A tall brick building with many windows	windows with a view of the outside	A tall brick building with many windows with a view of the outside
+crosswalk	man is wearing sneakers	crosswalk and man is wearing sneakers
+crosswalk	A man in a red shirt	crosswalk and A man in a red shirt
+crosswalk	a man is wearing glasses	crosswalk and a man is wearing glasses
+crosswalk	a man wears grey shoes	crosswalk and a man wears grey shoes
+crosswalk	a man has brown shoes on 	crosswalk and a man has brown shoes on
+crosswalk	A man dressed in a red shirt and black pants. 	crosswalk and A man dressed in a red shirt and black pants.
+crosswalk	A man wearing a gray jacket and gray pants. 	crosswalk and A man wearing a gray jacket and gray pants.
+crosswalk	man is wearing red tshirt	crosswalk and man is wearing red tshirt
+crosswalk	man is holding his chin	crosswalk and man is holding his chin
+crosswalk	man is wearing brown shoes	crosswalk and man is wearing brown shoes
+crosswalk	man is wearing glasses	crosswalk and man is wearing glasses
+crosswalk	the man wears a red t shirt 	crosswalk and the man wears a red t shirt
+crosswalk	a man in glasses	crosswalk and a man in glasses
+crosswalk	A man in a gray hoodie	crosswalk and A man in a gray hoodie
+crosswalk	man wearing silver backpack	crosswalk and man wearing silver backpack
+bike is next to the car	cars headlights are off	bike is next to the car headlights are off
+bike is next to the car	The back of a white car	bike is next to the car 
+bike is next to the car	A white car parked on the street. 	bike is next to the car parked on the street.
+bike is next to the car	red car parked on road	bike is next to the car parked on road
+bike is next to the car	A white car parked on the side of the road. 	bike is next to the car parked on the side of the road.
+bike is next to the car	red car is parked along the road	bike is next to the car is parked along the road
+man is about to cross the road	the road is marked white 	man is about to cross the road and the road is marked white
+two-drawer filing cabinet	drawers have silver handles	two-drawer filing cabinet and drawers have silver handles
+two-drawer filing cabinet	the top right drawer of the desk	two-drawer filing cabinet and the top right drawer of the desk
+two-drawer filing cabinet	drawers have silver handles	two-drawer filing cabinet and drawers have silver handles
+two-drawer filing cabinet	the top right drawer of the desk	two-drawer filing cabinet and the top right drawer of the desk
+A computer keyboard and mouse	desktop CPU, monitor and keyboard	A computer keyboard and mouse and desktop CPU, monitor and keyboard
+A computer keyboard and mouse	white computer keyboard with grey keys	A computer keyboard and mouse and white computer keyboard with grey keys
+A computer keyboard and mouse	keyboard sitting on desk	A computer keyboard and mouse and keyboard sitting on desk
+A computer keyboard and mouse	Computer keyboard on a desk	A computer keyboard and mouse and Computer keyboard on a desk
+A computer keyboard and mouse	the computer keyboard	A computer keyboard and mouse and the computer keyboard
+A computer keyboard and mouse	desktop computer monitor and keyboard	A computer keyboard and mouse and desktop computer monitor and keyboard
+A computer keyboard and mouse	keyboard is on the desk	A computer keyboard and mouse and keyboard is on the desk
+girl sitting in front of a monitor	three-month calendar on wall	girl sitting in front of a monitor and three-month calendar on wall
+mouse next to keyboard 	desktop CPU, monitor and keyboard	mouse next to keyboard 
+mouse next to keyboard 	white computer keyboard with grey keys	mouse next to keyboard with grey keys
+mouse next to keyboard 	keyboard sitting on desk	mouse next to keyboard sitting on desk
+mouse next to keyboard 	Computer keyboard on a desk	mouse next to keyboard on a desk
+mouse next to keyboard 	the computer keyboard	mouse next to keyboard 
+mouse next to keyboard 	desktop computer monitor and keyboard	mouse next to keyboard 
+mouse next to keyboard 	keyboard is on the desk	mouse next to keyboard is on the desk
+electrical outlets in the wall 	four outlets on the wall	electrical outlets in the wall 
+electrical outlets in the wall 	four outlets on the wall	electrical outlets in the wall 
+three-month calendar on wall	four outlets on the wall	three-month calendar on wall 
+picture are on the wall	four outlets on the wall	picture are on the wall 
+a pen is next to the phone	a black telephone on the desk	a pen is next to the phone and a black telephone on the desk
+a pen is next to the phone	it is a black telephone on the table	a pen is next to the phone and it is a black telephone on the table
+woman is working on her computer	a laptop computer on a desk	woman is working on her computer on a desk
+woman is working on her computer	a grey laptop is a top of a desk	woman is working on her computer grey laptop is a top of a desk
+woman is working on her computer	Laptop computer on a table	woman is working on her computer on a table
+woman is working on her computer	A white computer keyboard. 	woman is working on her computer keyboard.
+photos are on the wall	four outlets on the wall	photos are on the wall 
+a pen is laying next to the telephone	a black telephone on the desk	a pen is laying next to the telephone and a black telephone on the desk
+a pen is laying next to the telephone	it is a black telephone on the table	a pen is laying next to the telephone and it is a black telephone on the table
+dividing screen has a picture stuck to it	A partition between cubicles	dividing screen has a picture stuck to it and A partition between cubicles
+a white pillow is on the couch	A purple futon with a wooden frame	a white pillow is on the couch and A purple futon with a wooden frame
+a teddy bear lies against a pillow	a white pillow is on the couch	a teddy bear lies against a pillow is on the couch
+a teddy bear lies against a pillow	Purple futon with white pillow and teddy bear	a teddy bear lies against a pillow and teddy bear
+A stuffed animal against a white pillow	a white pillow is on the couch	A stuffed animal against a white pillow is on the couch
+A stuffed animal against a white pillow	Purple futon with white pillow and teddy bear	A stuffed animal against a white pillow and teddy bear
+Black floor lamp behind a futon	A purple futon with a wooden frame	Black floor lamp behind a futon and A purple futon with a wooden frame
+Purple futon with white pillow and teddy bear	A purple futon with a wooden frame	Purple futon with white pillow and teddy bear and A purple futon with a wooden frame
+Glass dinette table and chairs near a window	A glass table top near a window	Glass dinette table and chairs near a window and A glass table top near a window
+Glass dinette table and chairs near a window	glass top table 	Glass dinette table and chairs near a window and glass top table
+teddy bear sitting on the sofa	A purple futon with a wooden frame	teddy bear sitting on the sofa and A purple futon with a wooden frame
+a white printer is next to the monitor	computer monitor on desk	a white printer is next to the monitor and computer monitor on desk
+a white printer is next to the monitor	computer monitor sitting on desk	a white printer is next to the monitor and computer monitor sitting on desk
+rows of books on two shelves	the shelf is on the wall	rows of books on two shelves shelf is on the wall
+rows of books on two shelves	A single bookshelf on the wall	rows of books on two shelves single bookshelf on the wall
+Books on wall shelf	four outlets on the wall	Books on wall shelf and four outlets on the wall
+cork board propped against wall	four outlets on the wall	cork board propped against wall 
+Paper on bulletin board	cork board propped against wall	Paper on bulletin board and cork board propped against wall
+there is an air conditioner on the wall	four outlets on the wall	there is an air conditioner on the wall 
+the shelf is on the wall	four outlets on the wall	the shelf is on the wall 
+Books on a bookshelf	the shelf is on the wall	Books on a bookshelf and the shelf is on the wall
+Books on a bookshelf	A single bookshelf on the wall	Books on a bookshelf and A single bookshelf on the wall
+A messy room with a computer	a laptop computer on a desk	A messy room with a computer on a desk
+A messy room with a computer	a grey laptop is a top of a desk	A messy room with a computer grey laptop is a top of a desk
+A messy room with a computer	Laptop computer on a table	A messy room with a computer on a table
+A messy room with a computer	A white computer keyboard. 	A messy room with a computer keyboard.
+A single bookshelf on the wall	four outlets on the wall	A single bookshelf on the wall 
+Some clothing piled on a chair	A black chair with blue padding.	Some clothing piled on a chair with blue padding
+Some clothing piled on a chair	A slender chair next to the table	Some clothing piled on a chair next to the table
+Some clothing piled on a chair	Glass dinette table and chairs near a window	Some clothing piled on a chair near a window
+Some clothing piled on a chair	two chairs near a desk	Some clothing piled on a chair near a desk
+Some clothing piled on a chair	brown chair against the wall	Some clothing piled on a chair against the wall
+Some clothing piled on a chair	a brown chair is against the wall	Some clothing piled on a chair is against the wall
+Some clothing piled on a chair	The legs of a chair under the counter	Some clothing piled on a chair under the counter
+Some clothing piled on a chair	desk chair with wheels	Some clothing piled on a chair with wheels
+Some clothing piled on a chair	Red and blue jacket hanging on back of chair	Some clothing piled on a chair 
+brown chair against the wall	four outlets on the wall	brown chair against the wall 
+an air conditioner is on the wall	four outlets on the wall	an air conditioner is on the wall 
+a brown chair is against the wall	four outlets on the wall	a brown chair is against the wall 
+red shiny apple on the counter	Glass with liquid in it	red shiny apple on the counter and Glass with liquid in it
+red shiny apple on the counter	glass has milk in it	red shiny apple on the counter and glass has milk in it
+red shiny apple on the counter	three drinking glasses on counter	red shiny apple on the counter and three drinking glasses on counter
+red lid on sports bottle	Handle of wooden drawer	red lid on sports bottle and Handle of wooden drawer
+glass with milk in it	Glass with liquid in it	glass with milk in it and Glass with liquid in it
+glass with milk in it	glass has milk in it	glass with milk in it and glass has milk in it
+glass with milk in it	three drinking glasses on counter	glass with milk in it and three drinking glasses on counter
+glass with milk in it	glass with milk in it	glass with milk in it and glass with milk in it
+Red plastic top of water bottle	red lid on sports bottle	Red plastic top of water bottle and red lid on sports bottle
+Red plastic top of water bottle	Red plastic top of water bottle	Red plastic top of water bottle and Red plastic top of water bottle
+Glass with liquid in it	glass with milk in it	Glass with liquid in it and glass with milk in it
+Glass with liquid in it	Glass with liquid in it	Glass with liquid in it and Glass with liquid in it
+Glass with liquid in it	A glass of milk. 	Glass with liquid in it and A glass of milk.
+Glass with liquid in it	glass has milk in it	Glass with liquid in it and glass has milk in it
+Glass with liquid in it	three drinking glasses on counter	Glass with liquid in it and three drinking glasses on counter
+Glass with liquid in it	a partially empty glass of milk someone drank	Glass with liquid in it and a partially empty glass of milk someone drank
+Glass with liquid in it	the glass contains milk	Glass with liquid in it and the glass contains milk
+Glass with liquid in it	partial glass of milk	Glass with liquid in it and partial glass of milk
+A glass of milk. 	glass with milk in it	A glass of milk. and glass with milk in it
+glass has milk in it	glass with milk in it	glass has milk in it and glass with milk in it
+glass has milk in it	Glass with liquid in it	glass has milk in it and Glass with liquid in it
+glass has milk in it	glass has milk in it	glass has milk in it and glass has milk in it
+glass has milk in it	three drinking glasses on counter	glass has milk in it and three drinking glasses on counter
+Bag of food on the counter	black bag on the desk	Bag of food on the counter and black bag on the desk
+Bag of food on the counter	black bag is on the table	Bag of food on the counter and black bag is on the table
+Bag of food on the counter	Bag of food on the counter	Bag of food on the counter and Bag of food on the counter
+Bag of food on the counter	a black pot holder resting on a bowl	Bag of food on the counter and a black pot holder resting on a bowl
+Bag of food on the counter	A potholder next to a plastic bowl	Bag of food on the counter and A potholder next to a plastic bowl
+Bag of food on the counter	"a money bag on a stack of papers
+"	"Bag of food on the counter and a money bag on a stack of papers
+"
+A bag of baby carrots. 	black bag on the desk	A bag of baby carrots. and black bag on the desk
+A bag of baby carrots. 	black bag is on the table	A bag of baby carrots. and black bag is on the table
+A bag of baby carrots. 	Bag of food on the counter	A bag of baby carrots. and Bag of food on the counter
+A bag of baby carrots. 	a black pot holder resting on a bowl	A bag of baby carrots. and a black pot holder resting on a bowl
+A bag of baby carrots. 	A potholder next to a plastic bowl	A bag of baby carrots. and A potholder next to a plastic bowl
+A bag of baby carrots. 	"a money bag on a stack of papers
+"	"A bag of baby carrots. and a money bag on a stack of papers
+"
+a partially empty glass of milk someone drank	glass with milk in it	a partially empty glass of milk someone drank and glass with milk in it
+a bag of raw carrots	black bag on the desk	a bag of raw carrots and black bag on the desk
+a bag of raw carrots	black bag is on the table	a bag of raw carrots and black bag is on the table
+a bag of raw carrots	Bag of food on the counter	a bag of raw carrots and Bag of food on the counter
+a bag of raw carrots	a black pot holder resting on a bowl	a bag of raw carrots and a black pot holder resting on a bowl
+a bag of raw carrots	A potholder next to a plastic bowl	a bag of raw carrots and A potholder next to a plastic bowl
+a bag of raw carrots	"a money bag on a stack of papers
+"	"a bag of raw carrots and a money bag on a stack of papers
+"
+a black pot holder resting on a bowl	Plastic bowl on the counter	a black pot holder resting on a bowl and Plastic bowl on the counter
+a black pot holder resting on a bowl	Empty plastic dish with a cover	a black pot holder resting on a bowl and Empty plastic dish with a cover
+the glass contains milk	glass with milk in it	the glass contains milk and glass with milk in it
+Glass with some liquid in it	Glass with liquid in it	Glass with some liquid in it and Glass with liquid in it
+Glass with some liquid in it	glass has milk in it	Glass with some liquid in it and glass has milk in it
+Glass with some liquid in it	three drinking glasses on counter	Glass with some liquid in it and three drinking glasses on counter
+A potholder next to a plastic bowl	Plastic bowl on the counter	A potholder next to a plastic bowl and Plastic bowl on the counter
+A potholder next to a plastic bowl	Empty plastic dish with a cover	A potholder next to a plastic bowl and Empty plastic dish with a cover
+The legs of a chair under the counter	The legs of a chair under the counter	The legs of a chair under the counter and The legs of a chair under the counter
+The legs of a chair under the counter	The legs of a chair under the counter	The legs of a chair under the counter and The legs of a chair under the counter
+partial glass of milk	glass with milk in it	partial glass of milk and glass with milk in it
+plastic bag of carrots	Bag of food on the counter	plastic bag of carrots and Bag of food on the counter
+a yellow sticky note on the monitor	Computer monitor and keyboard. 	a yellow sticky note on the monitor and keyboard.
+a yellow sticky note on the monitor	white computer monitor on the desk	a yellow sticky note on the monitor on the desk
+a yellow sticky note on the monitor	ancient computer monitor next to water bottle	a yellow sticky note on the monitor next to water bottle
+a yellow sticky note on the monitor	a white computer monitor on the desk	a yellow sticky note on the monitor on the desk
+a yellow sticky note on the monitor	planes are on the monitors screen	a yellow sticky note on the monitor screen
+a young lady is seated looking at the monitor	Computer monitor and keyboard. 	a young lady is seated looking at the monitor and keyboard.
+a young lady is seated looking at the monitor	white computer monitor on the desk	a young lady is seated looking at the monitor on the desk
+a young lady is seated looking at the monitor	ancient computer monitor next to water bottle	a young lady is seated looking at the monitor next to water bottle
+a young lady is seated looking at the monitor	a white computer monitor on the desk	a young lady is seated looking at the monitor on the desk
+a young lady is seated looking at the monitor	planes are on the monitors screen	a young lady is seated looking at the monitor screen
+papers are next to the board	a white board with writings on it	papers are next to the board and a white board with writings on it
+papers are next to the board	A whiteboard on the wall	papers are next to the board and A whiteboard on the wall
+papers are next to the board	White board with writing. 	papers are next to the board and White board with writing.
+papers are next to the board	the board has red writings	papers are next to the board and the board has red writings
+a red  pen atop of a book	a purple book is on the desk	a red  pen atop of a book is on the desk
+a red  pen atop of a book	a blue book is on the shelf	a red  pen atop of a book is on the shelf
+a red  pen atop of a book	red book on the table	a red  pen atop of a book on the table
+a red  pen atop of a book	book with papers on top of it	a red  pen atop of a book with papers on top of it
+a red  pen atop of a book	Red book on a table	a red  pen atop of a book on a table
+A whiteboard on the wall	four outlets on the wall	A whiteboard on the wall 
+A red wrist pad on a keyboard	desktop CPU, monitor and keyboard	A red wrist pad on a keyboard 
+A red wrist pad on a keyboard	white computer keyboard with grey keys	A red wrist pad on a keyboard with grey keys
+A red wrist pad on a keyboard	keyboard sitting on desk	A red wrist pad on a keyboard sitting on desk
+A red wrist pad on a keyboard	Computer keyboard on a desk	A red wrist pad on a keyboard on a desk
+A red wrist pad on a keyboard	the computer keyboard	A red wrist pad on a keyboard 
+A red wrist pad on a keyboard	desktop computer monitor and keyboard	A red wrist pad on a keyboard 
+A red wrist pad on a keyboard	keyboard is on the desk	A red wrist pad on a keyboard is on the desk
+A CD player and headphones	black headphones are on the desk	A CD player and headphones are on the desk
+A CD player and headphones	Black headphones on table	A CD player and headphones on table
+A CD player and headphones	Black earphones sitting on a computer desk.	A CD player and headphones earphones sitting on a computer desk
+A CD player and headphones	headphone are on the desk	A CD player and headphones are on the desk
+red pen is ontop of the book	a purple book is on the desk	red pen is ontop of the book is on the desk
+red pen is ontop of the book	a blue book is on the shelf	red pen is ontop of the book is on the shelf
+red pen is ontop of the book	red book on the table	red pen is ontop of the book on the table
+red pen is ontop of the book	book with papers on top of it	red pen is ontop of the book with papers on top of it
+red pen is ontop of the book	Red book on a table	red pen is ontop of the book on a table
+Computer monitor and keyboard. 	desktop CPU, monitor and keyboard	Computer monitor and keyboard. and desktop CPU, monitor and keyboard
+Computer monitor and keyboard. 	white computer keyboard with grey keys	Computer monitor and keyboard. and white computer keyboard with grey keys
+Computer monitor and keyboard. 	keyboard sitting on desk	Computer monitor and keyboard. and keyboard sitting on desk
+Computer monitor and keyboard. 	Computer keyboard on a desk	Computer monitor and keyboard. and Computer keyboard on a desk
+Computer monitor and keyboard. 	the computer keyboard	Computer monitor and keyboard. and the computer keyboard
+Computer monitor and keyboard. 	desktop computer monitor and keyboard	Computer monitor and keyboard. and desktop computer monitor and keyboard
+Computer monitor and keyboard. 	keyboard is on the desk	Computer monitor and keyboard. and keyboard is on the desk
+a mug is next to a telephone	a pink  telephone on the desk	a mug is next to a telephone on the desk
+a mug is next to a telephone	beige telephone on desk	a mug is next to a telephone on desk
+A piece of paper taped to a computer monitor.	Computer monitor and keyboard. 	A piece of paper taped to a computer monitor and keyboard.
+A piece of paper taped to a computer monitor.	white computer monitor on the desk	A piece of paper taped to a computer monitor on the desk
+A piece of paper taped to a computer monitor.	ancient computer monitor next to water bottle	A piece of paper taped to a computer monitor next to water bottle
+A piece of paper taped to a computer monitor.	a white computer monitor on the desk	A piece of paper taped to a computer monitor on the desk
+A piece of paper taped to a computer monitor.	planes are on the monitors screen	A piece of paper taped to a computer monitor screen
+Woman sitting in chair	A black chair with blue padding.	Woman sitting in chair with blue padding
+Woman sitting in chair	A slender chair next to the table	Woman sitting in chair next to the table
+Woman sitting in chair	Glass dinette table and chairs near a window	Woman sitting in chair near a window
+Woman sitting in chair	two chairs near a desk	Woman sitting in chair near a desk
+Woman sitting in chair	brown chair against the wall	Woman sitting in chair against the wall
+Woman sitting in chair	a brown chair is against the wall	Woman sitting in chair is against the wall
+Woman sitting in chair	The legs of a chair under the counter	Woman sitting in chair under the counter
+Woman sitting in chair	desk chair with wheels	Woman sitting in chair with wheels
+Woman sitting in chair	Red and blue jacket hanging on back of chair	Woman sitting in chair 
+tan colored telephone and cup	a pink  telephone on the desk	tan colored telephone and cup and a pink  telephone on the desk
+tan colored telephone and cup	beige telephone on desk	tan colored telephone and cup and beige telephone on desk
+cheese crackers and water	water bottle is on the table	cheese crackers and water and water bottle is on the table
+cheese crackers and water	a water bottle is on the desk	cheese crackers and water and a water bottle is on the desk
+cheese crackers and water	bottled water with green label	cheese crackers and water and bottled water with green label
+calculator on an open book	a purple book is on the desk	calculator on an open book is on the desk
+calculator on an open book	a blue book is on the shelf	calculator on an open book is on the shelf
+calculator on an open book	red book on the table	calculator on an open book on the table
+calculator on an open book	book with papers on top of it	calculator on an open book with papers on top of it
+calculator on an open book	Red book on a table	calculator on an open book on a table
+juice bottle sitting next to computer	Computer monitor and keyboard. 	juice bottle sitting next to computer and Computer monitor and keyboard.
+juice bottle sitting next to computer	white computer monitor on the desk	juice bottle sitting next to computer and white computer monitor on the desk
+juice bottle sitting next to computer	ancient computer monitor next to water bottle	juice bottle sitting next to computer and ancient computer monitor next to water bottle
+juice bottle sitting next to computer	a white computer monitor on the desk	juice bottle sitting next to computer and a white computer monitor on the desk
+juice bottle sitting next to computer	planes are on the monitors screen	juice bottle sitting next to computer and planes are on the monitors screen
+mans hand is on the keyboard	desktop CPU, monitor and keyboard	mans hand is on the keyboard 
+mans hand is on the keyboard	white computer keyboard with grey keys	mans hand is on the keyboard with grey keys
+mans hand is on the keyboard	keyboard sitting on desk	mans hand is on the keyboard sitting on desk
+mans hand is on the keyboard	Computer keyboard on a desk	mans hand is on the keyboard on a desk
+mans hand is on the keyboard	the computer keyboard	mans hand is on the keyboard 
+mans hand is on the keyboard	desktop computer monitor and keyboard	mans hand is on the keyboard 
+mans hand is on the keyboard	keyboard is on the desk	mans hand is on the keyboard is on the desk
+man is wearing black and white tshirt	man wearing a red shirt	man is wearing black and white tshirt and man wearing a red shirt
+dish is on the cpu	cpu has books ontop of it	dish is on the cpu and cpu has books ontop of it
+a picture taped up on the wall	four outlets on the wall	a picture taped up on the wall 
+an empty Tupperware container on the computer	cpu has books ontop of it	an empty Tupperware container on the computer and cpu has books ontop of it
+a boy with glasses sits at the computer	cpu has books ontop of it	a boy with glasses sits at the computer and cpu has books ontop of it
+"a money bag on a stack of papers
+"	papers are next to the board	"a money bag on a stack of papers
+ and papers are next to the board"
+"a money bag on a stack of papers
+"	A stack of papers and files on a desk. 	"a money bag on a stack of papers
+ and A stack of papers and files on a desk."
+"a money bag on a stack of papers
+"	papers are on holder	"a money bag on a stack of papers
+ and papers are on holder"
+"a money bag on a stack of papers
+"	papers are below on the shelf	"a money bag on a stack of papers
+ and papers are below on the shelf"
+"a money bag on a stack of papers
+"	papers on the desk are scattered	"a money bag on a stack of papers
+ and papers on the desk are scattered"
+"a money bag on a stack of papers
+"	Papers sitting on office desk	"a money bag on a stack of papers
+ and Papers sitting on office desk"
+"a money bag on a stack of papers
+"	papers are lying on the desk	"a money bag on a stack of papers
+ and papers are lying on the desk"
+photograph taped up on the wall	four outlets on the wall	photograph taped up on the wall 
+the black and silver cup on the shelf	the shelf is full with books	the black and silver cup on the shelf is full with books
+the black stapler, next to the large mug	white cup is on the desk	the black stapler, next to the large mug and white cup is on the desk
+the black stapler, next to the large mug	a cup is on a desk	the black stapler, next to the large mug and a cup is on a desk
+the CD sitting in front of the smaller mug	Mug on an office desk	the CD sitting in front of the smaller mug on an office desk
+the CD sitting in front of the smaller mug	a mug is next to a telephone	the CD sitting in front of the smaller mug is next to a telephone
+the CD sitting in front of the smaller mug	tan colored telephone and cup	the CD sitting in front of the smaller mug colored telephone and cup
+A picture taped to the wall. 	four outlets on the wall	A picture taped to the wall. and four outlets on the wall
+A bulletin board with papers on it.  	papers are next to the board	A bulletin board with papers on it. and papers are next to the board
+A bulletin board with papers on it.  	A stack of papers and files on a desk. 	A bulletin board with papers on it. and A stack of papers and files on a desk.
+A bulletin board with papers on it.  	papers are on holder	A bulletin board with papers on it. and papers are on holder
+A bulletin board with papers on it.  	papers are below on the shelf	A bulletin board with papers on it. and papers are below on the shelf
+A bulletin board with papers on it.  	papers on the desk are scattered	A bulletin board with papers on it. and papers on the desk are scattered
+A bulletin board with papers on it.  	Papers sitting on office desk	A bulletin board with papers on it. and Papers sitting on office desk
+A bulletin board with papers on it.  	papers are lying on the desk	A bulletin board with papers on it. and papers are lying on the desk
+a white folder has papers	papers are next to the board	a white folder has papers are next to the board
+a white folder has papers	A stack of papers and files on a desk. 	a white folder has papers and files on a desk.
+a white folder has papers	papers are below on the shelf	a white folder has papers are below on the shelf
+a white folder has papers	papers on the desk are scattered	a white folder has papers on the desk are scattered
+a white folder has papers	Papers sitting on office desk	a white folder has papers sitting on office desk
+a white folder has papers	papers are lying on the desk	a white folder has papers are lying on the desk
+a dish is ontop of the cpu	cpu has books ontop of it	a dish is ontop of the cpu and cpu has books ontop of it
+mans hand is on the keyboard	desktop CPU, monitor and keyboard	mans hand is on the keyboard 
+mans hand is on the keyboard	white computer keyboard with grey keys	mans hand is on the keyboard with grey keys
+mans hand is on the keyboard	keyboard sitting on desk	mans hand is on the keyboard sitting on desk
+mans hand is on the keyboard	Computer keyboard on a desk	mans hand is on the keyboard on a desk
+mans hand is on the keyboard	the computer keyboard	mans hand is on the keyboard 
+mans hand is on the keyboard	desktop computer monitor and keyboard	mans hand is on the keyboard 
+mans hand is on the keyboard	keyboard is on the desk	mans hand is on the keyboard is on the desk
+mans hand is on the keyboard	mans hand is on the keyboard	mans hand is on the keyboard and mans hand is on the keyboard
+mans hand is on the keyboard	guys right hand is on the keyboard	mans hand is on the keyboard and guys right hand is on the keyboard
+picture fixed to the wall	four outlets on the wall	picture fixed to the wall 
+mouse on desk next to keyboard	desktop CPU, monitor and keyboard	mouse on desk next to keyboard 
+mouse on desk next to keyboard	white computer keyboard with grey keys	mouse on desk next to keyboard with grey keys
+mouse on desk next to keyboard	keyboard sitting on desk	mouse on desk next to keyboard sitting on desk
+mouse on desk next to keyboard	Computer keyboard on a desk	mouse on desk next to keyboard on a desk
+mouse on desk next to keyboard	the computer keyboard	mouse on desk next to keyboard 
+mouse on desk next to keyboard	desktop computer monitor and keyboard	mouse on desk next to keyboard 
+mouse on desk next to keyboard	keyboard is on the desk	mouse on desk next to keyboard is on the desk
+guys right hand is on the keyboard	desktop CPU, monitor and keyboard	guys right hand is on the keyboard 
+guys right hand is on the keyboard	white computer keyboard with grey keys	guys right hand is on the keyboard with grey keys
+guys right hand is on the keyboard	keyboard sitting on desk	guys right hand is on the keyboard sitting on desk
+guys right hand is on the keyboard	Computer keyboard on a desk	guys right hand is on the keyboard on a desk
+guys right hand is on the keyboard	the computer keyboard	guys right hand is on the keyboard 
+guys right hand is on the keyboard	desktop computer monitor and keyboard	guys right hand is on the keyboard 
+guys right hand is on the keyboard	keyboard is on the desk	guys right hand is on the keyboard is on the desk
+guys right hand is on the keyboard	mans hand is on the keyboard	guys right hand is on the keyboard and mans hand is on the keyboard
+guys right hand is on the keyboard	guys right hand is on the keyboard	guys right hand is on the keyboard and guys right hand is on the keyboard
+a dish is on top of a cpu 	cpu has books ontop of it	a dish is on top of a cpu and cpu has books ontop of it
+a blue book is on the shelf	the shelf is full with books	a blue book is on the shelf is full with books
+a cd is ontop of one drawer	drawers have silver handles	a cd is ontop of one drawer have silver handles
+a cd is ontop of one drawer	the top right drawer of the desk	a cd is ontop of one drawer of the desk
+cpu has books ontop of it	books are on the shelf	cpu has books ontop of it and books are on the shelf
+cpu has books ontop of it	rows of books on two shelves	cpu has books ontop of it and rows of books on two shelves
+cpu has books ontop of it	Books on wall shelf	cpu has books ontop of it and Books on wall shelf
+cpu has books ontop of it	Books on a bookshelf	cpu has books ontop of it and Books on a bookshelf
+cpu has books ontop of it	books on the shelf	cpu has books ontop of it and books on the shelf
+cpu has books ontop of it	books are on the bookshelf	cpu has books ontop of it and books are on the bookshelf
+cpu has books ontop of it	White books on bookshelf	cpu has books ontop of it and White books on bookshelf
+cpu has books ontop of it	A line of books on a shelf	cpu has books ontop of it and A line of books on a shelf
+man has a white and black tshirt	man wearing a red shirt	man has a white and black tshirt and man wearing a red shirt
+dish is ontop of cpu	cpu has books ontop of it	dish is ontop of cpu and cpu has books ontop of it
+the computer keyboard	cpu has books ontop of it	the computer keyboard and cpu has books ontop of it
+shelves full of books	books are on the shelf	shelves full of books are on the shelf
+shelves full of books	Books on wall shelf	shelves full of books on wall shelf
+shelves full of books	books on the shelf	shelves full of books on the shelf
+shelves full of books	books are on the bookshelf	shelves full of books are on the bookshelf
+shelves full of books	White books on bookshelf	shelves full of books on bookshelf
+shelves full of books	A line of books on a shelf	shelves full of books on a shelf
+posters tacked to cubicle wall	four outlets on the wall	posters tacked to cubicle wall 
+wooden shelves with books	books are on the shelf	wooden shelves with books are on the shelf
+wooden shelves with books	rows of books on two shelves	wooden shelves with books on two shelves
+wooden shelves with books	Books on wall shelf	wooden shelves with books on wall shelf
+wooden shelves with books	Books on a bookshelf	wooden shelves with books on a bookshelf
+wooden shelves with books	books on the shelf	wooden shelves with books on the shelf
+wooden shelves with books	White books on bookshelf	wooden shelves with books on bookshelf
+wooden shelves with books	A line of books on a shelf	wooden shelves with books on a shelf
+beanie baby on book shelf	wooden shelves with books	beanie baby on book shelf and wooden shelves with books
+beanie baby on book shelf	bookcase against the wall	beanie baby on book shelf and bookcase against the wall
+beanie baby on book shelf	against the wall is a bookshelf	beanie baby on book shelf and against the wall is a bookshelf
+ancient computer monitor next to water bottle	water bottle with nursery school logo	ancient computer monitor next to water bottle with nursery school logo
+ancient computer monitor next to water bottle	a water bottle is on a desk	ancient computer monitor next to water bottle is on a desk
+ancient computer monitor next to water bottle	plastic water bottle on desk	ancient computer monitor next to water bottle on desk
+ancient computer monitor next to water bottle	a water bottle sits by the computer	ancient computer monitor next to water bottle sits by the computer
+a blank cork-board on a wall	four outlets on the wall	a blank cork-board on a wall 
+bookcase against the wall	four outlets on the wall	bookcase against the wall 
+empty pin board on the wall	four outlets on the wall	empty pin board on the wall 
+books are on the bookshelf	bookcase against the wall	books are on the bookshelf and bookcase against the wall
+books are on the bookshelf	against the wall is a bookshelf	books are on the bookshelf and against the wall is a bookshelf
+against the wall is a bookshelf	four outlets on the wall	against the wall is a bookshelf and four outlets on the wall
+book with papers on top of it	papers are next to the board	book with papers on top of it and papers are next to the board
+book with papers on top of it	A stack of papers and files on a desk. 	book with papers on top of it and A stack of papers and files on a desk.
+book with papers on top of it	papers are on holder	book with papers on top of it and papers are on holder
+book with papers on top of it	papers are below on the shelf	book with papers on top of it and papers are below on the shelf
+book with papers on top of it	papers on the desk are scattered	book with papers on top of it and papers on the desk are scattered
+book with papers on top of it	Papers sitting on office desk	book with papers on top of it and Papers sitting on office desk
+book with papers on top of it	papers are lying on the desk	book with papers on top of it and papers are lying on the desk
+White tube on a book shelf	wooden shelves with books	White tube on a book shelf and wooden shelves with books
+White tube on a book shelf	bookcase against the wall	White tube on a book shelf and bookcase against the wall
+White tube on a book shelf	against the wall is a bookshelf	White tube on a book shelf and against the wall is a bookshelf
+a bird is sitted on the bookshelf	wooden shelves with books	a bird is sitted on the bookshelf and wooden shelves with books
+a bird is sitted on the bookshelf	bookcase against the wall	a bird is sitted on the bookshelf and bookcase against the wall
+a bird is sitted on the bookshelf	against the wall is a bookshelf	a bird is sitted on the bookshelf and against the wall is a bookshelf
+brown frame is hanging on the wall	four outlets on the wall	brown frame is hanging on the wall 
+a black charger is on the cable	cables are on the floor	a black charger is on the cable and cables are on the floor
+Cork board hanging on the wall	four outlets on the wall	Cork board hanging on the wall 
+Red and blue jacket hanging on back of chair	A black chair with blue padding.	Red and blue jacket hanging on back of chair with blue padding
+Red and blue jacket hanging on back of chair	A slender chair next to the table	Red and blue jacket hanging on back of chair next to the table
+Red and blue jacket hanging on back of chair	Glass dinette table and chairs near a window	Red and blue jacket hanging on back of chair near a window
+Red and blue jacket hanging on back of chair	two chairs near a desk	Red and blue jacket hanging on back of chair near a desk
+Red and blue jacket hanging on back of chair	brown chair against the wall	Red and blue jacket hanging on back of chair against the wall
+Red and blue jacket hanging on back of chair	a brown chair is against the wall	Red and blue jacket hanging on back of chair is against the wall
+Red and blue jacket hanging on back of chair	The legs of a chair under the counter	Red and blue jacket hanging on back of chair under the counter
+Red and blue jacket hanging on back of chair	desk chair with wheels	Red and blue jacket hanging on back of chair with wheels
+Red and blue jacket hanging on back of chair	Red and blue jacket hanging on back of chair	Red and blue jacket hanging on back of chair 
+Wood bookshelf leaning against the wall	four outlets on the wall	Wood bookshelf leaning against the wall 
+papers are below on the shelf	the shelf is full with books	papers are below on the shelf is full with books
+papers are below on the shelf	the shelf is full with books	papers are below on the shelf is full with books
+papers are below on the shelf	the shelf is full with books	papers are below on the shelf is full with books
+papers are below on the shelf	the shelf is full with books	papers are below on the shelf is full with books
+papers are below on the shelf	the shelf is full with books	papers are below on the shelf is full with books
+papers are below on the shelf	the shelf is full with books	papers are below on the shelf is full with books
+mans jackets are touching the floor	Red and blue jacket hanging on back of chair	mans jackets are touching the floor and Red and blue jacket hanging on back of chair
+mans jackets are touching the floor	mans jackets are touching the floor	mans jackets are touching the floor and mans jackets are touching the floor
+mans jackets are touching the floor	a blue and red jacket on the back of the chair	mans jackets are touching the floor and a blue and red jacket on the back of the chair
+mans jackets are touching the floor	there are red and blue jacket on the chair	mans jackets are touching the floor and there are red and blue jacket on the chair
+mans jackets are touching the floor	a red and blue jacket on a chair	mans jackets are touching the floor and a red and blue jacket on a chair
+mans jackets are touching the floor	A red and blue jacket on the back of a seat. 	mans jackets are touching the floor and A red and blue jacket on the back of a seat.
+white wires are under the desk	cables are on the floor	white wires are under the desk and cables are on the floor
+a red and blue jackets were the man is	headphones are on the desk	a red and blue jackets were the man is and headphones are on the desk
+a red and blue jackets were the man is	Headphones laying on table	a red and blue jackets were the man is and Headphones laying on table
+a red and blue jackets were the man is	man has folded his sleeves	a red and blue jackets were the man is and man has folded his sleeves
+a red and blue jackets were the man is	books are on the self	a red and blue jackets were the man is and books are on the self
+a red and blue jackets were the man is	headphones sitting on a  desk	a red and blue jackets were the man is and headphones sitting on a  desk
+a red and blue jackets were the man is	black headphones on the desk	a red and blue jackets were the man is and black headphones on the desk
+a red and blue jackets were the man is	Ear phones sitting on a table. 	a red and blue jackets were the man is and Ear phones sitting on a table.
+a red and blue jackets were the man is	headphones are on the table	a red and blue jackets were the man is and headphones are on the table
+a water bottle on the desk	cables are on the floor	a water bottle on the desk and cables are on the floor
+a blank picture frame on the wall	four outlets on the wall	a blank picture frame on the wall 
+the shelf is full with books	rows of books on two shelves	the shelf is full with books on two shelves
+the shelf is full with books	Books on wall shelf	the shelf is full with books on wall shelf
+the shelf is full with books	Books on a bookshelf	the shelf is full with books on a bookshelf
+the shelf is full with books	books are on the bookshelf	the shelf is full with books are on the bookshelf
+the shelf is full with books	White books on bookshelf	the shelf is full with books on bookshelf
+a blue and red jacket on the back of the chair	A black chair with blue padding.	a blue and red jacket on the back of the chair with blue padding
+a blue and red jacket on the back of the chair	A slender chair next to the table	a blue and red jacket on the back of the chair next to the table
+a blue and red jacket on the back of the chair	Glass dinette table and chairs near a window	a blue and red jacket on the back of the chair near a window
+a blue and red jacket on the back of the chair	two chairs near a desk	a blue and red jacket on the back of the chair near a desk
+a blue and red jacket on the back of the chair	brown chair against the wall	a blue and red jacket on the back of the chair against the wall
+a blue and red jacket on the back of the chair	a brown chair is against the wall	a blue and red jacket on the back of the chair is against the wall
+a blue and red jacket on the back of the chair	The legs of a chair under the counter	a blue and red jacket on the back of the chair under the counter
+a blue and red jacket on the back of the chair	desk chair with wheels	a blue and red jacket on the back of the chair with wheels
+a blue and red jacket on the back of the chair	Red and blue jacket hanging on back of chair	a blue and red jacket on the back of the chair 
+a stuffed ostrich on top of the bookcase	Wood bookshelf leaning against the wall	a stuffed ostrich on top of the bookcase and Wood bookshelf leaning against the wall
+a stuffed ostrich on top of the bookcase	a book shelf against the wall	a stuffed ostrich on top of the bookcase and a book shelf against the wall
+a water bottle sits by the computer	a laptop computer on a desk	a water bottle sits by the computer on a desk
+a water bottle sits by the computer	a grey laptop is a top of a desk	a water bottle sits by the computer grey laptop is a top of a desk
+a water bottle sits by the computer	Laptop computer on a table	a water bottle sits by the computer on a table
+a water bottle sits by the computer	A white computer keyboard. 	a water bottle sits by the computer keyboard.
+the man is using a computer to  the right	a laptop computer on a desk	the man is using a computer to  the right and a laptop computer on a desk
+the man is using a computer to  the right	a grey laptop is a top of a desk	the man is using a computer to  the right and a grey laptop is a top of a desk
+the man is using a computer to  the right	Laptop computer on a table	the man is using a computer to  the right and Laptop computer on a table
+the man is using a computer to  the right	A white computer keyboard. 	the man is using a computer to  the right and A white computer keyboard.
+there are red and blue jacket on the chair	A black chair with blue padding.	there are red and blue jacket on the chair with blue padding
+there are red and blue jacket on the chair	A slender chair next to the table	there are red and blue jacket on the chair next to the table
+there are red and blue jacket on the chair	Glass dinette table and chairs near a window	there are red and blue jacket on the chair near a window
+there are red and blue jacket on the chair	two chairs near a desk	there are red and blue jacket on the chair near a desk
+there are red and blue jacket on the chair	brown chair against the wall	there are red and blue jacket on the chair against the wall
+there are red and blue jacket on the chair	a brown chair is against the wall	there are red and blue jacket on the chair is against the wall
+there are red and blue jacket on the chair	The legs of a chair under the counter	there are red and blue jacket on the chair under the counter
+there are red and blue jacket on the chair	desk chair with wheels	there are red and blue jacket on the chair with wheels
+there are red and blue jacket on the chair	Red and blue jacket hanging on back of chair	there are red and blue jacket on the chair 
+a man in a grey shirt	man wearing a red shirt	a man in a grey shirt 
+a red and blue jacket on a chair	A black chair with blue padding.	a red and blue jacket on a chair with blue padding
+a red and blue jacket on a chair	A slender chair next to the table	a red and blue jacket on a chair next to the table
+a red and blue jacket on a chair	Glass dinette table and chairs near a window	a red and blue jacket on a chair near a window
+a red and blue jacket on a chair	two chairs near a desk	a red and blue jacket on a chair near a desk
+a red and blue jacket on a chair	brown chair against the wall	a red and blue jacket on a chair against the wall
+a red and blue jacket on a chair	a brown chair is against the wall	a red and blue jacket on a chair is against the wall
+a red and blue jacket on a chair	The legs of a chair under the counter	a red and blue jacket on a chair under the counter
+a red and blue jacket on a chair	desk chair with wheels	a red and blue jacket on a chair with wheels
+a red and blue jacket on a chair	Red and blue jacket hanging on back of chair	a red and blue jacket on a chair 
+a book shelf against the wall	four outlets on the wall	a book shelf against the wall 
+a brown picture frame against the wall	four outlets on the wall	a brown picture frame against the wall 
+A man using a computer. 	a laptop computer on a desk	A man using a computer. and a laptop computer on a desk
+A man using a computer. 	a grey laptop is a top of a desk	A man using a computer. and a grey laptop is a top of a desk
+A man using a computer. 	Laptop computer on a table	A man using a computer. and Laptop computer on a table
+A man using a computer. 	A white computer keyboard. 	A man using a computer. and A white computer keyboard.
+A red and blue jacket on the back of a seat. 	A black chair with blue padding.	A red and blue jacket on the back of a seat. and A black chair with blue padding
+A red and blue jacket on the back of a seat. 	A slender chair next to the table	A red and blue jacket on the back of a seat. and A slender chair next to the table
+A red and blue jacket on the back of a seat. 	Glass dinette table and chairs near a window	A red and blue jacket on the back of a seat. and Glass dinette table and chairs near a window
+A red and blue jacket on the back of a seat. 	two chairs near a desk	A red and blue jacket on the back of a seat. and two chairs near a desk
+A red and blue jacket on the back of a seat. 	brown chair against the wall	A red and blue jacket on the back of a seat. and brown chair against the wall
+A red and blue jacket on the back of a seat. 	a brown chair is against the wall	A red and blue jacket on the back of a seat. and a brown chair is against the wall
+A red and blue jacket on the back of a seat. 	The legs of a chair under the counter	A red and blue jacket on the back of a seat. and The legs of a chair under the counter
+A red and blue jacket on the back of a seat. 	desk chair with wheels	A red and blue jacket on the back of a seat. and desk chair with wheels
+A red and blue jacket on the back of a seat. 	Red and blue jacket hanging on back of chair	A red and blue jacket on the back of a seat. and Red and blue jacket hanging on back of chair
+A white computer keyboard. 	desktop CPU, monitor and keyboard	A white computer keyboard. and desktop CPU, monitor and keyboard
+A white computer keyboard. 	white computer keyboard with grey keys	A white computer keyboard. and white computer keyboard with grey keys
+A white computer keyboard. 	keyboard sitting on desk	A white computer keyboard. and keyboard sitting on desk
+A white computer keyboard. 	Computer keyboard on a desk	A white computer keyboard. and Computer keyboard on a desk
+A white computer keyboard. 	the computer keyboard	A white computer keyboard. and the computer keyboard
+A white computer keyboard. 	desktop computer monitor and keyboard	A white computer keyboard. and desktop computer monitor and keyboard
+A white computer keyboard. 	keyboard is on the desk	A white computer keyboard. and keyboard is on the desk
+A duck stuffed animal perched on a bookshelf. 	Wood bookshelf leaning against the wall	A duck stuffed animal perched on a bookshelf. and Wood bookshelf leaning against the wall
+A duck stuffed animal perched on a bookshelf. 	a book shelf against the wall	A duck stuffed animal perched on a bookshelf. and a book shelf against the wall
+White books on bookshelf	Wood bookshelf leaning against the wall	White books on bookshelf leaning against the wall
+White books on bookshelf	a book shelf against the wall	White books on bookshelf book shelf against the wall
+Man looking at computer	a laptop computer on a desk	Man looking at computer on a desk
+Man looking at computer	a grey laptop is a top of a desk	Man looking at computer grey laptop is a top of a desk
+Man looking at computer	Laptop computer on a table	Man looking at computer on a table
+Man looking at computer	A white computer keyboard. 	Man looking at computer keyboard.
+man is wearing grey shirt	man wearing a red shirt	man is wearing grey shirt 
+cables are on the floor	four outlets on the wall	cables are on the floor and four outlets on the wall
+A stuffed animal on the bookcase	Wood bookshelf leaning against the wall	A stuffed animal on the bookcase and Wood bookshelf leaning against the wall
+A stuffed animal on the bookcase	a book shelf against the wall	A stuffed animal on the bookcase and a book shelf against the wall
+A corkboard hanging on the wall	four outlets on the wall	A corkboard hanging on the wall 
