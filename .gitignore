@@ -9,3 +9,5 @@ psl_files/
 attic/output_v004/
 tmp/
 __pycache__
+groundcn/
+groundcskg/
