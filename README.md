@@ -3,10 +3,12 @@ Scripts to create and utilize the commonsense knowledge graph: CSKG.
 
 ### Code structure
 
-* `analysis/` - scripts to analyze CSKG and the individual sources
-* `wikidata/` - scripts to extract a commonsense subset of Wikidata: `Wikidata-CS`
+* `wikidata/` - scripts to extract the commonsense subset of Wikidata: `Wikidata-CS` 
+* `visualgenome/` - scripts to investigate how to best extract and represent commonsense knowledge from Visual Genome
+* `consolidation/` - scripts to consolidate CSKG
 * `embeddings/` - scripts to create various CSKG embeddings
-
+* `examples/` - notebooks that perform statistical analysis of CSKG, compute embeddings, etc.
+* `test_code/` - additional code to test code
 
 ### Data
 
