@@ -27,9 +27,8 @@ The data is organized as follows:
 ## Setup
 
 ```
-conda create --name mowgli
+conda create --name mowgli --file requirements.txt
 conda activate mowgli
-pip install -r requirements.txt
 ```
 
 ### Contact
