@@ -19,9 +19,8 @@ The data is organized as follows:
 
 ### Embedding Usage
 ```
-1. cd ../cskg
-2. python embeddings/embedding_training.py --help   
-3. python embeddings/embedding_training.py -i input/cskg_connected.tsv -o output/cskg_connected 
+1. python embeddings/embedding_training.py --help   
+2. python embeddings/embedding_training.py -i input/cskg_connected.tsv -o output/cskg_connected 
 ```
 
 ### Contact
