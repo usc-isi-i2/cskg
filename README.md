@@ -10,7 +10,6 @@ Scripts to create and utilize the commonsense knowledge graph: CSKG.
 * `consolidation/` - scripts to consolidate CSKG
 * `embeddings/` - scripts to create various CSKG embeddings
 * `examples/` - notebooks that perform statistical analysis of CSKG, compute embeddings, etc.
-* `test_code/` - additional code to test code
 
 ### Data
 
