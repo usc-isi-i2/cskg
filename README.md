@@ -15,7 +15,7 @@ Scripts to create and utilize the commonsense knowledge graph: CSKG.
 
 The data is organized as follows:
 * `input/` - individual data sources, not provided in the repo
-* `output_v0xx` -> output folder, created by the extraction scripts
+* `output/` -> output folder, created by the consolidation or embeddings scripts
 
 ### Embedding Usage
 ```
