@@ -3,7 +3,7 @@ import glob
 from collections import defaultdict
 
 pick='wikidata'
-
+pick='conceptnet'
 with open("dimensions.json", 'rb') as f:
     dimensions=json.load(f)
     print(len(dimensions.keys()))
