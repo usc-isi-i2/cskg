@@ -5,10 +5,10 @@ from tqdm import tqdm
 from lxml import etree
 import numpy as np
 
-########    ########    ########    ########    ########    ########    ########
+########    ########    ########    ########    ########    ########    ############
 # Wrapper for 'Evaluation between Bert text and USF-FAN.ipynb'
 # This scrpit has the same code with 'Evaluation between Bert text and USF-FAN.ipynb'
-########    ########    ########    ########    ########    ########    ########
+########    ########    ########    ########    ########    ########    ############
 
 """
 Class for data preparation
