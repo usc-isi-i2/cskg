@@ -7,6 +7,12 @@ import numpy as np
 from lxml import etree
 from tqdm import tqdm
 
+########    ########    ########    ########    ########    ########    ############
+# Wrapper for 'Evaluation between CSKG and USF-FAN.ipynb'
+# This scrpit has the same code with 'Evaluation between CSKG and USF-FAN.ipynb'
+# Execute may take 16 hours to genereate all results 48*5*5
+########    ########    ########    ########    ########    ########    ############
+
 
 
 ######################### Util ################################
