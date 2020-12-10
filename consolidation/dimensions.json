@@ -1,4 +1,6 @@
 {
+    "fn:SubframeOf": "taxonomic", 
+    "fn:HasSubframe": "taxonomic",
     "at:xIntent": "desire",
     "at:xWant": "desire",
     "at:oWant": "desire",
