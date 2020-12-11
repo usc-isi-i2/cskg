@@ -6,9 +6,9 @@ import gzip
 pick='wikidata'
 pick='conceptnet'
 pick='framenet'
-filename='../tmp/kgtk_%s' % pick
+filename='../tmp/kgtk_%s.tsv' % pick
 
-filename='../output/cskg_connected.tsv'
+#filename='../output/cskg_connected.tsv'
 
 with open("dimensions.json", 'rb') as f:
     dimensions=json.load(f)
@@ -22,7 +22,7 @@ with open("dimensions.json", 'rb') as f:
             w.write(header.encode())
             for line in myfile:
                 d=line.split('\t')
-                rel_index=2
+                rel_index=1
                 if d[rel_index] in dimensions.keys():
                     dim=dimensions[d[rel_index]]
                     dim_counts[dim]+=1
