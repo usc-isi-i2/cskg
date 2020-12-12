@@ -165,7 +165,6 @@ def cal_ndcg(ground_truth,pred_dict):
         A dictionary whose key is a label in CSKG, value is a list containing the label's similar targets 
         in decreasing order of cosine similarity.
 
-
     Returns
     -------
     NDCG: : float in [0., 1.]
@@ -195,13 +194,18 @@ def cal_ndcg(ground_truth,pred_dict):
                 # if cannot find the target in so many candidates, then the relevance will be pretty small
                 y_scores.append(0)  
         
-        y_trues = np.array(y_trues).reshape((1,-1))
-        y_scores = np.array(y_scores).reshape((1,-1))
-        try:
-            tmp_NDCG = ndcg_score(y_trues,y_scores)
-        except:
-            tmp_NDCG = 1 # when  y_trues = [[1]] y_scores = [[1]] , it will run an error
+        positions = [ index+2 for index, _ in enumerate(y_trues)]
+        discount = np.log2(positions)
+        IDCG = np.sum([ (2**value-1)/discount[index]       for index,value in enumerate(y_trues)])
+        DCG = np.sum([ (2**value-1)/discount[index]       for index,value in enumerate(y_scores)])
+        tmp_NDCG = DCG/IDCG
+        # try:
+        #     tmp_NDCG = ndcg_score(y_trues,y_scores)
+        # except:
+        #     tmp_NDCG = 1 # when  y_trues = [[1]] y_scores = [[1]] , it will run an error
+        
         NDCG+=tmp_NDCG
-    
+
     NDCG = NDCG/size
     return NDCG
+
