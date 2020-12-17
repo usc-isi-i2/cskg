@@ -21,7 +21,7 @@ with open("dimensions.json", 'r') as f:
             w.write(header.encode())
             for line in myfile:
                 d=line.decode().split('\t')
-                rel_index=1
+                rel_index=2
                 if d[rel_index] in dimensions.keys():
                     dim=dimensions[d[rel_index]]
                     dim_counts[dim]+=1
