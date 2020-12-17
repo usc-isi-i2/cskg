@@ -30,23 +30,23 @@ kgtk cat -i tmp/kgtk_atomic.tsv tmp/kgtk_conceptnet.tsv tmp/kgtk_roget_synonyms.
 
 ## Concatenate mappings
 kgtk cat -i tmp/kgtk_atomic.tsv tmp/kgtk_conceptnet.tsv tmp/kgtk_roget_synonyms.tsv tmp/kgtk_roget_antonyms.tsv tmp/kgtk_framenet.tsv tmp/kgtk_wordnet.tsv tmp/kgtk_visualgenome.tsv tmp/wikidata20200504/kgtk_wikidata.tsv tmp/mapping_wn_wn.tsv tmp/lexical_mappings.tsv tmp/mapping_fn_cn.tsv tmp/mapping_wn_wd.tsv / sort -c 'node1,relation,node2' / compact --columns node1 relation node2  > tmp/kgtk_compact_quoted.tsv 
-kgtk cat -i tmp/kgtk_compact_quoted.tsv --output-format tsv-unquoted / add_id --id-style node1-label-node2-num / reorder_columns --columns id ... > output/cskg_compact_with_mappings.tsv
+kgtk cat -i tmp/kgtk_compact_quoted.tsv --output-format tsv-unquoted / add_id --id-style node1-label-node2-num / reorder_columns --columns id ... > output/cskg_star.tsv.gz
 
 ## Concatenate CSKG with the mappings and deduplicate
-kgtk connected_components -i tmp/kgtk_compact_quoted.tsv --properties mw:SameAs --cluster-name-method lowest      / lift --columns-to-lift node1 node2 --lift-suffix=      --input-file tmp/kgtk_compact_quoted.tsv     --label-file -      --label-select-value connected_component      / filter  --invert -p ';mw:SameAs;'      / compact --columns node1 relation node2 --presorted False / cat --output-format tsv-unquoted / add_id --id-style node1-label-node2-num / reorder_columns --columns id ... > output/cskg_connected.tsv
+kgtk connected_components -i tmp/kgtk_compact_quoted.tsv --properties mw:SameAs --cluster-name-method lowest      / lift --columns-to-lift node1 node2 --lift-suffix=      --input-file tmp/kgtk_compact_quoted.tsv     --label-file -      --label-select-value connected_component      / filter  --invert -p ';mw:SameAs;'      / compact --columns node1 relation node2 --presorted False / cat --output-format tsv-unquoted / add_id --id-style node1-label-node2-num / reorder_columns --columns id ... > output/cskg.tsv.gz
 
 ## Same, but keep the quotes
-kgtk connected_components -i tmp/kgtk_compact_quoted.tsv --properties mw:SameAs --cluster-name-method lowest      / lift --columns-to-lift node1 node2 --lift-suffix=      --input-file tmp/kgtk_compact_quoted.tsv     --label-file -      --label-select-value connected_component      / filter  --invert -p ';mw:SameAs;'      / compact --columns node1 relation node2 --presorted False / add_id --id-style node1-label-node2-num / reorder_columns --columns id ... > output/cskg_connected.kgtk
+kgtk connected_components -i tmp/kgtk_compact_quoted.tsv --properties mw:SameAs --cluster-name-method lowest      / lift --columns-to-lift node1 node2 --lift-suffix=      --input-file tmp/kgtk_compact_quoted.tsv     --label-file -      --label-select-value connected_component      / filter  --invert -p ';mw:SameAs;'      / compact --columns node1 relation node2 --presorted False / add_id --id-style node1-label-node2-num / reorder_columns --columns id ... > output/cskg.kgtk.gz
 
 # Working with CSKG
 
 ## Compute statistics
-kgtk graph_statistics -i output/cskg_connected.tsv --directed --degrees --hits --pagerank --statistics-only --log summary.txt > /dev/null
+kgtk graph_statistics -i output/cskg.tsv.gz --directed --degrees --hits --pagerank --statistics-only --log summary.txt > /dev/null
 
 ## Compute embeddings
-kgtk normalize -i output/cskg_connected.kgtk --columns "node1;label" "relation;label" "node2;label" / \
+kgtk normalize -i output/cskg.kgtk.gz --columns "node1;label" "relation;label" "node2;label" / \
 sort -c 2,3,4 > tmp/sorted.tsv
-gzip -c tmp/sorted.tsv > output/cskg_connected_normalized.tsv.gz
+gzip -c tmp/sorted.tsv > output/cskg_normalized.tsv.gz
 
 kgtk text_embedding \
     --embedding-projector-metadata-path none \
@@ -61,10 +61,10 @@ kgtk text_embedding \
     --output-data-format kgtk_format \
     --model bert-large-nli-cls-token \
     --save-embedding-sentence \
-    -i output/cskg_connected_normalized.tsv.gz \
-    -p output/cskg_connected_normalized.tsv.gz \
+    -i output/cskg_normalized.tsv.gz \
+    -p output/cskg_normalized.tsv.gz \
     > output/cskg_embedings.txt
 
 
 ## Compute paths
-kgtk paths --max_hops 2 --path_file path_nodes.tsv -i output/cskg_connected.kgtk --statistics_only --directed > paths.tsv
+kgtk paths --max_hops 2 --path_file path_nodes.tsv -i output/cskg.kgtk.gz --statistics_only --directed > paths.tsv

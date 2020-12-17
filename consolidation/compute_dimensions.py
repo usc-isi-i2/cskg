@@ -8,20 +8,19 @@ pick='conceptnet'
 pick='framenet'
 filename='../tmp/kgtk_%s.tsv' % pick
 
-#filename='../output/cskg_connected.tsv'
+filename='../output/cskg.tsv.gz'
 
-with open("dimensions.json", 'rb') as f:
+with open("dimensions.json", 'r') as f:
     dimensions=json.load(f)
     print(len(dimensions.keys()))
-    with open(filename, 'r') as myfile:
+    with gzip.open(filename, 'rb') as myfile:
         dim_counts=defaultdict(int)
         not_covered=set()
-        header=next(myfile)
-
-        with gzip.open('../output/cskg_connected_dim.tsv', 'wb') as w:
+        header=next(myfile).decode()
+        with gzip.open('../output/cskg_dim.tsv.gz', 'wb') as w:
             w.write(header.encode())
             for line in myfile:
-                d=line.split('\t')
+                d=line.decode().split('\t')
                 rel_index=1
                 if d[rel_index] in dimensions.keys():
                     dim=dimensions[d[rel_index]]
