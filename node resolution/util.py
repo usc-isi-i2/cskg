@@ -4,15 +4,19 @@ from nltk.corpus import wordnet as wn
 from itertools import combinations, cycle
 
 ################################################################
-# load data from file
-# sample file is kgtk_conceptnet.tsv
-# column: "node1","relation","node2","node1;label","node2;label","relation;label","relation;dimension", "source sentence" (split by \t)
-def load_file(filename):
-    with open(filename, "r",encoding="UTF-8") as f:
-        """
-        load data
-        token is split by "\t"
-        """
+
+"""
+load or write data
+sample file is kgtk_conceptnet.tsv or wn_gold_all.tsv
+"""
+def load_file(filename, encoding="UTF-8"):
+    """
+    load data
+    token is split by "\t"
+    return head, lines
+    """
+    with open(filename, "r",encoding=encoding) as f:
+
         head = f.readline().strip().split("\t")
         lines = []
 
@@ -21,22 +25,46 @@ def load_file(filename):
     return head, lines
 
 def synset2str(syn):
-    # transfer synset to str in gold file
-    # print(syn), print(type(syn))
+    """
+    transfer synset to str in gold file
+    input: synset or string
+    output: wn:XX.X.X
+    """
     if type(syn) == str:
         return "wn:"
     return "wn:"+ syn.name()
 
 # write data to file
-def write_prediction(filename, lines):
-    # write prediction to file
-    #new_head = ['node1;label','relation','node2;label','node1','node2']
-    # write in to file 200 records
-    with open(filename, "a", newline='',encoding="UTF-8") as f:
+def write_prediction(filename, lines,encoding="UTF-8"):
+    """
+    write prediction to file
+    new_head = ['node1;label','relation','node2;label','node1','node2']
+    input: 
+        filename: The path to store data
+        lines: The data to write 
+        (data structure of each line (node1label, relation, node2label, node1_synset, node2_synset))
+    """
+    with open(filename, "a", newline='',encoding=encoding) as f:
         writer = csv.writer(f, delimiter='\t')
         #writer.writerow(new_head)
         for line in lines:
             writer.writerow([line[0],line[1],line[2],synset2str(line[3]),synset2str(line[4])])
+
+def write_gold(filename, lines, encoding="UTF-8"):
+    """
+    write golden data to file
+    new_head = ['node1;label','relation','node2;label','node1','node2']
+    input: 
+        filename: The path to store data
+        lines: The data to write 
+        (data structure of each line (node1label, relation, node2label, node1id, node2id))
+    """
+    new_head = ['node1;label','relation','node2;label','node1','node2']
+    with open(filename, "w", newline='') as f:
+        writer = csv.writer(f, delimiter='\t')
+        writer.writerow(new_head)
+        for line in lines:
+            writer.writerow([line[0],line[1],line[2],line[3],line[4]])
 ################################################################
 
 ################################################################
@@ -67,12 +95,20 @@ def no_synset_count(cn_predict_1k):
 # Generate file used for node resolution
 # column: 'node1;label','relation','node2;label','node1','node2'
 def multiple_labels(node_labels,node_noid):
-
-    # Obtain label whose leven distance is most close to the node id
-    # Based on levenshtein distance
+    """
+    Obtain label whose leven distance is most close to the node id
+    Based on levenshtein distance
+    """
 
     node_res=[float("inf"),""]
-    for label in node_labels.split("|"):
+
+    split_labels = node_labels.split("|")
+    if len(split_labels) == 1:
+        # if only one label exits, return this label
+        return split_labels[0].replace('"',"").replace("\\'","'")
+
+
+    for label in split_labels:
         # remove ""
         label = label.replace('"',"").replace("\\'","'")
         dis = rltk.levenshtein_distance(node_noid, label)
@@ -101,8 +137,9 @@ def generate_gold_file(lines):
         node2_label = multiple_labels(node2_labels,node2_id)
 
         wn_gold_all.append([node1_label, relation, node2_label, node1_id, node2_id])
-        print(f"\r {i}/{len(lines)}", end="")
         i += 1
+        if i%10000==1:
+            print(f"\r {i}/{len(lines)}", end="")
         
     return wn_gold_all
 
@@ -110,6 +147,7 @@ def generate_gold_file(lines):
 
 
 ################################################################
+# Get Synsets
 # use label name to obtain avaliable node id from WordNet NLTK
 # example:
 #  generate_candidates("happy") --->[Synset('happy.a.01'),Synset('felicitous.s.02'),Synset('glad.s.02'),Synset('happy.s.04')]
@@ -222,6 +260,8 @@ word2sentence = {'/r/Antonym':"is antonym for",
 
 def line_sentence(line, word2sentence):
     # combine "label1 name" + "predicate sentence" + "label2 name"
+    if len(line)>=6 and line[5] != "":
+        return line[5] 
     sentence = line[0]+" "+word2sentence[line[1]]+" "+line[2]
     return sentence
 ################################################################
@@ -230,33 +270,46 @@ def line_sentence(line, word2sentence):
 ################################################################
 # generate all label node id defination embeddings dict from file
 
-def label2sentence2embed(label,embeddings, model):
+def label2sentence2sent(label, model,label_synsets,sents_combine):
     temp = []
-    if label in embeddings:
-        pass
-    else:
-        candidates = generate_candidates(label)
 
-        candits_emb = model.encode([ _.definition() for _ in candidates])
-        for candit, embed in zip(candidates,candits_emb):
-            temp.append([candit,embed])
+    candidates = generate_candidates(label)
+    candits_sent = [ _.definition() for _ in candidates]
+    
+    sents_combine += candits_sent
+    for candit in candidates:
+        label_synsets.append([label,candit])
             
-        embeddings[label] = temp
-            
-    return embeddings
+    return label_synsets,sents_combine
 
 def candidates_embeddings(wn_gold, model):
     # generate label node id defination embeddings from file
     # output:{"label_name":[[node_id, embedding of node_id defination],[X,X],[X,X]]}
+    
+    # store label, synset
+    label_synsets = []
+    # store the defination sentence of synset
+    sents_combine = []
+    
     embeddings = dict()
-    i = 0
+
     for line in wn_gold:
-        label1  = line[0]
+        label1 = line[0]
         label2 = line[2]
-        print("\r",i, end="")
-        i +=1
-        embeddings = label2sentence2embed(label1,embeddings, model)
-        embeddings = label2sentence2embed(label2,embeddings, model)
+        
+        label_synsets,sents_combine = label2sentence2sent(label1, model,label_synsets,sents_combine)
+        label_synsets,sents_combine = label2sentence2sent(label2, model,label_synsets,sents_combine)
+
+    # generate embedding of sentence
+    sents_embed = model.encode(sents_combine)
+    for label_synset, embed in zip(label_synsets,sents_embed):
+        label, synset = label_synset
+        
+        temp = embeddings.get(label,[])
+        temp.append([synset,embed])
+        
+        # generate embedding of label synset
+        embeddings[label]=temp
     return embeddings
 ################################################################
 
@@ -371,7 +424,34 @@ def predicate_limitation_check(node_id1, node_id2, predicate, word2limit):
 
 ################################################################
 # The model we used for sentence embedding transfermation
-model_embedding = SentenceTransformer('bert-large-nli-stsb-mean-tokens')
+def model_generator(model_name):
+    model_embedding = SentenceTransformer(model_name)
+
+    return model_embedding
+
+def max_candidate(label_,sent_embedding_,label_embeddings):
+    # return the max similarity candidates
+    #output: [[similarity, synset, the pos of synset]]
+    max_nodeid = [0,""]
+    
+    if label_ not in label_embeddings:
+        # label is not exists in the labels embeddings means:
+            #there is no sysets for this label
+            # return ""
+        pass
+    else:
+        # label exists
+        # return the max similarity candidates
+        for candit, embedding in label_embeddings[label_]:
+            # cosine similarity
+            similar = rltk.cosine_similarity(list(embedding), list(sent_embedding_))
+            temp = [similar, candit]
+            if temp > max_nodeid:
+                # if temp is lager than max_nodeid, swap the max_nodeid
+                
+                max_nodeid = temp
+            
+    return max_nodeid[1]
 
 def sort_candidate(label_,sent_embedding_,label_embeddings):
     # node id is sorted by the similar, desc
@@ -395,66 +475,33 @@ def sort_candidate(label_,sent_embedding_,label_embeddings):
 def generate_idx_combine(len_nodeid1,len_nodeid2):
     # generate index combination for nodeId combination.
     # nodeId combination will be used to check whther the prediction limitation satisfied
-    # combination rule: (i,j), (i+1,j), (i,j+1),(i+1,j+1) ......
-    steps = cycle([(1,0),(-1,1),(1,0)])
     
-    #status True for not reaching length of list
-    status = [len_nodeid1>0,len_nodeid2>0]
+    total = len_nodeid1 + len_nodeid2
 
-    start = [0,0]
-    
-    for i in range(2):
-        if not status[i]:
-            start[i] = -1    
-            
-
-    yield tuple(start)
-    
-    while any(status):
-        pre = tuple(start)
-        step1, step2 = next(steps)
-        
-        if status[0] == True:
-            temp = start[0] + step1
-
-            if temp >= len_nodeid1:
-                status[0] = False
-                continue
-                
-            start[0] = temp
-            
-        if status[1] == True:
-            temp = start[1] + step2
-            
-            if temp >= len_nodeid2:
-                status[1] = False
-                continue
-                
-            start[1] = temp
-            
-        output =tuple(start)
-
-        if output == pre:
-            # if output has no change, continue
-            continue
-        
-        yield output
+    for i in range(total):
+        for len1 in range(min(i+1,len_nodeid1)):
+            len2 = i-len1
+            if len2 < len_nodeid2:
+                yield len1, len2
 
     
 
-def sentence_embedding(wn_gold, model = model_embedding, label_embeddings = None, word2sentence = word2sentence, word2limit= word2limit):
+def sentence_embedding(wn_gold, model, label_embeddings = None, word2sentence = word2sentence, word2limit= word2limit):
     # sentence-transformer-bert Calculation
     wn_predict = []
     # frequency place of output data
     freq = []
 
-    i = 0
+    sents_combine = []
     for line in wn_gold:
+        sentence = line_sentence(line, word2sentence)
+        sents_combine.append(sentence)
+    sents_embedding = model.encode(sents_combine)
+
+    for line,sent_embedding in zip(wn_gold,sents_embedding):
         label1 = line[0]
         label2 = line[2]
         predicate = line[1]
-        sentence=line_sentence(line, word2sentence)
-        sent_embedding = model.encode(sentence)
 
         #obtain the max similar item for label1
         sort_nodeid1 = sort_candidate(label1,sent_embedding,label_embeddings)
@@ -462,18 +509,15 @@ def sentence_embedding(wn_gold, model = model_embedding, label_embeddings = None
         #obtain the max similar item for label2
         sort_nodeid2 = sort_candidate(label2,sent_embedding,label_embeddings)
         
+        node_id1 = ""
+        node_id2 = ""
+        freq1 = -1
+        freq2 = -1
         for idx1, idx2 in generate_idx_combine(len(sort_nodeid1),len(sort_nodeid2)):
-            if idx1 == -1:
-                node_id1 = ""
-                freq1 = -1
-            else:
-                _, node_id1, freq1 = sort_nodeid1[idx1]
 
-            if idx2 == -1:
-                node_id2 = ""
-                freq2 = -1
-            else:
-                _, node_id2, freq2 = sort_nodeid2[idx2]
+            _, node_id1, freq1 = sort_nodeid1[idx1]
+
+            _, node_id2, freq2 = sort_nodeid2[idx2]
 
             status = predicate_limitation_check(node_id1, node_id2, predicate, word2limit)
 
@@ -482,14 +526,12 @@ def sentence_embedding(wn_gold, model = model_embedding, label_embeddings = None
             else:
                 continue
             
-
-        i +=1
-        print("\r",i,"/", len(wn_gold), end="")
                 
         wn_predict.append([label1, line[1], label2,node_id1,node_id2])
         freq.append(tuple([freq1, freq2]))
     #print(freq)
         
     return wn_predict, freq
+
 ################################################################
     
