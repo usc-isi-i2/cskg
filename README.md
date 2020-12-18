@@ -22,13 +22,6 @@ This work is licensed under a
 
 ## Documentation
 
-### Code structure
-
-* `wikidata/` - scripts to extract the commonsense subset of Wikidata: `Wikidata-CS` 
-* `visualgenome/` - scripts to investigate how to best extract and represent commonsense knowledge from Visual Genome
-* `consolidation/` - scripts to consolidate CSKG
-* `examples/` - notebooks that perform statistical analysis of CSKG, compute embeddings, etc.
-
 ### Data
 
 The data is organized as follows:
@@ -38,11 +31,14 @@ The data is organized as follows:
 
 
 ## Setup
-
+1. Setup your conda environment
 ```
 conda create --name mowgli --file requirements.txt
 conda activate mowgli
 ```
+2. Install [KGTK](https://github.com/usc-isi-i2/kgtk)
+
+3. Download CSKG and its embeddings (see above)
 
 ### Contact
 Filip Ilievski (ilievski@isi.edu)
