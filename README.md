@@ -1,6 +1,11 @@
 # CSKG
 Scripts to create and utilize the commonsense knowledge graph: CSKG.
 
+## Resources
+* [CSKG on Zenodo](https://doi.org/10.5281/zenodo.4331372)
+* [CSKG embeddings on google drive](https://drive.google.com/drive/u/1/folders/16347KHSloJJZIbgC9V5gH7_pRx0CzjPQ)
+* [Documentation](https://docs.google.com/document/d/1fbbqgyX0N2EdxLam6hatfke1R-nZWkoN6M1oB_f4aQo/edit?usp=sharing)
+
 ## License
 
 Shield: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
