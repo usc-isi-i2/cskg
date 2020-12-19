@@ -36,9 +36,8 @@ The data is organized as follows:
 conda create --name mowgli --file requirements.txt
 conda activate mowgli
 ```
-2. Install [KGTK](https://github.com/usc-isi-i2/kgtk)
 
-3. Download CSKG and its embeddings (see above)
+2. Download CSKG and its embeddings (see above)
 
 ### Contact
 Filip Ilievski (ilievski@isi.edu)
