@@ -2,7 +2,9 @@
 
 CSKG integrates seven sources, selected based on their popularity in existing QA work: a commonsense knowledge graph ConceptNet, a visual commonsense source Visual Genome, a procedural source ATOMIC, a general-domain source Wikidata, and three lexical sources, WordNet, Roget, and FrameNet.
 
-The integration consists of three key steps: adaptations per source, mappings between sources, and refinements.
+The integration consists of three key steps: adaptations per source, mappings between sources, and refinements. 
+
+The entire procedure of importing the individual sources and consolidating them into CSKG is implemented with KGTK operations, and can be found as a single Bash script [here](https://github.com/usc-isi-i2/cskg/blob/master/consolidation/create\_cskg.sh). 
 
 ## 1) Adaptations and modeling decisions per source
 **ConceptNet** We keep the original edges of ConceptNet 5.7 expressed with 47 relations in total. 
@@ -39,4 +41,4 @@ Each mapping is validated by one student. In total, 17 students took part in thi
 
 ## 3) Deduplication and other refinements
 
-After transforming each source to the representation described here, we concatenate the sources in a single graph. We deduplicate this graph and append all mappings, resulting in `CSKG*`. Finally, we apply the mappings to merge identical nodes (connected with `mw:SameAs`) and perform a final deduplication of the edges, resulting in our consolidated `CSKG` graph. The entire procedure of importing the individual sources and consolidating them into CSKG is implemented with KGTK operations, and can be found as a single Bash script [here](https://github.com/usc-isi-i2/cskg/blob/master/consolidation/create\_cskg.sh).
+After transforming each source to the representation described here, we concatenate the sources in a single graph. We deduplicate this graph and append all mappings, resulting in `CSKG*`. Finally, we apply the mappings to merge identical nodes (connected with `mw:SameAs`) and perform a final deduplication of the edges, resulting in our consolidated `CSKG` graph. 
