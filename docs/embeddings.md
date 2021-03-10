@@ -12,5 +12,4 @@ List of embeddings:
 4. [RESCAL embeddings](https://drive.google.com/file/d/1aNM9gEU-NvecWYVKPSQ1SIdIfW8L1DfR/view?usp=sharing)
 5. [BERT-large embeddings](https://drive.google.com/file/d/1EG_9TjZyo-EXofNkx7sV48igEzwz_fTT/view?usp=sharing)
 
-
-CSKG is integrated into [PyKeen](https://github.com/pykeen/pykeen) which allows easy computation of various (currently 25) state-of-the-art graph embeddings
+Variants of these embeddings, with different parameters or models, can be computed with KGTK. In addition, CSKG is now integrated into [PyKeen](https://github.com/pykeen/pykeen) which allows easy computation of many (currently 25) state-of-the-art graph embeddings, like HolE and RotatE.
