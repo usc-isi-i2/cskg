@@ -1,6 +1,8 @@
 # CSKG: The CommonSense Knowledge Graph
 
-[![doi](https://zenodo.org/badge/DOI/10.5281/zenodo.4331372.svg)](https://doi.org/10.5281/zenodo.4331372) [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
+[![doi](https://zenodo.org/badge/DOI/10.5281/zenodo.4331372.svg)](https://doi.org/10.5281/zenodo.4331372) 
+Shield: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
+
 
 CSKG is a commonsense knowledge graph that combines seven popular sources into a consolidated representation:
 * ATOMIC
