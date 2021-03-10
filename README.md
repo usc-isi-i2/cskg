@@ -1,6 +1,6 @@
 # CSKG: The CommonSense Knowledge Graph
 
-[![doi](https://zenodo.org/badge/DOI/10.5281/zenodo.4331372.svg)](https://doi.org/10.5281/zenodo.4331372)
+[![doi](https://zenodo.org/badge/DOI/10.5281/zenodo.4331372.svg)](https://doi.org/10.5281/zenodo.4331372) [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
 
 CSKG is a commonsense knowledge graph that combines seven popular sources into a consolidated representation:
 * ATOMIC
@@ -13,6 +13,10 @@ CSKG is a commonsense knowledge graph that combines seven popular sources into a
 
 CSKG is represented as a hyper-relational graph, by using the  KGTK [data model](https://kgtk.readthedocs.io/en/latest/data_model/) and [file specification](https://kgtk.readthedocs.io/en/latest/specification/). Its [creation](https://github.com/usc-isi-i2/cskg/blob/master/consolidation/create_cskg.sh) is entirely supported by KGTK operations.
 
+
+CSKG is licensed under a
+[Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
+
 ## Getting started
 
 ### Documentation
@@ -24,21 +28,6 @@ CSKG is represented as a hyper-relational graph, by using the  KGTK [data model]
 
 ### Embeddings
 * [CSKG embeddings on google drive](https://drive.google.com/drive/u/1/folders/16347KHSloJJZIbgC9V5gH7_pRx0CzjPQ)
-
-## License
-
-Shield: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
-
-This work is licensed under a
-[Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
-
-[![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
-
-[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
-[cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
-[cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
-
-
 
 ## Consolidating your own CSKG
 
