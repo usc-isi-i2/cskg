@@ -8,13 +8,13 @@
 [cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
 
 CSKG is a commonsense knowledge graph that combines seven popular sources into a consolidated representation:
-* ATOMIC
-* ConceptNet
-* FrameNet
-* Roget
-* Visual Genome
-* Wikidata-CS
-* WordNet
+* [ATOMIC](https://homes.cs.washington.edu/~msap/atomic/)
+* [ConceptNet](http://conceptnet.io/)
+* [FrameNet](https://framenet.icsi.berkeley.edu/fndrupal/)
+* [Roget](http://www.roget.org/)
+* [Visual Genome](http://visualgenome.org/)
+* [Wikidata](http://wikidata.org/) (We use the [Wikidata-CS](https://zenodo.org/record/3983030#.YEkr45NKimk) subset)
+* [WordNet](https://wordnet.princeton.edu/)
 
 CSKG is represented as a hyper-relational graph, by using the  KGTK [data model](https://kgtk.readthedocs.io/en/latest/data_model/) and [file specification](https://kgtk.readthedocs.io/en/latest/specification/). Its [creation](https://github.com/usc-isi-i2/cskg/blob/master/consolidation/create_cskg.sh) is entirely supported by KGTK operations.
 
