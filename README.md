@@ -33,11 +33,13 @@ CSKG is licensed under a
 
 ### Embeddings
 * [CSKG embeddings on google drive](https://drive.google.com/drive/u/1/folders/16347KHSloJJZIbgC9V5gH7_pRx0CzjPQ)
+* CSKG is integrated into [PyKeen](https://github.com/pykeen/pykeen) which allows easy computation of various (currently 25) state-of-the-art graph embeddings
 
 ### More info
 * [Tutorial on Commonsense Knowledge Graphs (ISWC'20)](https://usc-isi-i2.github.io/ISWC20/)
 * [Tutorial on Commonsense Knowledge Acquisition and Representation (AAAI'21)](https://usc-isi-i2.github.io/AAAI21Tutorial/)
 * [Workshop on Commonsense Knowledge Graphs (AAAI'21)](https://usc-isi-i2.github.io/AAAI21workshop/)
+
 
 ## Consolidating your own CSKG
 
