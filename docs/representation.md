@@ -11,6 +11,7 @@ Next, we include four **lifted edge columns**, using KGTK's abbreviated way of r
 Each edge is completed by two qualifiers (**secondary edges**): `source`, which specifies the source(s) of the edge (e.g., "CN" for ConceptNet), and `sentence`, containing the linguistic lexicalization of a triple, if given by the original source. 
 
 Summarizing, here are the 10 columns that comprise the CSKG edge representation: 
+
 1. `id` is an edge identifier, constructed by concatenating its node1, relation, and node2 elements. We aim to have edge ids be consistent across CSKG versions.
 2. `node1` is a node identifier, must have a single value, cannot be empty, cannot have empty spaces. 
 3. `relation` is an identifier, must have a single value from a predefined list, cannot be empty, cannot have empty spaces.
