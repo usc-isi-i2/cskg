@@ -52,5 +52,11 @@ conda activate mowgli
 
 3. Customize and run [create_cskg.sh](https://github.com/usc-isi-i2/cskg/blob/master/consolidation/create_cskg.sh). 
 
-## Contact
-Filip Ilievski (ilievski@isi.edu)
+## How to cite
+
+@article{ilievski2021cskg,
+  title={CSKG: The CommonSense Knowledge Graph},
+  author={Ilievski, Filip and Szekely, Pedro and Zhang, Bin},
+  journal={Extended Semantic Web Conference (ESWC)},
+  year={2021}
+}
