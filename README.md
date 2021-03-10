@@ -27,9 +27,9 @@ CSKG is licensed under a
 ### Documentation
 * [https://cskg.readthedocs.io/en/latest/](https://cskg.readthedocs.io/en/latest/)
 
-
 ### Data
-* [CSKG on Zenodo](https://doi.org/10.5281/zenodo.4331372)
+* [CSKG](https://doi.org/10.5281/zenodo.4331372)
+* [CSKG with dimension info](https://drive.google.com/file/d/1vj9Djf7V-lXunWDbsO7vwqS-YTGftPbq/view?usp=sharing)
 
 ### Embeddings
 * [CSKG embeddings on google drive](https://drive.google.com/drive/u/1/folders/16347KHSloJJZIbgC9V5gH7_pRx0CzjPQ)
