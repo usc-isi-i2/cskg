@@ -4,7 +4,7 @@ We computed various graph and text embeddings over CSKG, by using KGTK's `graph-
 
 The resulting embeddings are publicly available [in this folder](https://drive.google.com/drive/u/1/folders/16347KHSloJJZIbgC9V5gH7_pRx0CzjPQ). 
 
-List of embeddings
+List of embeddings:
 
 1. [TransE embeddings](https://drive.google.com/file/d/1z_cZoBtDUbZoWr136tW8bXn9zE2G7Tyq/view?usp=sharing)
 2. [ComplEx embeddings](https://drive.google.com/file/d/1fOIlL9cPG_IGU-utX-8BvjR4sgDhlSEX/view?usp=sharing)
