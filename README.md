@@ -26,6 +26,7 @@ CSKG is licensed under a
 
 ### Documentation
 * [https://cskg.readthedocs.io/en/latest/](https://cskg.readthedocs.io/en/latest/)
+* [Tutorial on Commonsense Knowledge Graphs (ISWC'20)](https://usc-isi-i2.github.io/ISWC20/)
 
 ### Data
 * [CSKG](https://doi.org/10.5281/zenodo.4331372)
