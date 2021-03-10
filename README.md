@@ -26,7 +26,6 @@ CSKG is licensed under a
 
 ### Documentation
 * [https://cskg.readthedocs.io/en/latest/](https://cskg.readthedocs.io/en/latest/)
-* [Tutorial on Commonsense Knowledge Graphs (ISWC'20)](https://usc-isi-i2.github.io/ISWC20/)
 
 ### Data
 * [CSKG](https://doi.org/10.5281/zenodo.4331372)
@@ -34,6 +33,11 @@ CSKG is licensed under a
 
 ### Embeddings
 * [CSKG embeddings on google drive](https://drive.google.com/drive/u/1/folders/16347KHSloJJZIbgC9V5gH7_pRx0CzjPQ)
+
+### More info
+* [Tutorial on Commonsense Knowledge Graphs (ISWC'20)](https://usc-isi-i2.github.io/ISWC20/)
+* [Tutorial on Commonsense Knowledge Acquisition and Representation (AAAI'21)](https://usc-isi-i2.github.io/AAAI21Tutorial/)
+* [Workshop on Commonsense Knowledge Graphs (AAAI'21)](https://usc-isi-i2.github.io/AAAI21workshop/)
 
 ## Consolidating your own CSKG
 
