@@ -1,1 +1,22 @@
-site_name: My Docs
+site_name: CSKG documentation
+
+nav:
+  - Home: index.md
+  - Getting started: download.md
+  - CSKG data model: data_model.md
+  - Sources: sources.md
+  - License: license.md
+
+theme:
+  name: material
+
+extra_css:
+  - stylesheets/extra.css
+repo_url: https://github.com/usc-isi-i2/cskg
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
