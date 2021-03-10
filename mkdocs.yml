@@ -2,7 +2,8 @@ site_name: CSKG documentation
 
 nav:
   - Home: index.md
-  - Getting started: download.md
+  - Consolidation principles: principles.md
+  - Representation: representation.md
   - CSKG data model: data_model.md
   - Sources: sources.md
   - License: license.md
