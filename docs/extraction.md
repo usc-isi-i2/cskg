@@ -4,12 +4,12 @@ CSKG integrates seven sources, selected based on their popularity in existing QA
 
 The integration consists of three key steps: adaptations per source, mappings between sources, and refinements.
 
-## Adaptations and modeling decisions per source
+## 1) Adaptations and modeling decisions per source
 **ConceptNet** We keep the original edges of ConceptNet 5.7 expressed with 47 relations in total. 
 
 **ATOMIC** We also include the entire ATOMIC KG, preserving the original nodes and its nine relations. To enhance lexical matching between ATOMIC and other sources, we add normalized labels of its nodes, e.g., adding a second label "accepts invitation" to the original one "personX accepts personY's invitation".
 
-**FrameNet** We import four node types from FrameNet: frames, frame elements (FEs), lexical units (LUs), and semantic types (STs), and we reuse 5 categories of FrameNet edges: frame-frame (13 edge types), frame-FE (1 edge type), frame-LU (1 edge type), FE-ST (1 edge type), and ST-ST (3 edge types). Following principle 2 on edge type reuse, we map these 19 edge types to 9 relations in ConceptNet, e.g., `is\_causative\_of` is converted to `/r/Causes`. 
+**FrameNet** We import four node types from FrameNet: frames, frame elements (FEs), lexical units (LUs), and semantic types (STs), and we reuse 5 categories of FrameNet edges: frame-frame (13 edge types), frame-FE (1 edge type), frame-LU (1 edge type), FE-ST (1 edge type), and ST-ST (3 edge types). Following principle 2 on edge type reuse, we map these 19 edge types to 9 relations in ConceptNet, e.g., `is_causative_of` is converted to `/r/Causes`. 
 
 **Roget** We include all synonyms and antonyms between words in Roget, by reusing the ConceptNet relations `/r/Synonym` and `/r/Antonym` (Principle 2).
 
@@ -20,7 +20,7 @@ The integration consists of three key steps: adaptations per source, mappings be
 **WordNet** We include four relations from WordNet v3.0 by mapping them to three ConceptNet relations: hypernymy (using `/r/IsA`), part and member holonymy (through `/r/PartOf`), and substance meronymy (with `/r/MadeOf`). 
 
 
-## Mappings between sources
+## 2) Mappings between sources
 
 We perform node resolution by applying existing identity mappings (principle 3) and generating probabilistic mappings automatically (principle 4). 
 We introduce a dedicated relation, `mw:SameAs`, to indicate identity between two nodes.
@@ -37,6 +37,6 @@ Each mapping is validated by one student. In total, 17 students took part in thi
 
 **Lexical matching** We establish 74,259 `mw:SameAs` links between nodes in ATOMIC, ConceptNet, and Roget by exact lexical match of their labels. We restrict this matching to lexical nodes (e.g., `/c/en/cat` and not `/c/en/cat/n/wn/animal`).
 
-## Deduplication and other refinements
+## 3) Deduplication and other refinements
 
 After transforming each source to the representation described here, we concatenate the sources in a single graph. We deduplicate this graph and append all mappings, resulting in `CSKG*`. Finally, we apply the mappings to merge identical nodes (connected with `mw:SameAs`) and perform a final deduplication of the edges, resulting in our consolidated `CSKG` graph. The entire procedure of importing the individual sources and consolidating them into CSKG is implemented with KGTK operations, and can be found as a single Bash script [here](https://github.com/usc-isi-i2/cskg/blob/master/consolidation/create\_cskg.sh).
