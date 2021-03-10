@@ -1,10 +1,29 @@
-# CSKG
-Scripts to create and utilize the commonsense knowledge graph: CSKG.
+# CSKG: The CommonSense Knowledge Graph
 
-## Resources
+[![doi](https://zenodo.org/badge/DOI/10.5281/zenodo.4331372.svg)](https://doi.org/10.5281/zenodo.4331372)
+
+CSKG is a commonsense knowledge graph that combines seven popular sources into a consolidated representation:
+* ATOMIC
+* ConceptNet
+* FrameNet
+* Roget
+* Visual Genome
+* Wikidata-CS
+* WordNet
+
+CSKG is represented as a hyper-relational graph, by using the  KGTK [data model](https://kgtk.readthedocs.io/en/latest/data_model/) and [file specification](https://kgtk.readthedocs.io/en/latest/specification/). Its [creation](https://github.com/usc-isi-i2/cskg/blob/master/consolidation/create_cskg.sh) is entirely supported by KGTK operations.
+
+## Getting started
+
+### Documentation
+* [https://cskg.readthedocs.io/en/latest/](https://cskg.readthedocs.io/en/latest/)
+
+
+### Data
 * [CSKG on Zenodo](https://doi.org/10.5281/zenodo.4331372)
+
+### Embeddings
 * [CSKG embeddings on google drive](https://drive.google.com/drive/u/1/folders/16347KHSloJJZIbgC9V5gH7_pRx0CzjPQ)
-* [Documentation](https://docs.google.com/document/d/1fbbqgyX0N2EdxLam6hatfke1R-nZWkoN6M1oB_f4aQo/edit?usp=sharing)
 
 ## License
 
@@ -20,24 +39,18 @@ This work is licensed under a
 [cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
 
 
-## Documentation
 
-### Data
+## Consolidating your own CSKG
 
-The data is organized as follows:
-* `input/` - individual data sources, not provided in the repo
-* `output/` - output folder, created by the consolidation or embeddings scripts
-* `tmp/` - temporary folder for keeping intermediate data
-
-
-## Setup
 1. Setup your conda environment
 ```
 conda create --name mowgli --file requirements.txt
 conda activate mowgli
 ```
 
-2. Download CSKG and its embeddings (see above)
+2. Download and store individual sources, except WordNet and FrameNet. By default, these should be stored in the `input` directory.
 
-### Contact
+3. Customize and run [create_cskg.sh](https://github.com/usc-isi-i2/cskg/blob/master/consolidation/create_cskg.sh). 
+
+## Contact
 Filip Ilievski (ilievski@isi.edu)
