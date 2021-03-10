@@ -4,8 +4,8 @@ nav:
   - Home: index.md
   - Consolidation principles: principles.md
   - Representation: representation.md
-  - CSKG data model: data_model.md
-  - Sources: sources.md
+  - Extraction: extraction.md
+  - Embeddings: embeddings.md
   - License: license.md
 
 theme:
