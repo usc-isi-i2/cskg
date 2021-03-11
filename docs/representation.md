@@ -29,17 +29,6 @@ Let's start with a simplified Figure of CSKG that talks about playing piano:
 ![Diagram](images/snippet.png)
 
 Here are the set of edges in CSKG that correspond to the Figure:
-```
-id	node1	relation	node2	node1;label	node2;label	relation;label	relation;dimension	source	sentence
-fn:noise_makers-/r/HasA-fn:fe:use-0000	fn:noise_makers	/r/HasA	fn:fe:use	noise makers	use	/r/has a	part-whole	FN	
-fn:noise_makers-fn:HasLexicalUnit-fn:lu:noise_makers:piano-0000	fn:noise_makers	fn:HasLexicalUnit	fn:lu:noise_makers:piano	noise makers	piano	has lexical unit	lexical	FN	
-fn:fe:use-fn:HasLexicalUnit-/c/en/music	fn:fe:use	fn:HasLexicalUnit	/c/en/music				lexical	FNC	
-/c/en/piano-/r/UsedFor-/c/en/music-0000	/c/en/piano	/r/UsedFor	/c/en/music	piano	music	used for	utility	CN	[[a piano]] is for [[music]]
-/c/en/keys-/r/AtLocation-/c/en/piano-0000	/c/en/keys	/r/AtLocation	/c/en/piano	keys	piano	at location	spatial	CN	*Something you find on [[a piano]] is [[keys]]
-/c/en/piano_keyboard/n/wn/artifact-/r/PartOf-/c/en/clavier/n/wn/artifact-0000	/c/en/piano_keyboard/n/wn/artifact	/r/PartOf	/c/en/clavier/n/wn/artifact	clavier|fingerboard|piano keyboard	forte-piano|piano|pianoforte	is a part of|part of	part-whole	CN|WN	[[piano keyboard]] is a part of [[piano]]
-/c/en/clavier/n/wn/artifact-/r/LocatedNear-/c/en/woman/n/wn/person-0000	/c/en/clavier/n/wn/artifact	/r/LocatedNear	/c/en/woman/n/wn/person	piano	woman	near	spatial	VG	
-/c/en/seat/n/wn/dramaturgy-/r/LocatedNear-/c/en/clavier/n/wn/artifact-0000	/c/en/seat/n/wn/dramaturgy	/r/LocatedNear	/c/en/clavier/n/wn/artifact	seat	piano	for	spatial	VG	
-```
 
 | id | node1 | relation | node2 | node1;label | node2;label | relation;label | relation;dimension | source | sentence |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
