@@ -42,7 +42,7 @@ Here are the set of edges in CSKG that correspond to the Figure:
 | /c/en/seat/n/wn/dramaturgy-/r/LocatedNear-/c/en/clavier/n/wn/artifact-0000 | /c/en/seat/n/wn/dramaturgy | /r/LocatedNear | /c/en/clavier/n/wn/artifact | seat | piano | for | spatial | VG |  |
 
 
-The first two edges, stating that pianos can be a noise maker and that noise makers have a use, are from FrameNet (`FN`). The third edge, stating that this use is for music comes from our `FNC` mapping between FrameNet and ConceptNet. ConceptNet (`CN`) itself tells us that keys are parts of a piano, located at a piano, and that pianos are used for music. Next, WordNet and ConceptNet (`CN|WN`) tell us that piano keyboards are parts of pianos. Finally, Visual Genome (`VG`) informs us that seats may be located near pianos and pianos near women.
+The first two edges, stating that pianos can be noise makers and that noise makers have a use, are from FrameNet (`FN`). The third edge, stating that this use is for music comes from our `FNC` mapping between FrameNet and ConceptNet. ConceptNet (`CN`) itself tells us that keys are parts of a piano, located at a piano, and that pianos are used for music. Next, WordNet and ConceptNet (`CN|WN`) tell us that piano keyboards are parts of pianos. Finally, Visual Genome (`VG`) informs us that seats may be located near pianos and pianos near women.
 
 ## Auxiliary files
 
