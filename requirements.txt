@@ -45,7 +45,7 @@ iso-639==0.4.5
 isodate==0.6.0
 jdcal==1.4.1
 jedi==0.17.2
-Jinja2==2.11.2
+Jinja2==2.11.3
 joblib==1.0.0
 jsonpath-ng==1.5.2
 jsonschema==3.2.0
