@@ -109,7 +109,7 @@ pyexcel==0.6.6
 pyexcel-io==0.6.4
 pyexcel-xls==0.6.2
 pyexcel-xlsx==0.6.0
-Pygments==2.7.3
+Pygments==2.7.4
 pygtrie==2.4.1
 pyparsing==2.4.7
 pyrallel.lib==0.0.9
