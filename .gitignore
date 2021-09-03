@@ -1,5 +1,5 @@
 .DS_Store
-*.png
+img/*.png
 .cache
 .ipynb_checkpoints/
 input/
@@ -9,5 +9,5 @@ psl_files/
 attic/output_v004/
 tmp/
 __pycache__
-groundcn/
-groundcskg/
+grounding/groundcskg/ft*.txt
+grounding/groundcn/numberbatch-en-19.08.txt
