@@ -51,7 +51,9 @@ conda activate mowgli
 
 2. Download and store individual sources, except WordNet and FrameNet. By default, these should be stored in the `input` directory.
 
-3. Customize and run [create_cskg.sh](https://github.com/usc-isi-i2/cskg/blob/master/consolidation/create_cskg.sh). 
+3. Download the `mappings` from [this folder](https://drive.google.com/drive/u/1/folders/1VV7YEJuxjPoDL7wwQts-wxu-3eaoESW7) and place them inside the `input` directory
+
+4. Customize and run [create_cskg.sh](https://github.com/usc-isi-i2/cskg/blob/master/consolidation/create_cskg.sh). 
 
 ## How to cite
 ```
