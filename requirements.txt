@@ -65,7 +65,7 @@ lz4==3.1.1
 MarkupSafe==1.1.1
 matplotlib==3.3.3
 mgzip==0.2.1
-mistune==0.8.4
+mistune==2.0.3
 mkl-fft==1.2.0
 mkl-random==1.1.1
 mkl-service==2.3.0
