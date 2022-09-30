@@ -46,7 +46,7 @@ isodate==0.6.0
 jdcal==1.4.1
 jedi==0.17.2
 Jinja2==2.11.3
-joblib==1.0.0
+joblib==1.2.0
 jsonpath-ng==1.5.2
 jsonschema==3.2.0
 jupyter==1.0.0
