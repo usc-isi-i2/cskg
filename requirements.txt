@@ -123,7 +123,7 @@ qtconsole==5.0.1
 QtPy==1.9.0
 rdflib==5.0.0
 rdflib-jsonld==0.5.0
-redis==4.5.3
+redis==4.5.4
 regex==2020.11.13
 requests==2.31.0
 rfc3986==1.4.0
